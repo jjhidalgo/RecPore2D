@@ -1,0 +1,7878 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.3.1                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      snappyHexMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+// Which of the steps to run
+castellatedMesh true;
+snap            true;
+addLayers       true;
+
+
+// Geometry. Definition of all surfaces. All surfaces are of class
+// searchableSurface.
+// Surfaces are used
+// - to specify refinement for any mesh cell intersecting it
+// - to specify refinement for any mesh cell inside/outside/near
+// - to 'snap' the mesh boundary to the surface
+geometry
+{
+grain1
+{
+  type searchableCylinder;
+    point1 (0.12 0.12 0.5);
+    point2 (0.12 0.12 1.0);
+    radius 0.02;
+
+}
+grain2
+{
+  type searchableCylinder;
+    point1 (0.12 0.26 0.5);
+    point2 (0.12 0.26 1.0);
+    radius 0.02;
+
+}
+grain3
+{
+  type searchableCylinder;
+    point1 (0.12 0.4 0.5);
+    point2 (0.12 0.4 1.0);
+    radius 0.02;
+
+}
+grain4
+{
+  type searchableCylinder;
+    point1 (0.12 0.54 0.5);
+    point2 (0.12 0.54 1.0);
+    radius 0.02;
+
+}
+grain5
+{
+  type searchableCylinder;
+    point1 (0.12 0.68 0.5);
+    point2 (0.12 0.68 1.0);
+    radius 0.02;
+
+}
+grain6
+{
+  type searchableCylinder;
+    point1 (0.12 0.82 0.5);
+    point2 (0.12 0.82 1.0);
+    radius 0.02;
+
+}
+grain7
+{
+  type searchableCylinder;
+    point1 (0.12 0.96 0.5);
+    point2 (0.12 0.96 1.0);
+    radius 0.02;
+
+}
+grain8
+{
+  type searchableCylinder;
+    point1 (0.12 1.1 0.5);
+    point2 (0.12 1.1 1.0);
+    radius 0.02;
+
+}
+grain9
+{
+  type searchableCylinder;
+    point1 (0.12 1.24 0.5);
+    point2 (0.12 1.24 1.0);
+    radius 0.02;
+
+}
+grain10
+{
+  type searchableCylinder;
+    point1 (0.12 1.38 0.5);
+    point2 (0.12 1.38 1.0);
+    radius 0.02;
+
+}
+grain11
+{
+  type searchableCylinder;
+    point1 (0.12 1.52 0.5);
+    point2 (0.12 1.52 1.0);
+    radius 0.02;
+
+}
+grain12
+{
+  type searchableCylinder;
+    point1 (0.12 1.66 0.5);
+    point2 (0.12 1.66 1.0);
+    radius 0.02;
+
+}
+grain13
+{
+  type searchableCylinder;
+    point1 (0.12 1.8 0.5);
+    point2 (0.12 1.8 1.0);
+    radius 0.02;
+
+}
+grain14
+{
+  type searchableCylinder;
+    point1 (0.12 1.94 0.5);
+    point2 (0.12 1.94 1.0);
+    radius 0.02;
+
+}
+grain15
+{
+  type searchableCylinder;
+    point1 (0.12 2.08 0.5);
+    point2 (0.12 2.08 1.0);
+    radius 0.02;
+
+}
+grain16
+{
+  type searchableCylinder;
+    point1 (0.12 2.22 0.5);
+    point2 (0.12 2.22 1.0);
+    radius 0.02;
+
+}
+grain17
+{
+  type searchableCylinder;
+    point1 (0.12 2.36 0.5);
+    point2 (0.12 2.36 1.0);
+    radius 0.02;
+
+}
+grain18
+{
+  type searchableCylinder;
+    point1 (0.12 2.5 0.5);
+    point2 (0.12 2.5 1.0);
+    radius 0.02;
+
+}
+grain19
+{
+  type searchableCylinder;
+    point1 (0.12 2.64 0.5);
+    point2 (0.12 2.64 1.0);
+    radius 0.02;
+
+}
+grain20
+{
+  type searchableCylinder;
+    point1 (0.12 2.78 0.5);
+    point2 (0.12 2.78 1.0);
+    radius 0.02;
+
+}
+grain21
+{
+  type searchableCylinder;
+    point1 (0.12 2.92 0.5);
+    point2 (0.12 2.92 1.0);
+    radius 0.02;
+
+}
+grain22
+{
+  type searchableCylinder;
+    point1 (0.12 3.06 0.5);
+    point2 (0.12 3.06 1.0);
+    radius 0.02;
+
+}
+grain23
+{
+  type searchableCylinder;
+    point1 (0.12 3.2 0.5);
+    point2 (0.12 3.2 1.0);
+    radius 0.02;
+
+}
+grain24
+{
+  type searchableCylinder;
+    point1 (0.26 0.19 0.5);
+    point2 (0.26 0.19 1.0);
+    radius 0.02;
+
+}
+grain25
+{
+  type searchableCylinder;
+    point1 (0.26 0.33 0.5);
+    point2 (0.26 0.33 1.0);
+    radius 0.02;
+
+}
+grain26
+{
+  type searchableCylinder;
+    point1 (0.26 0.47 0.5);
+    point2 (0.26 0.47 1.0);
+    radius 0.02;
+
+}
+grain27
+{
+  type searchableCylinder;
+    point1 (0.26 0.61 0.5);
+    point2 (0.26 0.61 1.0);
+    radius 0.02;
+
+}
+grain28
+{
+  type searchableCylinder;
+    point1 (0.26 0.75 0.5);
+    point2 (0.26 0.75 1.0);
+    radius 0.02;
+
+}
+grain29
+{
+  type searchableCylinder;
+    point1 (0.26 0.89 0.5);
+    point2 (0.26 0.89 1.0);
+    radius 0.02;
+
+}
+grain30
+{
+  type searchableCylinder;
+    point1 (0.26 1.03 0.5);
+    point2 (0.26 1.03 1.0);
+    radius 0.02;
+
+}
+grain31
+{
+  type searchableCylinder;
+    point1 (0.26 1.17 0.5);
+    point2 (0.26 1.17 1.0);
+    radius 0.02;
+
+}
+grain32
+{
+  type searchableCylinder;
+    point1 (0.26 1.31 0.5);
+    point2 (0.26 1.31 1.0);
+    radius 0.02;
+
+}
+grain33
+{
+  type searchableCylinder;
+    point1 (0.26 1.45 0.5);
+    point2 (0.26 1.45 1.0);
+    radius 0.02;
+
+}
+grain34
+{
+  type searchableCylinder;
+    point1 (0.26 1.59 0.5);
+    point2 (0.26 1.59 1.0);
+    radius 0.02;
+
+}
+grain35
+{
+  type searchableCylinder;
+    point1 (0.26 1.73 0.5);
+    point2 (0.26 1.73 1.0);
+    radius 0.02;
+
+}
+grain36
+{
+  type searchableCylinder;
+    point1 (0.26 1.87 0.5);
+    point2 (0.26 1.87 1.0);
+    radius 0.02;
+
+}
+grain37
+{
+  type searchableCylinder;
+    point1 (0.26 2.01 0.5);
+    point2 (0.26 2.01 1.0);
+    radius 0.02;
+
+}
+grain38
+{
+  type searchableCylinder;
+    point1 (0.26 2.15 0.5);
+    point2 (0.26 2.15 1.0);
+    radius 0.02;
+
+}
+grain39
+{
+  type searchableCylinder;
+    point1 (0.26 2.29 0.5);
+    point2 (0.26 2.29 1.0);
+    radius 0.02;
+
+}
+grain40
+{
+  type searchableCylinder;
+    point1 (0.26 2.43 0.5);
+    point2 (0.26 2.43 1.0);
+    radius 0.02;
+
+}
+grain41
+{
+  type searchableCylinder;
+    point1 (0.26 2.57 0.5);
+    point2 (0.26 2.57 1.0);
+    radius 0.02;
+
+}
+grain42
+{
+  type searchableCylinder;
+    point1 (0.26 2.71 0.5);
+    point2 (0.26 2.71 1.0);
+    radius 0.02;
+
+}
+grain43
+{
+  type searchableCylinder;
+    point1 (0.26 2.85 0.5);
+    point2 (0.26 2.85 1.0);
+    radius 0.02;
+
+}
+grain44
+{
+  type searchableCylinder;
+    point1 (0.26 2.99 0.5);
+    point2 (0.26 2.99 1.0);
+    radius 0.02;
+
+}
+grain45
+{
+  type searchableCylinder;
+    point1 (0.26 3.13 0.5);
+    point2 (0.26 3.13 1.0);
+    radius 0.02;
+
+}
+grain46
+{
+  type searchableCylinder;
+    point1 (0.4 0.12 0.5);
+    point2 (0.4 0.12 1.0);
+    radius 0.02;
+
+}
+grain47
+{
+  type searchableCylinder;
+    point1 (0.4 0.26 0.5);
+    point2 (0.4 0.26 1.0);
+    radius 0.02;
+
+}
+grain48
+{
+  type searchableCylinder;
+    point1 (0.4 0.4 0.5);
+    point2 (0.4 0.4 1.0);
+    radius 0.02;
+
+}
+grain49
+{
+  type searchableCylinder;
+    point1 (0.4 0.54 0.5);
+    point2 (0.4 0.54 1.0);
+    radius 0.02;
+
+}
+grain50
+{
+  type searchableCylinder;
+    point1 (0.4 0.68 0.5);
+    point2 (0.4 0.68 1.0);
+    radius 0.02;
+
+}
+grain51
+{
+  type searchableCylinder;
+    point1 (0.4 0.82 0.5);
+    point2 (0.4 0.82 1.0);
+    radius 0.02;
+
+}
+grain52
+{
+  type searchableCylinder;
+    point1 (0.4 0.96 0.5);
+    point2 (0.4 0.96 1.0);
+    radius 0.02;
+
+}
+grain53
+{
+  type searchableCylinder;
+    point1 (0.4 1.1 0.5);
+    point2 (0.4 1.1 1.0);
+    radius 0.02;
+
+}
+grain54
+{
+  type searchableCylinder;
+    point1 (0.4 1.24 0.5);
+    point2 (0.4 1.24 1.0);
+    radius 0.02;
+
+}
+grain55
+{
+  type searchableCylinder;
+    point1 (0.4 1.38 0.5);
+    point2 (0.4 1.38 1.0);
+    radius 0.02;
+
+}
+grain56
+{
+  type searchableCylinder;
+    point1 (0.4 1.52 0.5);
+    point2 (0.4 1.52 1.0);
+    radius 0.02;
+
+}
+grain57
+{
+  type searchableCylinder;
+    point1 (0.4 1.66 0.5);
+    point2 (0.4 1.66 1.0);
+    radius 0.02;
+
+}
+grain58
+{
+  type searchableCylinder;
+    point1 (0.4 1.8 0.5);
+    point2 (0.4 1.8 1.0);
+    radius 0.02;
+
+}
+grain59
+{
+  type searchableCylinder;
+    point1 (0.4 1.94 0.5);
+    point2 (0.4 1.94 1.0);
+    radius 0.02;
+
+}
+grain60
+{
+  type searchableCylinder;
+    point1 (0.4 2.08 0.5);
+    point2 (0.4 2.08 1.0);
+    radius 0.02;
+
+}
+grain61
+{
+  type searchableCylinder;
+    point1 (0.4 2.22 0.5);
+    point2 (0.4 2.22 1.0);
+    radius 0.02;
+
+}
+grain62
+{
+  type searchableCylinder;
+    point1 (0.4 2.36 0.5);
+    point2 (0.4 2.36 1.0);
+    radius 0.02;
+
+}
+grain63
+{
+  type searchableCylinder;
+    point1 (0.4 2.5 0.5);
+    point2 (0.4 2.5 1.0);
+    radius 0.02;
+
+}
+grain64
+{
+  type searchableCylinder;
+    point1 (0.4 2.64 0.5);
+    point2 (0.4 2.64 1.0);
+    radius 0.02;
+
+}
+grain65
+{
+  type searchableCylinder;
+    point1 (0.4 2.78 0.5);
+    point2 (0.4 2.78 1.0);
+    radius 0.02;
+
+}
+grain66
+{
+  type searchableCylinder;
+    point1 (0.4 2.92 0.5);
+    point2 (0.4 2.92 1.0);
+    radius 0.02;
+
+}
+grain67
+{
+  type searchableCylinder;
+    point1 (0.4 3.06 0.5);
+    point2 (0.4 3.06 1.0);
+    radius 0.02;
+
+}
+grain68
+{
+  type searchableCylinder;
+    point1 (0.4 3.2 0.5);
+    point2 (0.4 3.2 1.0);
+    radius 0.02;
+
+}
+grain69
+{
+  type searchableCylinder;
+    point1 (0.54 0.19 0.5);
+    point2 (0.54 0.19 1.0);
+    radius 0.02;
+
+}
+grain70
+{
+  type searchableCylinder;
+    point1 (0.54 0.33 0.5);
+    point2 (0.54 0.33 1.0);
+    radius 0.02;
+
+}
+grain71
+{
+  type searchableCylinder;
+    point1 (0.54 0.47 0.5);
+    point2 (0.54 0.47 1.0);
+    radius 0.02;
+
+}
+grain72
+{
+  type searchableCylinder;
+    point1 (0.54 0.61 0.5);
+    point2 (0.54 0.61 1.0);
+    radius 0.02;
+
+}
+grain73
+{
+  type searchableCylinder;
+    point1 (0.54 0.75 0.5);
+    point2 (0.54 0.75 1.0);
+    radius 0.02;
+
+}
+grain74
+{
+  type searchableCylinder;
+    point1 (0.54 0.89 0.5);
+    point2 (0.54 0.89 1.0);
+    radius 0.02;
+
+}
+grain75
+{
+  type searchableCylinder;
+    point1 (0.54 1.03 0.5);
+    point2 (0.54 1.03 1.0);
+    radius 0.02;
+
+}
+grain76
+{
+  type searchableCylinder;
+    point1 (0.54 1.17 0.5);
+    point2 (0.54 1.17 1.0);
+    radius 0.02;
+
+}
+grain77
+{
+  type searchableCylinder;
+    point1 (0.54 1.31 0.5);
+    point2 (0.54 1.31 1.0);
+    radius 0.02;
+
+}
+grain78
+{
+  type searchableCylinder;
+    point1 (0.54 1.45 0.5);
+    point2 (0.54 1.45 1.0);
+    radius 0.02;
+
+}
+grain79
+{
+  type searchableCylinder;
+    point1 (0.54 1.59 0.5);
+    point2 (0.54 1.59 1.0);
+    radius 0.02;
+
+}
+grain80
+{
+  type searchableCylinder;
+    point1 (0.54 1.73 0.5);
+    point2 (0.54 1.73 1.0);
+    radius 0.02;
+
+}
+grain81
+{
+  type searchableCylinder;
+    point1 (0.54 1.87 0.5);
+    point2 (0.54 1.87 1.0);
+    radius 0.02;
+
+}
+grain82
+{
+  type searchableCylinder;
+    point1 (0.54 2.01 0.5);
+    point2 (0.54 2.01 1.0);
+    radius 0.02;
+
+}
+grain83
+{
+  type searchableCylinder;
+    point1 (0.54 2.15 0.5);
+    point2 (0.54 2.15 1.0);
+    radius 0.02;
+
+}
+grain84
+{
+  type searchableCylinder;
+    point1 (0.54 2.29 0.5);
+    point2 (0.54 2.29 1.0);
+    radius 0.02;
+
+}
+grain85
+{
+  type searchableCylinder;
+    point1 (0.54 2.43 0.5);
+    point2 (0.54 2.43 1.0);
+    radius 0.02;
+
+}
+grain86
+{
+  type searchableCylinder;
+    point1 (0.54 2.57 0.5);
+    point2 (0.54 2.57 1.0);
+    radius 0.02;
+
+}
+grain87
+{
+  type searchableCylinder;
+    point1 (0.54 2.71 0.5);
+    point2 (0.54 2.71 1.0);
+    radius 0.02;
+
+}
+grain88
+{
+  type searchableCylinder;
+    point1 (0.54 2.85 0.5);
+    point2 (0.54 2.85 1.0);
+    radius 0.02;
+
+}
+grain89
+{
+  type searchableCylinder;
+    point1 (0.54 2.99 0.5);
+    point2 (0.54 2.99 1.0);
+    radius 0.02;
+
+}
+grain90
+{
+  type searchableCylinder;
+    point1 (0.54 3.13 0.5);
+    point2 (0.54 3.13 1.0);
+    radius 0.02;
+
+}
+grain91
+{
+  type searchableCylinder;
+    point1 (0.68 0.12 0.5);
+    point2 (0.68 0.12 1.0);
+    radius 0.02;
+
+}
+grain92
+{
+  type searchableCylinder;
+    point1 (0.68 0.26 0.5);
+    point2 (0.68 0.26 1.0);
+    radius 0.02;
+
+}
+grain93
+{
+  type searchableCylinder;
+    point1 (0.68 0.4 0.5);
+    point2 (0.68 0.4 1.0);
+    radius 0.02;
+
+}
+grain94
+{
+  type searchableCylinder;
+    point1 (0.68 0.54 0.5);
+    point2 (0.68 0.54 1.0);
+    radius 0.02;
+
+}
+grain95
+{
+  type searchableCylinder;
+    point1 (0.68 0.68 0.5);
+    point2 (0.68 0.68 1.0);
+    radius 0.02;
+
+}
+grain96
+{
+  type searchableCylinder;
+    point1 (0.68 0.82 0.5);
+    point2 (0.68 0.82 1.0);
+    radius 0.02;
+
+}
+grain97
+{
+  type searchableCylinder;
+    point1 (0.68 0.96 0.5);
+    point2 (0.68 0.96 1.0);
+    radius 0.02;
+
+}
+grain98
+{
+  type searchableCylinder;
+    point1 (0.68 1.1 0.5);
+    point2 (0.68 1.1 1.0);
+    radius 0.02;
+
+}
+grain99
+{
+  type searchableCylinder;
+    point1 (0.68 1.24 0.5);
+    point2 (0.68 1.24 1.0);
+    radius 0.02;
+
+}
+grain100
+{
+  type searchableCylinder;
+    point1 (0.68 1.38 0.5);
+    point2 (0.68 1.38 1.0);
+    radius 0.02;
+
+}
+grain101
+{
+  type searchableCylinder;
+    point1 (0.68 1.52 0.5);
+    point2 (0.68 1.52 1.0);
+    radius 0.02;
+
+}
+grain102
+{
+  type searchableCylinder;
+    point1 (0.68 1.66 0.5);
+    point2 (0.68 1.66 1.0);
+    radius 0.02;
+
+}
+grain103
+{
+  type searchableCylinder;
+    point1 (0.68 1.8 0.5);
+    point2 (0.68 1.8 1.0);
+    radius 0.02;
+
+}
+grain104
+{
+  type searchableCylinder;
+    point1 (0.68 1.94 0.5);
+    point2 (0.68 1.94 1.0);
+    radius 0.02;
+
+}
+grain105
+{
+  type searchableCylinder;
+    point1 (0.68 2.08 0.5);
+    point2 (0.68 2.08 1.0);
+    radius 0.02;
+
+}
+grain106
+{
+  type searchableCylinder;
+    point1 (0.68 2.22 0.5);
+    point2 (0.68 2.22 1.0);
+    radius 0.02;
+
+}
+grain107
+{
+  type searchableCylinder;
+    point1 (0.68 2.36 0.5);
+    point2 (0.68 2.36 1.0);
+    radius 0.02;
+
+}
+grain108
+{
+  type searchableCylinder;
+    point1 (0.68 2.5 0.5);
+    point2 (0.68 2.5 1.0);
+    radius 0.02;
+
+}
+grain109
+{
+  type searchableCylinder;
+    point1 (0.68 2.64 0.5);
+    point2 (0.68 2.64 1.0);
+    radius 0.02;
+
+}
+grain110
+{
+  type searchableCylinder;
+    point1 (0.68 2.78 0.5);
+    point2 (0.68 2.78 1.0);
+    radius 0.02;
+
+}
+grain111
+{
+  type searchableCylinder;
+    point1 (0.68 2.92 0.5);
+    point2 (0.68 2.92 1.0);
+    radius 0.02;
+
+}
+grain112
+{
+  type searchableCylinder;
+    point1 (0.68 3.06 0.5);
+    point2 (0.68 3.06 1.0);
+    radius 0.02;
+
+}
+grain113
+{
+  type searchableCylinder;
+    point1 (0.68 3.2 0.5);
+    point2 (0.68 3.2 1.0);
+    radius 0.02;
+
+}
+grain114
+{
+  type searchableCylinder;
+    point1 (0.82 0.19 0.5);
+    point2 (0.82 0.19 1.0);
+    radius 0.02;
+
+}
+grain115
+{
+  type searchableCylinder;
+    point1 (0.82 0.33 0.5);
+    point2 (0.82 0.33 1.0);
+    radius 0.02;
+
+}
+grain116
+{
+  type searchableCylinder;
+    point1 (0.82 0.47 0.5);
+    point2 (0.82 0.47 1.0);
+    radius 0.02;
+
+}
+grain117
+{
+  type searchableCylinder;
+    point1 (0.82 0.61 0.5);
+    point2 (0.82 0.61 1.0);
+    radius 0.02;
+
+}
+grain118
+{
+  type searchableCylinder;
+    point1 (0.82 0.75 0.5);
+    point2 (0.82 0.75 1.0);
+    radius 0.02;
+
+}
+grain119
+{
+  type searchableCylinder;
+    point1 (0.82 0.89 0.5);
+    point2 (0.82 0.89 1.0);
+    radius 0.02;
+
+}
+grain120
+{
+  type searchableCylinder;
+    point1 (0.82 1.03 0.5);
+    point2 (0.82 1.03 1.0);
+    radius 0.02;
+
+}
+grain121
+{
+  type searchableCylinder;
+    point1 (0.82 1.17 0.5);
+    point2 (0.82 1.17 1.0);
+    radius 0.02;
+
+}
+grain122
+{
+  type searchableCylinder;
+    point1 (0.82 1.31 0.5);
+    point2 (0.82 1.31 1.0);
+    radius 0.02;
+
+}
+grain123
+{
+  type searchableCylinder;
+    point1 (0.82 1.45 0.5);
+    point2 (0.82 1.45 1.0);
+    radius 0.02;
+
+}
+grain124
+{
+  type searchableCylinder;
+    point1 (0.82 1.59 0.5);
+    point2 (0.82 1.59 1.0);
+    radius 0.02;
+
+}
+grain125
+{
+  type searchableCylinder;
+    point1 (0.82 1.73 0.5);
+    point2 (0.82 1.73 1.0);
+    radius 0.02;
+
+}
+grain126
+{
+  type searchableCylinder;
+    point1 (0.82 1.87 0.5);
+    point2 (0.82 1.87 1.0);
+    radius 0.02;
+
+}
+grain127
+{
+  type searchableCylinder;
+    point1 (0.82 2.01 0.5);
+    point2 (0.82 2.01 1.0);
+    radius 0.02;
+
+}
+grain128
+{
+  type searchableCylinder;
+    point1 (0.82 2.15 0.5);
+    point2 (0.82 2.15 1.0);
+    radius 0.02;
+
+}
+grain129
+{
+  type searchableCylinder;
+    point1 (0.82 2.29 0.5);
+    point2 (0.82 2.29 1.0);
+    radius 0.02;
+
+}
+grain130
+{
+  type searchableCylinder;
+    point1 (0.82 2.43 0.5);
+    point2 (0.82 2.43 1.0);
+    radius 0.02;
+
+}
+grain131
+{
+  type searchableCylinder;
+    point1 (0.82 2.57 0.5);
+    point2 (0.82 2.57 1.0);
+    radius 0.02;
+
+}
+grain132
+{
+  type searchableCylinder;
+    point1 (0.82 2.71 0.5);
+    point2 (0.82 2.71 1.0);
+    radius 0.02;
+
+}
+grain133
+{
+  type searchableCylinder;
+    point1 (0.82 2.85 0.5);
+    point2 (0.82 2.85 1.0);
+    radius 0.02;
+
+}
+grain134
+{
+  type searchableCylinder;
+    point1 (0.82 2.99 0.5);
+    point2 (0.82 2.99 1.0);
+    radius 0.02;
+
+}
+grain135
+{
+  type searchableCylinder;
+    point1 (0.82 3.13 0.5);
+    point2 (0.82 3.13 1.0);
+    radius 0.02;
+
+}
+grain136
+{
+  type searchableCylinder;
+    point1 (0.96 0.12 0.5);
+    point2 (0.96 0.12 1.0);
+    radius 0.02;
+
+}
+grain137
+{
+  type searchableCylinder;
+    point1 (0.96 0.26 0.5);
+    point2 (0.96 0.26 1.0);
+    radius 0.02;
+
+}
+grain138
+{
+  type searchableCylinder;
+    point1 (0.96 0.4 0.5);
+    point2 (0.96 0.4 1.0);
+    radius 0.02;
+
+}
+grain139
+{
+  type searchableCylinder;
+    point1 (0.96 0.54 0.5);
+    point2 (0.96 0.54 1.0);
+    radius 0.02;
+
+}
+grain140
+{
+  type searchableCylinder;
+    point1 (0.96 0.68 0.5);
+    point2 (0.96 0.68 1.0);
+    radius 0.02;
+
+}
+grain141
+{
+  type searchableCylinder;
+    point1 (0.96 0.82 0.5);
+    point2 (0.96 0.82 1.0);
+    radius 0.02;
+
+}
+grain142
+{
+  type searchableCylinder;
+    point1 (0.96 0.96 0.5);
+    point2 (0.96 0.96 1.0);
+    radius 0.02;
+
+}
+grain143
+{
+  type searchableCylinder;
+    point1 (0.96 1.1 0.5);
+    point2 (0.96 1.1 1.0);
+    radius 0.02;
+
+}
+grain144
+{
+  type searchableCylinder;
+    point1 (0.96 1.24 0.5);
+    point2 (0.96 1.24 1.0);
+    radius 0.02;
+
+}
+grain145
+{
+  type searchableCylinder;
+    point1 (0.96 1.38 0.5);
+    point2 (0.96 1.38 1.0);
+    radius 0.02;
+
+}
+grain146
+{
+  type searchableCylinder;
+    point1 (0.96 1.52 0.5);
+    point2 (0.96 1.52 1.0);
+    radius 0.02;
+
+}
+grain147
+{
+  type searchableCylinder;
+    point1 (0.96 1.66 0.5);
+    point2 (0.96 1.66 1.0);
+    radius 0.02;
+
+}
+grain148
+{
+  type searchableCylinder;
+    point1 (0.96 1.8 0.5);
+    point2 (0.96 1.8 1.0);
+    radius 0.02;
+
+}
+grain149
+{
+  type searchableCylinder;
+    point1 (0.96 1.94 0.5);
+    point2 (0.96 1.94 1.0);
+    radius 0.02;
+
+}
+grain150
+{
+  type searchableCylinder;
+    point1 (0.96 2.08 0.5);
+    point2 (0.96 2.08 1.0);
+    radius 0.02;
+
+}
+grain151
+{
+  type searchableCylinder;
+    point1 (0.96 2.22 0.5);
+    point2 (0.96 2.22 1.0);
+    radius 0.02;
+
+}
+grain152
+{
+  type searchableCylinder;
+    point1 (0.96 2.36 0.5);
+    point2 (0.96 2.36 1.0);
+    radius 0.02;
+
+}
+grain153
+{
+  type searchableCylinder;
+    point1 (0.96 2.5 0.5);
+    point2 (0.96 2.5 1.0);
+    radius 0.02;
+
+}
+grain154
+{
+  type searchableCylinder;
+    point1 (0.96 2.64 0.5);
+    point2 (0.96 2.64 1.0);
+    radius 0.02;
+
+}
+grain155
+{
+  type searchableCylinder;
+    point1 (0.96 2.78 0.5);
+    point2 (0.96 2.78 1.0);
+    radius 0.02;
+
+}
+grain156
+{
+  type searchableCylinder;
+    point1 (0.96 2.92 0.5);
+    point2 (0.96 2.92 1.0);
+    radius 0.02;
+
+}
+grain157
+{
+  type searchableCylinder;
+    point1 (0.96 3.06 0.5);
+    point2 (0.96 3.06 1.0);
+    radius 0.02;
+
+}
+grain158
+{
+  type searchableCylinder;
+    point1 (0.96 3.2 0.5);
+    point2 (0.96 3.2 1.0);
+    radius 0.02;
+
+}
+grain159
+{
+  type searchableCylinder;
+    point1 (1.1 0.19 0.5);
+    point2 (1.1 0.19 1.0);
+    radius 0.02;
+
+}
+grain160
+{
+  type searchableCylinder;
+    point1 (1.1 0.33 0.5);
+    point2 (1.1 0.33 1.0);
+    radius 0.02;
+
+}
+grain161
+{
+  type searchableCylinder;
+    point1 (1.1 0.47 0.5);
+    point2 (1.1 0.47 1.0);
+    radius 0.02;
+
+}
+grain162
+{
+  type searchableCylinder;
+    point1 (1.1 0.61 0.5);
+    point2 (1.1 0.61 1.0);
+    radius 0.02;
+
+}
+grain163
+{
+  type searchableCylinder;
+    point1 (1.1 0.75 0.5);
+    point2 (1.1 0.75 1.0);
+    radius 0.02;
+
+}
+grain164
+{
+  type searchableCylinder;
+    point1 (1.1 0.89 0.5);
+    point2 (1.1 0.89 1.0);
+    radius 0.02;
+
+}
+grain165
+{
+  type searchableCylinder;
+    point1 (1.1 1.03 0.5);
+    point2 (1.1 1.03 1.0);
+    radius 0.02;
+
+}
+grain166
+{
+  type searchableCylinder;
+    point1 (1.1 1.17 0.5);
+    point2 (1.1 1.17 1.0);
+    radius 0.02;
+
+}
+grain167
+{
+  type searchableCylinder;
+    point1 (1.1 1.31 0.5);
+    point2 (1.1 1.31 1.0);
+    radius 0.02;
+
+}
+grain168
+{
+  type searchableCylinder;
+    point1 (1.1 1.45 0.5);
+    point2 (1.1 1.45 1.0);
+    radius 0.02;
+
+}
+grain169
+{
+  type searchableCylinder;
+    point1 (1.1 1.59 0.5);
+    point2 (1.1 1.59 1.0);
+    radius 0.02;
+
+}
+grain170
+{
+  type searchableCylinder;
+    point1 (1.1 1.73 0.5);
+    point2 (1.1 1.73 1.0);
+    radius 0.02;
+
+}
+grain171
+{
+  type searchableCylinder;
+    point1 (1.1 1.87 0.5);
+    point2 (1.1 1.87 1.0);
+    radius 0.02;
+
+}
+grain172
+{
+  type searchableCylinder;
+    point1 (1.1 2.01 0.5);
+    point2 (1.1 2.01 1.0);
+    radius 0.02;
+
+}
+grain173
+{
+  type searchableCylinder;
+    point1 (1.1 2.15 0.5);
+    point2 (1.1 2.15 1.0);
+    radius 0.02;
+
+}
+grain174
+{
+  type searchableCylinder;
+    point1 (1.1 2.29 0.5);
+    point2 (1.1 2.29 1.0);
+    radius 0.02;
+
+}
+grain175
+{
+  type searchableCylinder;
+    point1 (1.1 2.43 0.5);
+    point2 (1.1 2.43 1.0);
+    radius 0.02;
+
+}
+grain176
+{
+  type searchableCylinder;
+    point1 (1.1 2.57 0.5);
+    point2 (1.1 2.57 1.0);
+    radius 0.02;
+
+}
+grain177
+{
+  type searchableCylinder;
+    point1 (1.1 2.71 0.5);
+    point2 (1.1 2.71 1.0);
+    radius 0.02;
+
+}
+grain178
+{
+  type searchableCylinder;
+    point1 (1.1 2.85 0.5);
+    point2 (1.1 2.85 1.0);
+    radius 0.02;
+
+}
+grain179
+{
+  type searchableCylinder;
+    point1 (1.1 2.99 0.5);
+    point2 (1.1 2.99 1.0);
+    radius 0.02;
+
+}
+grain180
+{
+  type searchableCylinder;
+    point1 (1.1 3.13 0.5);
+    point2 (1.1 3.13 1.0);
+    radius 0.02;
+
+}
+grain181
+{
+  type searchableCylinder;
+    point1 (1.24 0.12 0.5);
+    point2 (1.24 0.12 1.0);
+    radius 0.02;
+
+}
+grain182
+{
+  type searchableCylinder;
+    point1 (1.24 0.26 0.5);
+    point2 (1.24 0.26 1.0);
+    radius 0.02;
+
+}
+grain183
+{
+  type searchableCylinder;
+    point1 (1.24 0.4 0.5);
+    point2 (1.24 0.4 1.0);
+    radius 0.02;
+
+}
+grain184
+{
+  type searchableCylinder;
+    point1 (1.24 0.54 0.5);
+    point2 (1.24 0.54 1.0);
+    radius 0.02;
+
+}
+grain185
+{
+  type searchableCylinder;
+    point1 (1.24 0.68 0.5);
+    point2 (1.24 0.68 1.0);
+    radius 0.02;
+
+}
+grain186
+{
+  type searchableCylinder;
+    point1 (1.24 0.82 0.5);
+    point2 (1.24 0.82 1.0);
+    radius 0.02;
+
+}
+grain187
+{
+  type searchableCylinder;
+    point1 (1.24 0.96 0.5);
+    point2 (1.24 0.96 1.0);
+    radius 0.02;
+
+}
+grain188
+{
+  type searchableCylinder;
+    point1 (1.24 1.1 0.5);
+    point2 (1.24 1.1 1.0);
+    radius 0.02;
+
+}
+grain189
+{
+  type searchableCylinder;
+    point1 (1.24 1.24 0.5);
+    point2 (1.24 1.24 1.0);
+    radius 0.02;
+
+}
+grain190
+{
+  type searchableCylinder;
+    point1 (1.24 1.38 0.5);
+    point2 (1.24 1.38 1.0);
+    radius 0.02;
+
+}
+grain191
+{
+  type searchableCylinder;
+    point1 (1.24 1.52 0.5);
+    point2 (1.24 1.52 1.0);
+    radius 0.02;
+
+}
+grain192
+{
+  type searchableCylinder;
+    point1 (1.24 1.66 0.5);
+    point2 (1.24 1.66 1.0);
+    radius 0.02;
+
+}
+grain193
+{
+  type searchableCylinder;
+    point1 (1.24 1.8 0.5);
+    point2 (1.24 1.8 1.0);
+    radius 0.02;
+
+}
+grain194
+{
+  type searchableCylinder;
+    point1 (1.24 1.94 0.5);
+    point2 (1.24 1.94 1.0);
+    radius 0.02;
+
+}
+grain195
+{
+  type searchableCylinder;
+    point1 (1.24 2.08 0.5);
+    point2 (1.24 2.08 1.0);
+    radius 0.02;
+
+}
+grain196
+{
+  type searchableCylinder;
+    point1 (1.24 2.22 0.5);
+    point2 (1.24 2.22 1.0);
+    radius 0.02;
+
+}
+grain197
+{
+  type searchableCylinder;
+    point1 (1.24 2.36 0.5);
+    point2 (1.24 2.36 1.0);
+    radius 0.02;
+
+}
+grain198
+{
+  type searchableCylinder;
+    point1 (1.24 2.5 0.5);
+    point2 (1.24 2.5 1.0);
+    radius 0.02;
+
+}
+grain199
+{
+  type searchableCylinder;
+    point1 (1.24 2.64 0.5);
+    point2 (1.24 2.64 1.0);
+    radius 0.02;
+
+}
+grain200
+{
+  type searchableCylinder;
+    point1 (1.24 2.78 0.5);
+    point2 (1.24 2.78 1.0);
+    radius 0.02;
+
+}
+grain201
+{
+  type searchableCylinder;
+    point1 (1.24 2.92 0.5);
+    point2 (1.24 2.92 1.0);
+    radius 0.02;
+
+}
+grain202
+{
+  type searchableCylinder;
+    point1 (1.24 3.06 0.5);
+    point2 (1.24 3.06 1.0);
+    radius 0.02;
+
+}
+grain203
+{
+  type searchableCylinder;
+    point1 (1.24 3.2 0.5);
+    point2 (1.24 3.2 1.0);
+    radius 0.02;
+
+}
+grain204
+{
+  type searchableCylinder;
+    point1 (1.38 0.19 0.5);
+    point2 (1.38 0.19 1.0);
+    radius 0.02;
+
+}
+grain205
+{
+  type searchableCylinder;
+    point1 (1.38 0.33 0.5);
+    point2 (1.38 0.33 1.0);
+    radius 0.02;
+
+}
+grain206
+{
+  type searchableCylinder;
+    point1 (1.38 0.47 0.5);
+    point2 (1.38 0.47 1.0);
+    radius 0.02;
+
+}
+grain207
+{
+  type searchableCylinder;
+    point1 (1.38 0.61 0.5);
+    point2 (1.38 0.61 1.0);
+    radius 0.02;
+
+}
+grain208
+{
+  type searchableCylinder;
+    point1 (1.38 0.75 0.5);
+    point2 (1.38 0.75 1.0);
+    radius 0.02;
+
+}
+grain209
+{
+  type searchableCylinder;
+    point1 (1.38 0.89 0.5);
+    point2 (1.38 0.89 1.0);
+    radius 0.02;
+
+}
+grain210
+{
+  type searchableCylinder;
+    point1 (1.38 1.03 0.5);
+    point2 (1.38 1.03 1.0);
+    radius 0.02;
+
+}
+grain211
+{
+  type searchableCylinder;
+    point1 (1.38 1.17 0.5);
+    point2 (1.38 1.17 1.0);
+    radius 0.02;
+
+}
+grain212
+{
+  type searchableCylinder;
+    point1 (1.38 1.31 0.5);
+    point2 (1.38 1.31 1.0);
+    radius 0.02;
+
+}
+grain213
+{
+  type searchableCylinder;
+    point1 (1.38 1.45 0.5);
+    point2 (1.38 1.45 1.0);
+    radius 0.02;
+
+}
+grain214
+{
+  type searchableCylinder;
+    point1 (1.38 1.59 0.5);
+    point2 (1.38 1.59 1.0);
+    radius 0.02;
+
+}
+grain215
+{
+  type searchableCylinder;
+    point1 (1.38 1.73 0.5);
+    point2 (1.38 1.73 1.0);
+    radius 0.02;
+
+}
+grain216
+{
+  type searchableCylinder;
+    point1 (1.38 1.87 0.5);
+    point2 (1.38 1.87 1.0);
+    radius 0.02;
+
+}
+grain217
+{
+  type searchableCylinder;
+    point1 (1.38 2.01 0.5);
+    point2 (1.38 2.01 1.0);
+    radius 0.02;
+
+}
+grain218
+{
+  type searchableCylinder;
+    point1 (1.38 2.15 0.5);
+    point2 (1.38 2.15 1.0);
+    radius 0.02;
+
+}
+grain219
+{
+  type searchableCylinder;
+    point1 (1.38 2.29 0.5);
+    point2 (1.38 2.29 1.0);
+    radius 0.02;
+
+}
+grain220
+{
+  type searchableCylinder;
+    point1 (1.38 2.43 0.5);
+    point2 (1.38 2.43 1.0);
+    radius 0.02;
+
+}
+grain221
+{
+  type searchableCylinder;
+    point1 (1.38 2.57 0.5);
+    point2 (1.38 2.57 1.0);
+    radius 0.02;
+
+}
+grain222
+{
+  type searchableCylinder;
+    point1 (1.38 2.71 0.5);
+    point2 (1.38 2.71 1.0);
+    radius 0.02;
+
+}
+grain223
+{
+  type searchableCylinder;
+    point1 (1.38 2.85 0.5);
+    point2 (1.38 2.85 1.0);
+    radius 0.02;
+
+}
+grain224
+{
+  type searchableCylinder;
+    point1 (1.38 2.99 0.5);
+    point2 (1.38 2.99 1.0);
+    radius 0.02;
+
+}
+grain225
+{
+  type searchableCylinder;
+    point1 (1.38 3.13 0.5);
+    point2 (1.38 3.13 1.0);
+    radius 0.02;
+
+}
+grain226
+{
+  type searchableCylinder;
+    point1 (1.52 0.12 0.5);
+    point2 (1.52 0.12 1.0);
+    radius 0.02;
+
+}
+grain227
+{
+  type searchableCylinder;
+    point1 (1.52 0.26 0.5);
+    point2 (1.52 0.26 1.0);
+    radius 0.02;
+
+}
+grain228
+{
+  type searchableCylinder;
+    point1 (1.52 0.4 0.5);
+    point2 (1.52 0.4 1.0);
+    radius 0.02;
+
+}
+grain229
+{
+  type searchableCylinder;
+    point1 (1.52 0.54 0.5);
+    point2 (1.52 0.54 1.0);
+    radius 0.02;
+
+}
+grain230
+{
+  type searchableCylinder;
+    point1 (1.52 0.68 0.5);
+    point2 (1.52 0.68 1.0);
+    radius 0.02;
+
+}
+grain231
+{
+  type searchableCylinder;
+    point1 (1.52 0.82 0.5);
+    point2 (1.52 0.82 1.0);
+    radius 0.02;
+
+}
+grain232
+{
+  type searchableCylinder;
+    point1 (1.52 0.96 0.5);
+    point2 (1.52 0.96 1.0);
+    radius 0.02;
+
+}
+grain233
+{
+  type searchableCylinder;
+    point1 (1.52 1.1 0.5);
+    point2 (1.52 1.1 1.0);
+    radius 0.02;
+
+}
+grain234
+{
+  type searchableCylinder;
+    point1 (1.52 1.24 0.5);
+    point2 (1.52 1.24 1.0);
+    radius 0.02;
+
+}
+grain235
+{
+  type searchableCylinder;
+    point1 (1.52 1.38 0.5);
+    point2 (1.52 1.38 1.0);
+    radius 0.02;
+
+}
+grain236
+{
+  type searchableCylinder;
+    point1 (1.52 1.52 0.5);
+    point2 (1.52 1.52 1.0);
+    radius 0.02;
+
+}
+grain237
+{
+  type searchableCylinder;
+    point1 (1.52 1.66 0.5);
+    point2 (1.52 1.66 1.0);
+    radius 0.02;
+
+}
+grain238
+{
+  type searchableCylinder;
+    point1 (1.52 1.8 0.5);
+    point2 (1.52 1.8 1.0);
+    radius 0.02;
+
+}
+grain239
+{
+  type searchableCylinder;
+    point1 (1.52 1.94 0.5);
+    point2 (1.52 1.94 1.0);
+    radius 0.02;
+
+}
+grain240
+{
+  type searchableCylinder;
+    point1 (1.52 2.08 0.5);
+    point2 (1.52 2.08 1.0);
+    radius 0.02;
+
+}
+grain241
+{
+  type searchableCylinder;
+    point1 (1.52 2.22 0.5);
+    point2 (1.52 2.22 1.0);
+    radius 0.02;
+
+}
+grain242
+{
+  type searchableCylinder;
+    point1 (1.52 2.36 0.5);
+    point2 (1.52 2.36 1.0);
+    radius 0.02;
+
+}
+grain243
+{
+  type searchableCylinder;
+    point1 (1.52 2.5 0.5);
+    point2 (1.52 2.5 1.0);
+    radius 0.02;
+
+}
+grain244
+{
+  type searchableCylinder;
+    point1 (1.52 2.64 0.5);
+    point2 (1.52 2.64 1.0);
+    radius 0.02;
+
+}
+grain245
+{
+  type searchableCylinder;
+    point1 (1.52 2.78 0.5);
+    point2 (1.52 2.78 1.0);
+    radius 0.02;
+
+}
+grain246
+{
+  type searchableCylinder;
+    point1 (1.52 2.92 0.5);
+    point2 (1.52 2.92 1.0);
+    radius 0.02;
+
+}
+grain247
+{
+  type searchableCylinder;
+    point1 (1.52 3.06 0.5);
+    point2 (1.52 3.06 1.0);
+    radius 0.02;
+
+}
+grain248
+{
+  type searchableCylinder;
+    point1 (1.52 3.2 0.5);
+    point2 (1.52 3.2 1.0);
+    radius 0.02;
+
+}
+grain249
+{
+  type searchableCylinder;
+    point1 (1.66 0.19 0.5);
+    point2 (1.66 0.19 1.0);
+    radius 0.02;
+
+}
+grain250
+{
+  type searchableCylinder;
+    point1 (1.66 0.33 0.5);
+    point2 (1.66 0.33 1.0);
+    radius 0.02;
+
+}
+grain251
+{
+  type searchableCylinder;
+    point1 (1.66 0.47 0.5);
+    point2 (1.66 0.47 1.0);
+    radius 0.02;
+
+}
+grain252
+{
+  type searchableCylinder;
+    point1 (1.66 0.61 0.5);
+    point2 (1.66 0.61 1.0);
+    radius 0.02;
+
+}
+grain253
+{
+  type searchableCylinder;
+    point1 (1.66 0.75 0.5);
+    point2 (1.66 0.75 1.0);
+    radius 0.02;
+
+}
+grain254
+{
+  type searchableCylinder;
+    point1 (1.66 0.89 0.5);
+    point2 (1.66 0.89 1.0);
+    radius 0.02;
+
+}
+grain255
+{
+  type searchableCylinder;
+    point1 (1.66 1.03 0.5);
+    point2 (1.66 1.03 1.0);
+    radius 0.02;
+
+}
+grain256
+{
+  type searchableCylinder;
+    point1 (1.66 1.17 0.5);
+    point2 (1.66 1.17 1.0);
+    radius 0.02;
+
+}
+grain257
+{
+  type searchableCylinder;
+    point1 (1.66 1.31 0.5);
+    point2 (1.66 1.31 1.0);
+    radius 0.02;
+
+}
+grain258
+{
+  type searchableCylinder;
+    point1 (1.66 1.45 0.5);
+    point2 (1.66 1.45 1.0);
+    radius 0.02;
+
+}
+grain259
+{
+  type searchableCylinder;
+    point1 (1.66 1.59 0.5);
+    point2 (1.66 1.59 1.0);
+    radius 0.02;
+
+}
+grain260
+{
+  type searchableCylinder;
+    point1 (1.66 1.73 0.5);
+    point2 (1.66 1.73 1.0);
+    radius 0.02;
+
+}
+grain261
+{
+  type searchableCylinder;
+    point1 (1.66 1.87 0.5);
+    point2 (1.66 1.87 1.0);
+    radius 0.02;
+
+}
+grain262
+{
+  type searchableCylinder;
+    point1 (1.66 2.01 0.5);
+    point2 (1.66 2.01 1.0);
+    radius 0.02;
+
+}
+grain263
+{
+  type searchableCylinder;
+    point1 (1.66 2.15 0.5);
+    point2 (1.66 2.15 1.0);
+    radius 0.02;
+
+}
+grain264
+{
+  type searchableCylinder;
+    point1 (1.66 2.29 0.5);
+    point2 (1.66 2.29 1.0);
+    radius 0.02;
+
+}
+grain265
+{
+  type searchableCylinder;
+    point1 (1.66 2.43 0.5);
+    point2 (1.66 2.43 1.0);
+    radius 0.02;
+
+}
+grain266
+{
+  type searchableCylinder;
+    point1 (1.66 2.57 0.5);
+    point2 (1.66 2.57 1.0);
+    radius 0.02;
+
+}
+grain267
+{
+  type searchableCylinder;
+    point1 (1.66 2.71 0.5);
+    point2 (1.66 2.71 1.0);
+    radius 0.02;
+
+}
+grain268
+{
+  type searchableCylinder;
+    point1 (1.66 2.85 0.5);
+    point2 (1.66 2.85 1.0);
+    radius 0.02;
+
+}
+grain269
+{
+  type searchableCylinder;
+    point1 (1.66 2.99 0.5);
+    point2 (1.66 2.99 1.0);
+    radius 0.02;
+
+}
+grain270
+{
+  type searchableCylinder;
+    point1 (1.66 3.13 0.5);
+    point2 (1.66 3.13 1.0);
+    radius 0.02;
+
+}
+grain271
+{
+  type searchableCylinder;
+    point1 (1.8 0.12 0.5);
+    point2 (1.8 0.12 1.0);
+    radius 0.02;
+
+}
+grain272
+{
+  type searchableCylinder;
+    point1 (1.8 0.26 0.5);
+    point2 (1.8 0.26 1.0);
+    radius 0.02;
+
+}
+grain273
+{
+  type searchableCylinder;
+    point1 (1.8 0.4 0.5);
+    point2 (1.8 0.4 1.0);
+    radius 0.02;
+
+}
+grain274
+{
+  type searchableCylinder;
+    point1 (1.8 0.54 0.5);
+    point2 (1.8 0.54 1.0);
+    radius 0.02;
+
+}
+grain275
+{
+  type searchableCylinder;
+    point1 (1.8 0.68 0.5);
+    point2 (1.8 0.68 1.0);
+    radius 0.02;
+
+}
+grain276
+{
+  type searchableCylinder;
+    point1 (1.8 0.82 0.5);
+    point2 (1.8 0.82 1.0);
+    radius 0.02;
+
+}
+grain277
+{
+  type searchableCylinder;
+    point1 (1.8 0.96 0.5);
+    point2 (1.8 0.96 1.0);
+    radius 0.02;
+
+}
+grain278
+{
+  type searchableCylinder;
+    point1 (1.8 1.1 0.5);
+    point2 (1.8 1.1 1.0);
+    radius 0.02;
+
+}
+grain279
+{
+  type searchableCylinder;
+    point1 (1.8 1.24 0.5);
+    point2 (1.8 1.24 1.0);
+    radius 0.02;
+
+}
+grain280
+{
+  type searchableCylinder;
+    point1 (1.8 1.38 0.5);
+    point2 (1.8 1.38 1.0);
+    radius 0.02;
+
+}
+grain281
+{
+  type searchableCylinder;
+    point1 (1.8 1.52 0.5);
+    point2 (1.8 1.52 1.0);
+    radius 0.02;
+
+}
+grain282
+{
+  type searchableCylinder;
+    point1 (1.8 1.66 0.5);
+    point2 (1.8 1.66 1.0);
+    radius 0.02;
+
+}
+grain283
+{
+  type searchableCylinder;
+    point1 (1.8 1.8 0.5);
+    point2 (1.8 1.8 1.0);
+    radius 0.02;
+
+}
+grain284
+{
+  type searchableCylinder;
+    point1 (1.8 1.94 0.5);
+    point2 (1.8 1.94 1.0);
+    radius 0.02;
+
+}
+grain285
+{
+  type searchableCylinder;
+    point1 (1.8 2.08 0.5);
+    point2 (1.8 2.08 1.0);
+    radius 0.02;
+
+}
+grain286
+{
+  type searchableCylinder;
+    point1 (1.8 2.22 0.5);
+    point2 (1.8 2.22 1.0);
+    radius 0.02;
+
+}
+grain287
+{
+  type searchableCylinder;
+    point1 (1.8 2.36 0.5);
+    point2 (1.8 2.36 1.0);
+    radius 0.02;
+
+}
+grain288
+{
+  type searchableCylinder;
+    point1 (1.8 2.5 0.5);
+    point2 (1.8 2.5 1.0);
+    radius 0.02;
+
+}
+grain289
+{
+  type searchableCylinder;
+    point1 (1.8 2.64 0.5);
+    point2 (1.8 2.64 1.0);
+    radius 0.02;
+
+}
+grain290
+{
+  type searchableCylinder;
+    point1 (1.8 2.78 0.5);
+    point2 (1.8 2.78 1.0);
+    radius 0.02;
+
+}
+grain291
+{
+  type searchableCylinder;
+    point1 (1.8 2.92 0.5);
+    point2 (1.8 2.92 1.0);
+    radius 0.02;
+
+}
+grain292
+{
+  type searchableCylinder;
+    point1 (1.8 3.06 0.5);
+    point2 (1.8 3.06 1.0);
+    radius 0.02;
+
+}
+grain293
+{
+  type searchableCylinder;
+    point1 (1.8 3.2 0.5);
+    point2 (1.8 3.2 1.0);
+    radius 0.02;
+
+}
+grain294
+{
+  type searchableCylinder;
+    point1 (1.94 0.19 0.5);
+    point2 (1.94 0.19 1.0);
+    radius 0.02;
+
+}
+grain295
+{
+  type searchableCylinder;
+    point1 (1.94 0.33 0.5);
+    point2 (1.94 0.33 1.0);
+    radius 0.02;
+
+}
+grain296
+{
+  type searchableCylinder;
+    point1 (1.94 0.47 0.5);
+    point2 (1.94 0.47 1.0);
+    radius 0.02;
+
+}
+grain297
+{
+  type searchableCylinder;
+    point1 (1.94 0.61 0.5);
+    point2 (1.94 0.61 1.0);
+    radius 0.02;
+
+}
+grain298
+{
+  type searchableCylinder;
+    point1 (1.94 0.75 0.5);
+    point2 (1.94 0.75 1.0);
+    radius 0.02;
+
+}
+grain299
+{
+  type searchableCylinder;
+    point1 (1.94 0.89 0.5);
+    point2 (1.94 0.89 1.0);
+    radius 0.02;
+
+}
+grain300
+{
+  type searchableCylinder;
+    point1 (1.94 1.03 0.5);
+    point2 (1.94 1.03 1.0);
+    radius 0.02;
+
+}
+grain301
+{
+  type searchableCylinder;
+    point1 (1.94 1.17 0.5);
+    point2 (1.94 1.17 1.0);
+    radius 0.02;
+
+}
+grain302
+{
+  type searchableCylinder;
+    point1 (1.94 1.31 0.5);
+    point2 (1.94 1.31 1.0);
+    radius 0.02;
+
+}
+grain303
+{
+  type searchableCylinder;
+    point1 (1.94 1.45 0.5);
+    point2 (1.94 1.45 1.0);
+    radius 0.02;
+
+}
+grain304
+{
+  type searchableCylinder;
+    point1 (1.94 1.59 0.5);
+    point2 (1.94 1.59 1.0);
+    radius 0.02;
+
+}
+grain305
+{
+  type searchableCylinder;
+    point1 (1.94 1.73 0.5);
+    point2 (1.94 1.73 1.0);
+    radius 0.02;
+
+}
+grain306
+{
+  type searchableCylinder;
+    point1 (1.94 1.87 0.5);
+    point2 (1.94 1.87 1.0);
+    radius 0.02;
+
+}
+grain307
+{
+  type searchableCylinder;
+    point1 (1.94 2.01 0.5);
+    point2 (1.94 2.01 1.0);
+    radius 0.02;
+
+}
+grain308
+{
+  type searchableCylinder;
+    point1 (1.94 2.15 0.5);
+    point2 (1.94 2.15 1.0);
+    radius 0.02;
+
+}
+grain309
+{
+  type searchableCylinder;
+    point1 (1.94 2.29 0.5);
+    point2 (1.94 2.29 1.0);
+    radius 0.02;
+
+}
+grain310
+{
+  type searchableCylinder;
+    point1 (1.94 2.43 0.5);
+    point2 (1.94 2.43 1.0);
+    radius 0.02;
+
+}
+grain311
+{
+  type searchableCylinder;
+    point1 (1.94 2.57 0.5);
+    point2 (1.94 2.57 1.0);
+    radius 0.02;
+
+}
+grain312
+{
+  type searchableCylinder;
+    point1 (1.94 2.71 0.5);
+    point2 (1.94 2.71 1.0);
+    radius 0.02;
+
+}
+grain313
+{
+  type searchableCylinder;
+    point1 (1.94 2.85 0.5);
+    point2 (1.94 2.85 1.0);
+    radius 0.02;
+
+}
+grain314
+{
+  type searchableCylinder;
+    point1 (1.94 2.99 0.5);
+    point2 (1.94 2.99 1.0);
+    radius 0.02;
+
+}
+grain315
+{
+  type searchableCylinder;
+    point1 (1.94 3.13 0.5);
+    point2 (1.94 3.13 1.0);
+    radius 0.02;
+
+}
+grain316
+{
+  type searchableCylinder;
+    point1 (2.08 0.12 0.5);
+    point2 (2.08 0.12 1.0);
+    radius 0.02;
+
+}
+grain317
+{
+  type searchableCylinder;
+    point1 (2.08 0.26 0.5);
+    point2 (2.08 0.26 1.0);
+    radius 0.02;
+
+}
+grain318
+{
+  type searchableCylinder;
+    point1 (2.08 0.4 0.5);
+    point2 (2.08 0.4 1.0);
+    radius 0.02;
+
+}
+grain319
+{
+  type searchableCylinder;
+    point1 (2.08 0.54 0.5);
+    point2 (2.08 0.54 1.0);
+    radius 0.02;
+
+}
+grain320
+{
+  type searchableCylinder;
+    point1 (2.08 0.68 0.5);
+    point2 (2.08 0.68 1.0);
+    radius 0.02;
+
+}
+grain321
+{
+  type searchableCylinder;
+    point1 (2.08 0.82 0.5);
+    point2 (2.08 0.82 1.0);
+    radius 0.02;
+
+}
+grain322
+{
+  type searchableCylinder;
+    point1 (2.08 0.96 0.5);
+    point2 (2.08 0.96 1.0);
+    radius 0.02;
+
+}
+grain323
+{
+  type searchableCylinder;
+    point1 (2.08 1.1 0.5);
+    point2 (2.08 1.1 1.0);
+    radius 0.02;
+
+}
+grain324
+{
+  type searchableCylinder;
+    point1 (2.08 1.24 0.5);
+    point2 (2.08 1.24 1.0);
+    radius 0.02;
+
+}
+grain325
+{
+  type searchableCylinder;
+    point1 (2.08 1.38 0.5);
+    point2 (2.08 1.38 1.0);
+    radius 0.02;
+
+}
+grain326
+{
+  type searchableCylinder;
+    point1 (2.08 1.52 0.5);
+    point2 (2.08 1.52 1.0);
+    radius 0.02;
+
+}
+grain327
+{
+  type searchableCylinder;
+    point1 (2.08 1.66 0.5);
+    point2 (2.08 1.66 1.0);
+    radius 0.02;
+
+}
+grain328
+{
+  type searchableCylinder;
+    point1 (2.08 1.8 0.5);
+    point2 (2.08 1.8 1.0);
+    radius 0.02;
+
+}
+grain329
+{
+  type searchableCylinder;
+    point1 (2.08 1.94 0.5);
+    point2 (2.08 1.94 1.0);
+    radius 0.02;
+
+}
+grain330
+{
+  type searchableCylinder;
+    point1 (2.08 2.08 0.5);
+    point2 (2.08 2.08 1.0);
+    radius 0.02;
+
+}
+grain331
+{
+  type searchableCylinder;
+    point1 (2.08 2.22 0.5);
+    point2 (2.08 2.22 1.0);
+    radius 0.02;
+
+}
+grain332
+{
+  type searchableCylinder;
+    point1 (2.08 2.36 0.5);
+    point2 (2.08 2.36 1.0);
+    radius 0.02;
+
+}
+grain333
+{
+  type searchableCylinder;
+    point1 (2.08 2.5 0.5);
+    point2 (2.08 2.5 1.0);
+    radius 0.02;
+
+}
+grain334
+{
+  type searchableCylinder;
+    point1 (2.08 2.64 0.5);
+    point2 (2.08 2.64 1.0);
+    radius 0.02;
+
+}
+grain335
+{
+  type searchableCylinder;
+    point1 (2.08 2.78 0.5);
+    point2 (2.08 2.78 1.0);
+    radius 0.02;
+
+}
+grain336
+{
+  type searchableCylinder;
+    point1 (2.08 2.92 0.5);
+    point2 (2.08 2.92 1.0);
+    radius 0.02;
+
+}
+grain337
+{
+  type searchableCylinder;
+    point1 (2.08 3.06 0.5);
+    point2 (2.08 3.06 1.0);
+    radius 0.02;
+
+}
+grain338
+{
+  type searchableCylinder;
+    point1 (2.08 3.2 0.5);
+    point2 (2.08 3.2 1.0);
+    radius 0.02;
+
+}
+grain339
+{
+  type searchableCylinder;
+    point1 (2.22 0.19 0.5);
+    point2 (2.22 0.19 1.0);
+    radius 0.02;
+
+}
+grain340
+{
+  type searchableCylinder;
+    point1 (2.22 0.33 0.5);
+    point2 (2.22 0.33 1.0);
+    radius 0.02;
+
+}
+grain341
+{
+  type searchableCylinder;
+    point1 (2.22 0.47 0.5);
+    point2 (2.22 0.47 1.0);
+    radius 0.02;
+
+}
+grain342
+{
+  type searchableCylinder;
+    point1 (2.22 0.61 0.5);
+    point2 (2.22 0.61 1.0);
+    radius 0.02;
+
+}
+grain343
+{
+  type searchableCylinder;
+    point1 (2.22 0.75 0.5);
+    point2 (2.22 0.75 1.0);
+    radius 0.02;
+
+}
+grain344
+{
+  type searchableCylinder;
+    point1 (2.22 0.89 0.5);
+    point2 (2.22 0.89 1.0);
+    radius 0.02;
+
+}
+grain345
+{
+  type searchableCylinder;
+    point1 (2.22 1.03 0.5);
+    point2 (2.22 1.03 1.0);
+    radius 0.02;
+
+}
+grain346
+{
+  type searchableCylinder;
+    point1 (2.22 1.17 0.5);
+    point2 (2.22 1.17 1.0);
+    radius 0.02;
+
+}
+grain347
+{
+  type searchableCylinder;
+    point1 (2.22 1.31 0.5);
+    point2 (2.22 1.31 1.0);
+    radius 0.02;
+
+}
+grain348
+{
+  type searchableCylinder;
+    point1 (2.22 1.45 0.5);
+    point2 (2.22 1.45 1.0);
+    radius 0.02;
+
+}
+grain349
+{
+  type searchableCylinder;
+    point1 (2.22 1.59 0.5);
+    point2 (2.22 1.59 1.0);
+    radius 0.02;
+
+}
+grain350
+{
+  type searchableCylinder;
+    point1 (2.22 1.73 0.5);
+    point2 (2.22 1.73 1.0);
+    radius 0.02;
+
+}
+grain351
+{
+  type searchableCylinder;
+    point1 (2.22 1.87 0.5);
+    point2 (2.22 1.87 1.0);
+    radius 0.02;
+
+}
+grain352
+{
+  type searchableCylinder;
+    point1 (2.22 2.01 0.5);
+    point2 (2.22 2.01 1.0);
+    radius 0.02;
+
+}
+grain353
+{
+  type searchableCylinder;
+    point1 (2.22 2.15 0.5);
+    point2 (2.22 2.15 1.0);
+    radius 0.02;
+
+}
+grain354
+{
+  type searchableCylinder;
+    point1 (2.22 2.29 0.5);
+    point2 (2.22 2.29 1.0);
+    radius 0.02;
+
+}
+grain355
+{
+  type searchableCylinder;
+    point1 (2.22 2.43 0.5);
+    point2 (2.22 2.43 1.0);
+    radius 0.02;
+
+}
+grain356
+{
+  type searchableCylinder;
+    point1 (2.22 2.57 0.5);
+    point2 (2.22 2.57 1.0);
+    radius 0.02;
+
+}
+grain357
+{
+  type searchableCylinder;
+    point1 (2.22 2.71 0.5);
+    point2 (2.22 2.71 1.0);
+    radius 0.02;
+
+}
+grain358
+{
+  type searchableCylinder;
+    point1 (2.22 2.85 0.5);
+    point2 (2.22 2.85 1.0);
+    radius 0.02;
+
+}
+grain359
+{
+  type searchableCylinder;
+    point1 (2.22 2.99 0.5);
+    point2 (2.22 2.99 1.0);
+    radius 0.02;
+
+}
+grain360
+{
+  type searchableCylinder;
+    point1 (2.22 3.13 0.5);
+    point2 (2.22 3.13 1.0);
+    radius 0.02;
+
+}
+grain361
+{
+  type searchableCylinder;
+    point1 (2.36 0.12 0.5);
+    point2 (2.36 0.12 1.0);
+    radius 0.02;
+
+}
+grain362
+{
+  type searchableCylinder;
+    point1 (2.36 0.26 0.5);
+    point2 (2.36 0.26 1.0);
+    radius 0.02;
+
+}
+grain363
+{
+  type searchableCylinder;
+    point1 (2.36 0.4 0.5);
+    point2 (2.36 0.4 1.0);
+    radius 0.02;
+
+}
+grain364
+{
+  type searchableCylinder;
+    point1 (2.36 0.54 0.5);
+    point2 (2.36 0.54 1.0);
+    radius 0.02;
+
+}
+grain365
+{
+  type searchableCylinder;
+    point1 (2.36 0.68 0.5);
+    point2 (2.36 0.68 1.0);
+    radius 0.02;
+
+}
+grain366
+{
+  type searchableCylinder;
+    point1 (2.36 0.82 0.5);
+    point2 (2.36 0.82 1.0);
+    radius 0.02;
+
+}
+grain367
+{
+  type searchableCylinder;
+    point1 (2.36 0.96 0.5);
+    point2 (2.36 0.96 1.0);
+    radius 0.02;
+
+}
+grain368
+{
+  type searchableCylinder;
+    point1 (2.36 1.1 0.5);
+    point2 (2.36 1.1 1.0);
+    radius 0.02;
+
+}
+grain369
+{
+  type searchableCylinder;
+    point1 (2.36 1.24 0.5);
+    point2 (2.36 1.24 1.0);
+    radius 0.02;
+
+}
+grain370
+{
+  type searchableCylinder;
+    point1 (2.36 1.38 0.5);
+    point2 (2.36 1.38 1.0);
+    radius 0.02;
+
+}
+grain371
+{
+  type searchableCylinder;
+    point1 (2.36 1.52 0.5);
+    point2 (2.36 1.52 1.0);
+    radius 0.02;
+
+}
+grain372
+{
+  type searchableCylinder;
+    point1 (2.36 1.66 0.5);
+    point2 (2.36 1.66 1.0);
+    radius 0.02;
+
+}
+grain373
+{
+  type searchableCylinder;
+    point1 (2.36 1.8 0.5);
+    point2 (2.36 1.8 1.0);
+    radius 0.02;
+
+}
+grain374
+{
+  type searchableCylinder;
+    point1 (2.36 1.94 0.5);
+    point2 (2.36 1.94 1.0);
+    radius 0.02;
+
+}
+grain375
+{
+  type searchableCylinder;
+    point1 (2.36 2.08 0.5);
+    point2 (2.36 2.08 1.0);
+    radius 0.02;
+
+}
+grain376
+{
+  type searchableCylinder;
+    point1 (2.36 2.22 0.5);
+    point2 (2.36 2.22 1.0);
+    radius 0.02;
+
+}
+grain377
+{
+  type searchableCylinder;
+    point1 (2.36 2.36 0.5);
+    point2 (2.36 2.36 1.0);
+    radius 0.02;
+
+}
+grain378
+{
+  type searchableCylinder;
+    point1 (2.36 2.5 0.5);
+    point2 (2.36 2.5 1.0);
+    radius 0.02;
+
+}
+grain379
+{
+  type searchableCylinder;
+    point1 (2.36 2.64 0.5);
+    point2 (2.36 2.64 1.0);
+    radius 0.02;
+
+}
+grain380
+{
+  type searchableCylinder;
+    point1 (2.36 2.78 0.5);
+    point2 (2.36 2.78 1.0);
+    radius 0.02;
+
+}
+grain381
+{
+  type searchableCylinder;
+    point1 (2.36 2.92 0.5);
+    point2 (2.36 2.92 1.0);
+    radius 0.02;
+
+}
+grain382
+{
+  type searchableCylinder;
+    point1 (2.36 3.06 0.5);
+    point2 (2.36 3.06 1.0);
+    radius 0.02;
+
+}
+grain383
+{
+  type searchableCylinder;
+    point1 (2.36 3.2 0.5);
+    point2 (2.36 3.2 1.0);
+    radius 0.02;
+
+}
+grain384
+{
+  type searchableCylinder;
+    point1 (2.5 0.19 0.5);
+    point2 (2.5 0.19 1.0);
+    radius 0.02;
+
+}
+grain385
+{
+  type searchableCylinder;
+    point1 (2.5 0.33 0.5);
+    point2 (2.5 0.33 1.0);
+    radius 0.02;
+
+}
+grain386
+{
+  type searchableCylinder;
+    point1 (2.5 0.47 0.5);
+    point2 (2.5 0.47 1.0);
+    radius 0.02;
+
+}
+grain387
+{
+  type searchableCylinder;
+    point1 (2.5 0.61 0.5);
+    point2 (2.5 0.61 1.0);
+    radius 0.02;
+
+}
+grain388
+{
+  type searchableCylinder;
+    point1 (2.5 0.75 0.5);
+    point2 (2.5 0.75 1.0);
+    radius 0.02;
+
+}
+grain389
+{
+  type searchableCylinder;
+    point1 (2.5 0.89 0.5);
+    point2 (2.5 0.89 1.0);
+    radius 0.02;
+
+}
+grain390
+{
+  type searchableCylinder;
+    point1 (2.5 1.03 0.5);
+    point2 (2.5 1.03 1.0);
+    radius 0.02;
+
+}
+grain391
+{
+  type searchableCylinder;
+    point1 (2.5 1.17 0.5);
+    point2 (2.5 1.17 1.0);
+    radius 0.02;
+
+}
+grain392
+{
+  type searchableCylinder;
+    point1 (2.5 1.31 0.5);
+    point2 (2.5 1.31 1.0);
+    radius 0.02;
+
+}
+grain393
+{
+  type searchableCylinder;
+    point1 (2.5 1.45 0.5);
+    point2 (2.5 1.45 1.0);
+    radius 0.02;
+
+}
+grain394
+{
+  type searchableCylinder;
+    point1 (2.5 1.59 0.5);
+    point2 (2.5 1.59 1.0);
+    radius 0.02;
+
+}
+grain395
+{
+  type searchableCylinder;
+    point1 (2.5 1.73 0.5);
+    point2 (2.5 1.73 1.0);
+    radius 0.02;
+
+}
+grain396
+{
+  type searchableCylinder;
+    point1 (2.5 1.87 0.5);
+    point2 (2.5 1.87 1.0);
+    radius 0.02;
+
+}
+grain397
+{
+  type searchableCylinder;
+    point1 (2.5 2.01 0.5);
+    point2 (2.5 2.01 1.0);
+    radius 0.02;
+
+}
+grain398
+{
+  type searchableCylinder;
+    point1 (2.5 2.15 0.5);
+    point2 (2.5 2.15 1.0);
+    radius 0.02;
+
+}
+grain399
+{
+  type searchableCylinder;
+    point1 (2.5 2.29 0.5);
+    point2 (2.5 2.29 1.0);
+    radius 0.02;
+
+}
+grain400
+{
+  type searchableCylinder;
+    point1 (2.5 2.43 0.5);
+    point2 (2.5 2.43 1.0);
+    radius 0.02;
+
+}
+grain401
+{
+  type searchableCylinder;
+    point1 (2.5 2.57 0.5);
+    point2 (2.5 2.57 1.0);
+    radius 0.02;
+
+}
+grain402
+{
+  type searchableCylinder;
+    point1 (2.5 2.71 0.5);
+    point2 (2.5 2.71 1.0);
+    radius 0.02;
+
+}
+grain403
+{
+  type searchableCylinder;
+    point1 (2.5 2.85 0.5);
+    point2 (2.5 2.85 1.0);
+    radius 0.02;
+
+}
+grain404
+{
+  type searchableCylinder;
+    point1 (2.5 2.99 0.5);
+    point2 (2.5 2.99 1.0);
+    radius 0.02;
+
+}
+grain405
+{
+  type searchableCylinder;
+    point1 (2.5 3.13 0.5);
+    point2 (2.5 3.13 1.0);
+    radius 0.02;
+
+}
+grain406
+{
+  type searchableCylinder;
+    point1 (2.64 0.12 0.5);
+    point2 (2.64 0.12 1.0);
+    radius 0.02;
+
+}
+grain407
+{
+  type searchableCylinder;
+    point1 (2.64 0.26 0.5);
+    point2 (2.64 0.26 1.0);
+    radius 0.02;
+
+}
+grain408
+{
+  type searchableCylinder;
+    point1 (2.64 0.4 0.5);
+    point2 (2.64 0.4 1.0);
+    radius 0.02;
+
+}
+grain409
+{
+  type searchableCylinder;
+    point1 (2.64 0.54 0.5);
+    point2 (2.64 0.54 1.0);
+    radius 0.02;
+
+}
+grain410
+{
+  type searchableCylinder;
+    point1 (2.64 0.68 0.5);
+    point2 (2.64 0.68 1.0);
+    radius 0.02;
+
+}
+grain411
+{
+  type searchableCylinder;
+    point1 (2.64 0.82 0.5);
+    point2 (2.64 0.82 1.0);
+    radius 0.02;
+
+}
+grain412
+{
+  type searchableCylinder;
+    point1 (2.64 0.96 0.5);
+    point2 (2.64 0.96 1.0);
+    radius 0.02;
+
+}
+grain413
+{
+  type searchableCylinder;
+    point1 (2.64 1.1 0.5);
+    point2 (2.64 1.1 1.0);
+    radius 0.02;
+
+}
+grain414
+{
+  type searchableCylinder;
+    point1 (2.64 1.24 0.5);
+    point2 (2.64 1.24 1.0);
+    radius 0.02;
+
+}
+grain415
+{
+  type searchableCylinder;
+    point1 (2.64 1.38 0.5);
+    point2 (2.64 1.38 1.0);
+    radius 0.02;
+
+}
+grain416
+{
+  type searchableCylinder;
+    point1 (2.64 1.52 0.5);
+    point2 (2.64 1.52 1.0);
+    radius 0.02;
+
+}
+grain417
+{
+  type searchableCylinder;
+    point1 (2.64 1.66 0.5);
+    point2 (2.64 1.66 1.0);
+    radius 0.02;
+
+}
+grain418
+{
+  type searchableCylinder;
+    point1 (2.64 1.8 0.5);
+    point2 (2.64 1.8 1.0);
+    radius 0.02;
+
+}
+grain419
+{
+  type searchableCylinder;
+    point1 (2.64 1.94 0.5);
+    point2 (2.64 1.94 1.0);
+    radius 0.02;
+
+}
+grain420
+{
+  type searchableCylinder;
+    point1 (2.64 2.08 0.5);
+    point2 (2.64 2.08 1.0);
+    radius 0.02;
+
+}
+grain421
+{
+  type searchableCylinder;
+    point1 (2.64 2.22 0.5);
+    point2 (2.64 2.22 1.0);
+    radius 0.02;
+
+}
+grain422
+{
+  type searchableCylinder;
+    point1 (2.64 2.36 0.5);
+    point2 (2.64 2.36 1.0);
+    radius 0.02;
+
+}
+grain423
+{
+  type searchableCylinder;
+    point1 (2.64 2.5 0.5);
+    point2 (2.64 2.5 1.0);
+    radius 0.02;
+
+}
+grain424
+{
+  type searchableCylinder;
+    point1 (2.64 2.64 0.5);
+    point2 (2.64 2.64 1.0);
+    radius 0.02;
+
+}
+grain425
+{
+  type searchableCylinder;
+    point1 (2.64 2.78 0.5);
+    point2 (2.64 2.78 1.0);
+    radius 0.02;
+
+}
+grain426
+{
+  type searchableCylinder;
+    point1 (2.64 2.92 0.5);
+    point2 (2.64 2.92 1.0);
+    radius 0.02;
+
+}
+grain427
+{
+  type searchableCylinder;
+    point1 (2.64 3.06 0.5);
+    point2 (2.64 3.06 1.0);
+    radius 0.02;
+
+}
+grain428
+{
+  type searchableCylinder;
+    point1 (2.64 3.2 0.5);
+    point2 (2.64 3.2 1.0);
+    radius 0.02;
+
+}
+grain429
+{
+  type searchableCylinder;
+    point1 (2.78 0.19 0.5);
+    point2 (2.78 0.19 1.0);
+    radius 0.02;
+
+}
+grain430
+{
+  type searchableCylinder;
+    point1 (2.78 0.33 0.5);
+    point2 (2.78 0.33 1.0);
+    radius 0.02;
+
+}
+grain431
+{
+  type searchableCylinder;
+    point1 (2.78 0.47 0.5);
+    point2 (2.78 0.47 1.0);
+    radius 0.02;
+
+}
+grain432
+{
+  type searchableCylinder;
+    point1 (2.78 0.61 0.5);
+    point2 (2.78 0.61 1.0);
+    radius 0.02;
+
+}
+grain433
+{
+  type searchableCylinder;
+    point1 (2.78 0.75 0.5);
+    point2 (2.78 0.75 1.0);
+    radius 0.02;
+
+}
+grain434
+{
+  type searchableCylinder;
+    point1 (2.78 0.89 0.5);
+    point2 (2.78 0.89 1.0);
+    radius 0.02;
+
+}
+grain435
+{
+  type searchableCylinder;
+    point1 (2.78 1.03 0.5);
+    point2 (2.78 1.03 1.0);
+    radius 0.02;
+
+}
+grain436
+{
+  type searchableCylinder;
+    point1 (2.78 1.17 0.5);
+    point2 (2.78 1.17 1.0);
+    radius 0.02;
+
+}
+grain437
+{
+  type searchableCylinder;
+    point1 (2.78 1.31 0.5);
+    point2 (2.78 1.31 1.0);
+    radius 0.02;
+
+}
+grain438
+{
+  type searchableCylinder;
+    point1 (2.78 1.45 0.5);
+    point2 (2.78 1.45 1.0);
+    radius 0.02;
+
+}
+grain439
+{
+  type searchableCylinder;
+    point1 (2.78 1.59 0.5);
+    point2 (2.78 1.59 1.0);
+    radius 0.02;
+
+}
+grain440
+{
+  type searchableCylinder;
+    point1 (2.78 1.73 0.5);
+    point2 (2.78 1.73 1.0);
+    radius 0.02;
+
+}
+grain441
+{
+  type searchableCylinder;
+    point1 (2.78 1.87 0.5);
+    point2 (2.78 1.87 1.0);
+    radius 0.02;
+
+}
+grain442
+{
+  type searchableCylinder;
+    point1 (2.78 2.01 0.5);
+    point2 (2.78 2.01 1.0);
+    radius 0.02;
+
+}
+grain443
+{
+  type searchableCylinder;
+    point1 (2.78 2.15 0.5);
+    point2 (2.78 2.15 1.0);
+    radius 0.02;
+
+}
+grain444
+{
+  type searchableCylinder;
+    point1 (2.78 2.29 0.5);
+    point2 (2.78 2.29 1.0);
+    radius 0.02;
+
+}
+grain445
+{
+  type searchableCylinder;
+    point1 (2.78 2.43 0.5);
+    point2 (2.78 2.43 1.0);
+    radius 0.02;
+
+}
+grain446
+{
+  type searchableCylinder;
+    point1 (2.78 2.57 0.5);
+    point2 (2.78 2.57 1.0);
+    radius 0.02;
+
+}
+grain447
+{
+  type searchableCylinder;
+    point1 (2.78 2.71 0.5);
+    point2 (2.78 2.71 1.0);
+    radius 0.02;
+
+}
+grain448
+{
+  type searchableCylinder;
+    point1 (2.78 2.85 0.5);
+    point2 (2.78 2.85 1.0);
+    radius 0.02;
+
+}
+grain449
+{
+  type searchableCylinder;
+    point1 (2.78 2.99 0.5);
+    point2 (2.78 2.99 1.0);
+    radius 0.02;
+
+}
+grain450
+{
+  type searchableCylinder;
+    point1 (2.78 3.13 0.5);
+    point2 (2.78 3.13 1.0);
+    radius 0.02;
+
+}
+grain451
+{
+  type searchableCylinder;
+    point1 (2.92 0.12 0.5);
+    point2 (2.92 0.12 1.0);
+    radius 0.02;
+
+}
+grain452
+{
+  type searchableCylinder;
+    point1 (2.92 0.26 0.5);
+    point2 (2.92 0.26 1.0);
+    radius 0.02;
+
+}
+grain453
+{
+  type searchableCylinder;
+    point1 (2.92 0.4 0.5);
+    point2 (2.92 0.4 1.0);
+    radius 0.02;
+
+}
+grain454
+{
+  type searchableCylinder;
+    point1 (2.92 0.54 0.5);
+    point2 (2.92 0.54 1.0);
+    radius 0.02;
+
+}
+grain455
+{
+  type searchableCylinder;
+    point1 (2.92 0.68 0.5);
+    point2 (2.92 0.68 1.0);
+    radius 0.02;
+
+}
+grain456
+{
+  type searchableCylinder;
+    point1 (2.92 0.82 0.5);
+    point2 (2.92 0.82 1.0);
+    radius 0.02;
+
+}
+grain457
+{
+  type searchableCylinder;
+    point1 (2.92 0.96 0.5);
+    point2 (2.92 0.96 1.0);
+    radius 0.02;
+
+}
+grain458
+{
+  type searchableCylinder;
+    point1 (2.92 1.1 0.5);
+    point2 (2.92 1.1 1.0);
+    radius 0.02;
+
+}
+grain459
+{
+  type searchableCylinder;
+    point1 (2.92 1.24 0.5);
+    point2 (2.92 1.24 1.0);
+    radius 0.02;
+
+}
+grain460
+{
+  type searchableCylinder;
+    point1 (2.92 1.38 0.5);
+    point2 (2.92 1.38 1.0);
+    radius 0.02;
+
+}
+grain461
+{
+  type searchableCylinder;
+    point1 (2.92 1.52 0.5);
+    point2 (2.92 1.52 1.0);
+    radius 0.02;
+
+}
+grain462
+{
+  type searchableCylinder;
+    point1 (2.92 1.66 0.5);
+    point2 (2.92 1.66 1.0);
+    radius 0.02;
+
+}
+grain463
+{
+  type searchableCylinder;
+    point1 (2.92 1.8 0.5);
+    point2 (2.92 1.8 1.0);
+    radius 0.02;
+
+}
+grain464
+{
+  type searchableCylinder;
+    point1 (2.92 1.94 0.5);
+    point2 (2.92 1.94 1.0);
+    radius 0.02;
+
+}
+grain465
+{
+  type searchableCylinder;
+    point1 (2.92 2.08 0.5);
+    point2 (2.92 2.08 1.0);
+    radius 0.02;
+
+}
+grain466
+{
+  type searchableCylinder;
+    point1 (2.92 2.22 0.5);
+    point2 (2.92 2.22 1.0);
+    radius 0.02;
+
+}
+grain467
+{
+  type searchableCylinder;
+    point1 (2.92 2.36 0.5);
+    point2 (2.92 2.36 1.0);
+    radius 0.02;
+
+}
+grain468
+{
+  type searchableCylinder;
+    point1 (2.92 2.5 0.5);
+    point2 (2.92 2.5 1.0);
+    radius 0.02;
+
+}
+grain469
+{
+  type searchableCylinder;
+    point1 (2.92 2.64 0.5);
+    point2 (2.92 2.64 1.0);
+    radius 0.02;
+
+}
+grain470
+{
+  type searchableCylinder;
+    point1 (2.92 2.78 0.5);
+    point2 (2.92 2.78 1.0);
+    radius 0.02;
+
+}
+grain471
+{
+  type searchableCylinder;
+    point1 (2.92 2.92 0.5);
+    point2 (2.92 2.92 1.0);
+    radius 0.02;
+
+}
+grain472
+{
+  type searchableCylinder;
+    point1 (2.92 3.06 0.5);
+    point2 (2.92 3.06 1.0);
+    radius 0.02;
+
+}
+grain473
+{
+  type searchableCylinder;
+    point1 (2.92 3.2 0.5);
+    point2 (2.92 3.2 1.0);
+    radius 0.02;
+
+}
+grain474
+{
+  type searchableCylinder;
+    point1 (3.06 0.19 0.5);
+    point2 (3.06 0.19 1.0);
+    radius 0.02;
+
+}
+grain475
+{
+  type searchableCylinder;
+    point1 (3.06 0.33 0.5);
+    point2 (3.06 0.33 1.0);
+    radius 0.02;
+
+}
+grain476
+{
+  type searchableCylinder;
+    point1 (3.06 0.47 0.5);
+    point2 (3.06 0.47 1.0);
+    radius 0.02;
+
+}
+grain477
+{
+  type searchableCylinder;
+    point1 (3.06 0.61 0.5);
+    point2 (3.06 0.61 1.0);
+    radius 0.02;
+
+}
+grain478
+{
+  type searchableCylinder;
+    point1 (3.06 0.75 0.5);
+    point2 (3.06 0.75 1.0);
+    radius 0.02;
+
+}
+grain479
+{
+  type searchableCylinder;
+    point1 (3.06 0.89 0.5);
+    point2 (3.06 0.89 1.0);
+    radius 0.02;
+
+}
+grain480
+{
+  type searchableCylinder;
+    point1 (3.06 1.03 0.5);
+    point2 (3.06 1.03 1.0);
+    radius 0.02;
+
+}
+grain481
+{
+  type searchableCylinder;
+    point1 (3.06 1.17 0.5);
+    point2 (3.06 1.17 1.0);
+    radius 0.02;
+
+}
+grain482
+{
+  type searchableCylinder;
+    point1 (3.06 1.31 0.5);
+    point2 (3.06 1.31 1.0);
+    radius 0.02;
+
+}
+grain483
+{
+  type searchableCylinder;
+    point1 (3.06 1.45 0.5);
+    point2 (3.06 1.45 1.0);
+    radius 0.02;
+
+}
+grain484
+{
+  type searchableCylinder;
+    point1 (3.06 1.59 0.5);
+    point2 (3.06 1.59 1.0);
+    radius 0.02;
+
+}
+grain485
+{
+  type searchableCylinder;
+    point1 (3.06 1.73 0.5);
+    point2 (3.06 1.73 1.0);
+    radius 0.02;
+
+}
+grain486
+{
+  type searchableCylinder;
+    point1 (3.06 1.87 0.5);
+    point2 (3.06 1.87 1.0);
+    radius 0.02;
+
+}
+grain487
+{
+  type searchableCylinder;
+    point1 (3.06 2.01 0.5);
+    point2 (3.06 2.01 1.0);
+    radius 0.02;
+
+}
+grain488
+{
+  type searchableCylinder;
+    point1 (3.06 2.15 0.5);
+    point2 (3.06 2.15 1.0);
+    radius 0.02;
+
+}
+grain489
+{
+  type searchableCylinder;
+    point1 (3.06 2.29 0.5);
+    point2 (3.06 2.29 1.0);
+    radius 0.02;
+
+}
+grain490
+{
+  type searchableCylinder;
+    point1 (3.06 2.43 0.5);
+    point2 (3.06 2.43 1.0);
+    radius 0.02;
+
+}
+grain491
+{
+  type searchableCylinder;
+    point1 (3.06 2.57 0.5);
+    point2 (3.06 2.57 1.0);
+    radius 0.02;
+
+}
+grain492
+{
+  type searchableCylinder;
+    point1 (3.06 2.71 0.5);
+    point2 (3.06 2.71 1.0);
+    radius 0.02;
+
+}
+grain493
+{
+  type searchableCylinder;
+    point1 (3.06 2.85 0.5);
+    point2 (3.06 2.85 1.0);
+    radius 0.02;
+
+}
+grain494
+{
+  type searchableCylinder;
+    point1 (3.06 2.99 0.5);
+    point2 (3.06 2.99 1.0);
+    radius 0.02;
+
+}
+grain495
+{
+  type searchableCylinder;
+    point1 (3.06 3.13 0.5);
+    point2 (3.06 3.13 1.0);
+    radius 0.02;
+
+}
+grain496
+{
+  type searchableCylinder;
+    point1 (3.2 0.12 0.5);
+    point2 (3.2 0.12 1.0);
+    radius 0.02;
+
+}
+grain497
+{
+  type searchableCylinder;
+    point1 (3.2 0.26 0.5);
+    point2 (3.2 0.26 1.0);
+    radius 0.02;
+
+}
+grain498
+{
+  type searchableCylinder;
+    point1 (3.2 0.4 0.5);
+    point2 (3.2 0.4 1.0);
+    radius 0.02;
+
+}
+grain499
+{
+  type searchableCylinder;
+    point1 (3.2 0.54 0.5);
+    point2 (3.2 0.54 1.0);
+    radius 0.02;
+
+}
+grain500
+{
+  type searchableCylinder;
+    point1 (3.2 0.68 0.5);
+    point2 (3.2 0.68 1.0);
+    radius 0.02;
+
+}
+grain501
+{
+  type searchableCylinder;
+    point1 (3.2 0.82 0.5);
+    point2 (3.2 0.82 1.0);
+    radius 0.02;
+
+}
+grain502
+{
+  type searchableCylinder;
+    point1 (3.2 0.96 0.5);
+    point2 (3.2 0.96 1.0);
+    radius 0.02;
+
+}
+grain503
+{
+  type searchableCylinder;
+    point1 (3.2 1.1 0.5);
+    point2 (3.2 1.1 1.0);
+    radius 0.02;
+
+}
+grain504
+{
+  type searchableCylinder;
+    point1 (3.2 1.24 0.5);
+    point2 (3.2 1.24 1.0);
+    radius 0.02;
+
+}
+grain505
+{
+  type searchableCylinder;
+    point1 (3.2 1.38 0.5);
+    point2 (3.2 1.38 1.0);
+    radius 0.02;
+
+}
+grain506
+{
+  type searchableCylinder;
+    point1 (3.2 1.52 0.5);
+    point2 (3.2 1.52 1.0);
+    radius 0.02;
+
+}
+grain507
+{
+  type searchableCylinder;
+    point1 (3.2 1.66 0.5);
+    point2 (3.2 1.66 1.0);
+    radius 0.02;
+
+}
+grain508
+{
+  type searchableCylinder;
+    point1 (3.2 1.8 0.5);
+    point2 (3.2 1.8 1.0);
+    radius 0.02;
+
+}
+grain509
+{
+  type searchableCylinder;
+    point1 (3.2 1.94 0.5);
+    point2 (3.2 1.94 1.0);
+    radius 0.02;
+
+}
+grain510
+{
+  type searchableCylinder;
+    point1 (3.2 2.08 0.5);
+    point2 (3.2 2.08 1.0);
+    radius 0.02;
+
+}
+grain511
+{
+  type searchableCylinder;
+    point1 (3.2 2.22 0.5);
+    point2 (3.2 2.22 1.0);
+    radius 0.02;
+
+}
+grain512
+{
+  type searchableCylinder;
+    point1 (3.2 2.36 0.5);
+    point2 (3.2 2.36 1.0);
+    radius 0.02;
+
+}
+grain513
+{
+  type searchableCylinder;
+    point1 (3.2 2.5 0.5);
+    point2 (3.2 2.5 1.0);
+    radius 0.02;
+
+}
+grain514
+{
+  type searchableCylinder;
+    point1 (3.2 2.64 0.5);
+    point2 (3.2 2.64 1.0);
+    radius 0.02;
+
+}
+grain515
+{
+  type searchableCylinder;
+    point1 (3.2 2.78 0.5);
+    point2 (3.2 2.78 1.0);
+    radius 0.02;
+
+}
+grain516
+{
+  type searchableCylinder;
+    point1 (3.2 2.92 0.5);
+    point2 (3.2 2.92 1.0);
+    radius 0.02;
+
+}
+grain517
+{
+  type searchableCylinder;
+    point1 (3.2 3.06 0.5);
+    point2 (3.2 3.06 1.0);
+    radius 0.02;
+
+}
+grain518
+{
+  type searchableCylinder;
+    point1 (3.2 3.2 0.5);
+    point2 (3.2 3.2 1.0);
+    radius 0.02;
+
+}
+grain519
+{
+  type searchableCylinder;
+    point1 (3.44 0.14 0.5);
+    point2 (3.44 0.14 1.0);
+    radius 0.04;
+
+}
+grain520
+{
+  type searchableCylinder;
+    point1 (3.44 0.32 0.5);
+    point2 (3.44 0.32 1.0);
+    radius 0.04;
+
+}
+grain521
+{
+  type searchableCylinder;
+    point1 (3.44 0.5 0.5);
+    point2 (3.44 0.5 1.0);
+    radius 0.04;
+
+}
+grain522
+{
+  type searchableCylinder;
+    point1 (3.44 0.68 0.5);
+    point2 (3.44 0.68 1.0);
+    radius 0.04;
+
+}
+grain523
+{
+  type searchableCylinder;
+    point1 (3.44 0.86 0.5);
+    point2 (3.44 0.86 1.0);
+    radius 0.04;
+
+}
+grain524
+{
+  type searchableCylinder;
+    point1 (3.44 1.04 0.5);
+    point2 (3.44 1.04 1.0);
+    radius 0.04;
+
+}
+grain525
+{
+  type searchableCylinder;
+    point1 (3.44 1.22 0.5);
+    point2 (3.44 1.22 1.0);
+    radius 0.04;
+
+}
+grain526
+{
+  type searchableCylinder;
+    point1 (3.44 1.4 0.5);
+    point2 (3.44 1.4 1.0);
+    radius 0.04;
+
+}
+grain527
+{
+  type searchableCylinder;
+    point1 (3.44 1.58 0.5);
+    point2 (3.44 1.58 1.0);
+    radius 0.04;
+
+}
+grain528
+{
+  type searchableCylinder;
+    point1 (3.44 1.76 0.5);
+    point2 (3.44 1.76 1.0);
+    radius 0.04;
+
+}
+grain529
+{
+  type searchableCylinder;
+    point1 (3.44 1.94 0.5);
+    point2 (3.44 1.94 1.0);
+    radius 0.04;
+
+}
+grain530
+{
+  type searchableCylinder;
+    point1 (3.62 0.23 0.5);
+    point2 (3.62 0.23 1.0);
+    radius 0.04;
+
+}
+grain531
+{
+  type searchableCylinder;
+    point1 (3.62 0.41 0.5);
+    point2 (3.62 0.41 1.0);
+    radius 0.04;
+
+}
+grain532
+{
+  type searchableCylinder;
+    point1 (3.62 0.59 0.5);
+    point2 (3.62 0.59 1.0);
+    radius 0.04;
+
+}
+grain533
+{
+  type searchableCylinder;
+    point1 (3.62 0.77 0.5);
+    point2 (3.62 0.77 1.0);
+    radius 0.04;
+
+}
+grain534
+{
+  type searchableCylinder;
+    point1 (3.62 0.95 0.5);
+    point2 (3.62 0.95 1.0);
+    radius 0.04;
+
+}
+grain535
+{
+  type searchableCylinder;
+    point1 (3.62 1.13 0.5);
+    point2 (3.62 1.13 1.0);
+    radius 0.04;
+
+}
+grain536
+{
+  type searchableCylinder;
+    point1 (3.62 1.31 0.5);
+    point2 (3.62 1.31 1.0);
+    radius 0.04;
+
+}
+grain537
+{
+  type searchableCylinder;
+    point1 (3.62 1.49 0.5);
+    point2 (3.62 1.49 1.0);
+    radius 0.04;
+
+}
+grain538
+{
+  type searchableCylinder;
+    point1 (3.62 1.67 0.5);
+    point2 (3.62 1.67 1.0);
+    radius 0.04;
+
+}
+grain539
+{
+  type searchableCylinder;
+    point1 (3.62 1.85 0.5);
+    point2 (3.62 1.85 1.0);
+    radius 0.04;
+
+}
+grain540
+{
+  type searchableCylinder;
+    point1 (3.8 0.14 0.5);
+    point2 (3.8 0.14 1.0);
+    radius 0.04;
+
+}
+grain541
+{
+  type searchableCylinder;
+    point1 (3.8 0.32 0.5);
+    point2 (3.8 0.32 1.0);
+    radius 0.04;
+
+}
+grain542
+{
+  type searchableCylinder;
+    point1 (3.8 0.5 0.5);
+    point2 (3.8 0.5 1.0);
+    radius 0.04;
+
+}
+grain543
+{
+  type searchableCylinder;
+    point1 (3.8 0.68 0.5);
+    point2 (3.8 0.68 1.0);
+    radius 0.04;
+
+}
+grain544
+{
+  type searchableCylinder;
+    point1 (3.8 0.86 0.5);
+    point2 (3.8 0.86 1.0);
+    radius 0.04;
+
+}
+grain545
+{
+  type searchableCylinder;
+    point1 (3.8 1.04 0.5);
+    point2 (3.8 1.04 1.0);
+    radius 0.04;
+
+}
+grain546
+{
+  type searchableCylinder;
+    point1 (3.8 1.22 0.5);
+    point2 (3.8 1.22 1.0);
+    radius 0.04;
+
+}
+grain547
+{
+  type searchableCylinder;
+    point1 (3.8 1.4 0.5);
+    point2 (3.8 1.4 1.0);
+    radius 0.04;
+
+}
+grain548
+{
+  type searchableCylinder;
+    point1 (3.8 1.58 0.5);
+    point2 (3.8 1.58 1.0);
+    radius 0.04;
+
+}
+grain549
+{
+  type searchableCylinder;
+    point1 (3.8 1.76 0.5);
+    point2 (3.8 1.76 1.0);
+    radius 0.04;
+
+}
+grain550
+{
+  type searchableCylinder;
+    point1 (3.8 1.94 0.5);
+    point2 (3.8 1.94 1.0);
+    radius 0.04;
+
+}
+grain551
+{
+  type searchableCylinder;
+    point1 (3.98 0.23 0.5);
+    point2 (3.98 0.23 1.0);
+    radius 0.04;
+
+}
+grain552
+{
+  type searchableCylinder;
+    point1 (3.98 0.41 0.5);
+    point2 (3.98 0.41 1.0);
+    radius 0.04;
+
+}
+grain553
+{
+  type searchableCylinder;
+    point1 (3.98 0.59 0.5);
+    point2 (3.98 0.59 1.0);
+    radius 0.04;
+
+}
+grain554
+{
+  type searchableCylinder;
+    point1 (3.98 0.77 0.5);
+    point2 (3.98 0.77 1.0);
+    radius 0.04;
+
+}
+grain555
+{
+  type searchableCylinder;
+    point1 (3.98 0.95 0.5);
+    point2 (3.98 0.95 1.0);
+    radius 0.04;
+
+}
+grain556
+{
+  type searchableCylinder;
+    point1 (3.98 1.13 0.5);
+    point2 (3.98 1.13 1.0);
+    radius 0.04;
+
+}
+grain557
+{
+  type searchableCylinder;
+    point1 (3.98 1.31 0.5);
+    point2 (3.98 1.31 1.0);
+    radius 0.04;
+
+}
+grain558
+{
+  type searchableCylinder;
+    point1 (3.98 1.49 0.5);
+    point2 (3.98 1.49 1.0);
+    radius 0.04;
+
+}
+grain559
+{
+  type searchableCylinder;
+    point1 (3.98 1.67 0.5);
+    point2 (3.98 1.67 1.0);
+    radius 0.04;
+
+}
+grain560
+{
+  type searchableCylinder;
+    point1 (3.98 1.85 0.5);
+    point2 (3.98 1.85 1.0);
+    radius 0.04;
+
+}
+grain561
+{
+  type searchableCylinder;
+    point1 (4.16 0.14 0.5);
+    point2 (4.16 0.14 1.0);
+    radius 0.04;
+
+}
+grain562
+{
+  type searchableCylinder;
+    point1 (4.16 0.32 0.5);
+    point2 (4.16 0.32 1.0);
+    radius 0.04;
+
+}
+grain563
+{
+  type searchableCylinder;
+    point1 (4.16 0.5 0.5);
+    point2 (4.16 0.5 1.0);
+    radius 0.04;
+
+}
+grain564
+{
+  type searchableCylinder;
+    point1 (4.16 0.68 0.5);
+    point2 (4.16 0.68 1.0);
+    radius 0.04;
+
+}
+grain565
+{
+  type searchableCylinder;
+    point1 (4.16 0.86 0.5);
+    point2 (4.16 0.86 1.0);
+    radius 0.04;
+
+}
+grain566
+{
+  type searchableCylinder;
+    point1 (4.16 1.04 0.5);
+    point2 (4.16 1.04 1.0);
+    radius 0.04;
+
+}
+grain567
+{
+  type searchableCylinder;
+    point1 (4.16 1.22 0.5);
+    point2 (4.16 1.22 1.0);
+    radius 0.04;
+
+}
+grain568
+{
+  type searchableCylinder;
+    point1 (4.16 1.4 0.5);
+    point2 (4.16 1.4 1.0);
+    radius 0.04;
+
+}
+grain569
+{
+  type searchableCylinder;
+    point1 (4.16 1.58 0.5);
+    point2 (4.16 1.58 1.0);
+    radius 0.04;
+
+}
+grain570
+{
+  type searchableCylinder;
+    point1 (4.16 1.76 0.5);
+    point2 (4.16 1.76 1.0);
+    radius 0.04;
+
+}
+grain571
+{
+  type searchableCylinder;
+    point1 (4.16 1.94 0.5);
+    point2 (4.16 1.94 1.0);
+    radius 0.04;
+
+}
+grain572
+{
+  type searchableCylinder;
+    point1 (4.34 0.23 0.5);
+    point2 (4.34 0.23 1.0);
+    radius 0.04;
+
+}
+grain573
+{
+  type searchableCylinder;
+    point1 (4.34 0.41 0.5);
+    point2 (4.34 0.41 1.0);
+    radius 0.04;
+
+}
+grain574
+{
+  type searchableCylinder;
+    point1 (4.34 0.59 0.5);
+    point2 (4.34 0.59 1.0);
+    radius 0.04;
+
+}
+grain575
+{
+  type searchableCylinder;
+    point1 (4.34 0.77 0.5);
+    point2 (4.34 0.77 1.0);
+    radius 0.04;
+
+}
+grain576
+{
+  type searchableCylinder;
+    point1 (4.34 0.95 0.5);
+    point2 (4.34 0.95 1.0);
+    radius 0.04;
+
+}
+grain577
+{
+  type searchableCylinder;
+    point1 (4.34 1.13 0.5);
+    point2 (4.34 1.13 1.0);
+    radius 0.04;
+
+}
+grain578
+{
+  type searchableCylinder;
+    point1 (4.34 1.31 0.5);
+    point2 (4.34 1.31 1.0);
+    radius 0.04;
+
+}
+grain579
+{
+  type searchableCylinder;
+    point1 (4.34 1.49 0.5);
+    point2 (4.34 1.49 1.0);
+    radius 0.04;
+
+}
+grain580
+{
+  type searchableCylinder;
+    point1 (4.34 1.67 0.5);
+    point2 (4.34 1.67 1.0);
+    radius 0.04;
+
+}
+grain581
+{
+  type searchableCylinder;
+    point1 (4.34 1.85 0.5);
+    point2 (4.34 1.85 1.0);
+    radius 0.04;
+
+}
+grain582
+{
+  type searchableCylinder;
+    point1 (4.52 0.14 0.5);
+    point2 (4.52 0.14 1.0);
+    radius 0.04;
+
+}
+grain583
+{
+  type searchableCylinder;
+    point1 (4.52 0.32 0.5);
+    point2 (4.52 0.32 1.0);
+    radius 0.04;
+
+}
+grain584
+{
+  type searchableCylinder;
+    point1 (4.52 0.5 0.5);
+    point2 (4.52 0.5 1.0);
+    radius 0.04;
+
+}
+grain585
+{
+  type searchableCylinder;
+    point1 (4.52 0.68 0.5);
+    point2 (4.52 0.68 1.0);
+    radius 0.04;
+
+}
+grain586
+{
+  type searchableCylinder;
+    point1 (4.52 0.86 0.5);
+    point2 (4.52 0.86 1.0);
+    radius 0.04;
+
+}
+grain587
+{
+  type searchableCylinder;
+    point1 (4.52 1.04 0.5);
+    point2 (4.52 1.04 1.0);
+    radius 0.04;
+
+}
+grain588
+{
+  type searchableCylinder;
+    point1 (4.52 1.22 0.5);
+    point2 (4.52 1.22 1.0);
+    radius 0.04;
+
+}
+grain589
+{
+  type searchableCylinder;
+    point1 (4.52 1.4 0.5);
+    point2 (4.52 1.4 1.0);
+    radius 0.04;
+
+}
+grain590
+{
+  type searchableCylinder;
+    point1 (4.52 1.58 0.5);
+    point2 (4.52 1.58 1.0);
+    radius 0.04;
+
+}
+grain591
+{
+  type searchableCylinder;
+    point1 (4.52 1.76 0.5);
+    point2 (4.52 1.76 1.0);
+    radius 0.04;
+
+}
+grain592
+{
+  type searchableCylinder;
+    point1 (4.52 1.94 0.5);
+    point2 (4.52 1.94 1.0);
+    radius 0.04;
+
+}
+grain593
+{
+  type searchableCylinder;
+    point1 (4.7 0.23 0.5);
+    point2 (4.7 0.23 1.0);
+    radius 0.04;
+
+}
+grain594
+{
+  type searchableCylinder;
+    point1 (4.7 0.41 0.5);
+    point2 (4.7 0.41 1.0);
+    radius 0.04;
+
+}
+grain595
+{
+  type searchableCylinder;
+    point1 (4.7 0.59 0.5);
+    point2 (4.7 0.59 1.0);
+    radius 0.04;
+
+}
+grain596
+{
+  type searchableCylinder;
+    point1 (4.7 0.77 0.5);
+    point2 (4.7 0.77 1.0);
+    radius 0.04;
+
+}
+grain597
+{
+  type searchableCylinder;
+    point1 (4.7 0.95 0.5);
+    point2 (4.7 0.95 1.0);
+    radius 0.04;
+
+}
+grain598
+{
+  type searchableCylinder;
+    point1 (4.7 1.13 0.5);
+    point2 (4.7 1.13 1.0);
+    radius 0.04;
+
+}
+grain599
+{
+  type searchableCylinder;
+    point1 (4.7 1.31 0.5);
+    point2 (4.7 1.31 1.0);
+    radius 0.04;
+
+}
+grain600
+{
+  type searchableCylinder;
+    point1 (4.7 1.49 0.5);
+    point2 (4.7 1.49 1.0);
+    radius 0.04;
+
+}
+grain601
+{
+  type searchableCylinder;
+    point1 (4.7 1.67 0.5);
+    point2 (4.7 1.67 1.0);
+    radius 0.04;
+
+}
+grain602
+{
+  type searchableCylinder;
+    point1 (4.7 1.85 0.5);
+    point2 (4.7 1.85 1.0);
+    radius 0.04;
+
+}
+grain603
+{
+  type searchableCylinder;
+    point1 (4.88 0.14 0.5);
+    point2 (4.88 0.14 1.0);
+    radius 0.04;
+
+}
+grain604
+{
+  type searchableCylinder;
+    point1 (4.88 0.32 0.5);
+    point2 (4.88 0.32 1.0);
+    radius 0.04;
+
+}
+grain605
+{
+  type searchableCylinder;
+    point1 (4.88 0.5 0.5);
+    point2 (4.88 0.5 1.0);
+    radius 0.04;
+
+}
+grain606
+{
+  type searchableCylinder;
+    point1 (4.88 0.68 0.5);
+    point2 (4.88 0.68 1.0);
+    radius 0.04;
+
+}
+grain607
+{
+  type searchableCylinder;
+    point1 (4.88 0.86 0.5);
+    point2 (4.88 0.86 1.0);
+    radius 0.04;
+
+}
+grain608
+{
+  type searchableCylinder;
+    point1 (4.88 1.04 0.5);
+    point2 (4.88 1.04 1.0);
+    radius 0.04;
+
+}
+grain609
+{
+  type searchableCylinder;
+    point1 (4.88 1.22 0.5);
+    point2 (4.88 1.22 1.0);
+    radius 0.04;
+
+}
+grain610
+{
+  type searchableCylinder;
+    point1 (4.88 1.4 0.5);
+    point2 (4.88 1.4 1.0);
+    radius 0.04;
+
+}
+grain611
+{
+  type searchableCylinder;
+    point1 (4.88 1.58 0.5);
+    point2 (4.88 1.58 1.0);
+    radius 0.04;
+
+}
+grain612
+{
+  type searchableCylinder;
+    point1 (4.88 1.76 0.5);
+    point2 (4.88 1.76 1.0);
+    radius 0.04;
+
+}
+grain613
+{
+  type searchableCylinder;
+    point1 (4.88 1.94 0.5);
+    point2 (4.88 1.94 1.0);
+    radius 0.04;
+
+}
+grain614
+{
+  type searchableCylinder;
+    point1 (5.06 0.23 0.5);
+    point2 (5.06 0.23 1.0);
+    radius 0.04;
+
+}
+grain615
+{
+  type searchableCylinder;
+    point1 (5.06 0.41 0.5);
+    point2 (5.06 0.41 1.0);
+    radius 0.04;
+
+}
+grain616
+{
+  type searchableCylinder;
+    point1 (5.06 0.59 0.5);
+    point2 (5.06 0.59 1.0);
+    radius 0.04;
+
+}
+grain617
+{
+  type searchableCylinder;
+    point1 (5.06 0.77 0.5);
+    point2 (5.06 0.77 1.0);
+    radius 0.04;
+
+}
+grain618
+{
+  type searchableCylinder;
+    point1 (5.06 0.95 0.5);
+    point2 (5.06 0.95 1.0);
+    radius 0.04;
+
+}
+grain619
+{
+  type searchableCylinder;
+    point1 (5.06 1.13 0.5);
+    point2 (5.06 1.13 1.0);
+    radius 0.04;
+
+}
+grain620
+{
+  type searchableCylinder;
+    point1 (5.06 1.31 0.5);
+    point2 (5.06 1.31 1.0);
+    radius 0.04;
+
+}
+grain621
+{
+  type searchableCylinder;
+    point1 (5.06 1.49 0.5);
+    point2 (5.06 1.49 1.0);
+    radius 0.04;
+
+}
+grain622
+{
+  type searchableCylinder;
+    point1 (5.06 1.67 0.5);
+    point2 (5.06 1.67 1.0);
+    radius 0.04;
+
+}
+grain623
+{
+  type searchableCylinder;
+    point1 (5.06 1.85 0.5);
+    point2 (5.06 1.85 1.0);
+    radius 0.04;
+
+}
+grain624
+{
+  type searchableCylinder;
+    point1 (5.24 0.14 0.5);
+    point2 (5.24 0.14 1.0);
+    radius 0.04;
+
+}
+grain625
+{
+  type searchableCylinder;
+    point1 (5.24 0.32 0.5);
+    point2 (5.24 0.32 1.0);
+    radius 0.04;
+
+}
+grain626
+{
+  type searchableCylinder;
+    point1 (5.24 0.5 0.5);
+    point2 (5.24 0.5 1.0);
+    radius 0.04;
+
+}
+grain627
+{
+  type searchableCylinder;
+    point1 (5.24 0.68 0.5);
+    point2 (5.24 0.68 1.0);
+    radius 0.04;
+
+}
+grain628
+{
+  type searchableCylinder;
+    point1 (5.24 0.86 0.5);
+    point2 (5.24 0.86 1.0);
+    radius 0.04;
+
+}
+grain629
+{
+  type searchableCylinder;
+    point1 (5.24 1.04 0.5);
+    point2 (5.24 1.04 1.0);
+    radius 0.04;
+
+}
+grain630
+{
+  type searchableCylinder;
+    point1 (5.24 1.22 0.5);
+    point2 (5.24 1.22 1.0);
+    radius 0.04;
+
+}
+grain631
+{
+  type searchableCylinder;
+    point1 (5.24 1.4 0.5);
+    point2 (5.24 1.4 1.0);
+    radius 0.04;
+
+}
+grain632
+{
+  type searchableCylinder;
+    point1 (5.24 1.58 0.5);
+    point2 (5.24 1.58 1.0);
+    radius 0.04;
+
+}
+grain633
+{
+  type searchableCylinder;
+    point1 (5.24 1.76 0.5);
+    point2 (5.24 1.76 1.0);
+    radius 0.04;
+
+}
+grain634
+{
+  type searchableCylinder;
+    point1 (5.24 1.94 0.5);
+    point2 (5.24 1.94 1.0);
+    radius 0.04;
+
+}
+
+};
+
+
+
+// Settings for the castellatedMesh generation.
+castellatedMeshControls
+{
+
+    // Refinement parameters
+    // ~~~~~~~~~~~~~~~~~~~~~
+
+    // If local number of cells is >= maxLocalCells on any processor
+    // switches from from refinement followed by balancing
+    // (current method) to (weighted) balancing before refinement.
+    maxLocalCells 100000;
+
+    // Overall cell limit (approximately). Refinement will stop immediately
+    // upon reaching this number so a refinement level might not complete.
+    // Note that this is the number of cells before removing the part which
+    // is not 'visible' from the keepPoint. The final number of cells might
+    // actually be a lot less.
+    maxGlobalCells 2000000;
+
+    // The surface refinement loop might spend lots of iterations refining just a
+    // few cells. This setting will cause refinement to stop if <= minimumRefine
+    // are selected for refinement. Note: it will at least do one iteration
+    // (unless the number of cells to refine is 0)
+    minRefinementCells 100;
+
+    // Number of buffer layers between different levels.
+    // 1 means normal 2:1 refinement restriction, larger means slower
+    // refinement.
+    nCellsBetweenLevels 5;
+
+
+
+    // Explicit feature edge refinement
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    // Specifies a level for any cell intersected by its edges.
+    // This is a featureEdgeMesh, read from constant/triSurface for now.
+     features
+     (
+
+     );
+
+
+
+    // Surface based refinement
+    // ~~~~~~~~~~~~~~~~~~~~~~~~
+
+    // Specifies two levels for every surface. The first is the minimum level,
+    // every cell intersecting a surface gets refined up to the minimum level.
+    // The second level is the maximum level. Cells that 'see' multiple
+    // intersections where the intersections make an
+    // angle > resolveFeatureAngle get refined up to the maximum level.
+
+     refinementSurfaces
+     {
+      grain1
+{
+level (2 2);
+}
+grain2
+{
+level (2 2);
+}
+grain3
+{
+level (2 2);
+}
+grain4
+{
+level (2 2);
+}
+grain5
+{
+level (2 2);
+}
+grain6
+{
+level (2 2);
+}
+grain7
+{
+level (2 2);
+}
+grain8
+{
+level (2 2);
+}
+grain9
+{
+level (2 2);
+}
+grain10
+{
+level (2 2);
+}
+grain11
+{
+level (2 2);
+}
+grain12
+{
+level (2 2);
+}
+grain13
+{
+level (2 2);
+}
+grain14
+{
+level (2 2);
+}
+grain15
+{
+level (2 2);
+}
+grain16
+{
+level (2 2);
+}
+grain17
+{
+level (2 2);
+}
+grain18
+{
+level (2 2);
+}
+grain19
+{
+level (2 2);
+}
+grain20
+{
+level (2 2);
+}
+grain21
+{
+level (2 2);
+}
+grain22
+{
+level (2 2);
+}
+grain23
+{
+level (2 2);
+}
+grain24
+{
+level (2 2);
+}
+grain25
+{
+level (2 2);
+}
+grain26
+{
+level (2 2);
+}
+grain27
+{
+level (2 2);
+}
+grain28
+{
+level (2 2);
+}
+grain29
+{
+level (2 2);
+}
+grain30
+{
+level (2 2);
+}
+grain31
+{
+level (2 2);
+}
+grain32
+{
+level (2 2);
+}
+grain33
+{
+level (2 2);
+}
+grain34
+{
+level (2 2);
+}
+grain35
+{
+level (2 2);
+}
+grain36
+{
+level (2 2);
+}
+grain37
+{
+level (2 2);
+}
+grain38
+{
+level (2 2);
+}
+grain39
+{
+level (2 2);
+}
+grain40
+{
+level (2 2);
+}
+grain41
+{
+level (2 2);
+}
+grain42
+{
+level (2 2);
+}
+grain43
+{
+level (2 2);
+}
+grain44
+{
+level (2 2);
+}
+grain45
+{
+level (2 2);
+}
+grain46
+{
+level (2 2);
+}
+grain47
+{
+level (2 2);
+}
+grain48
+{
+level (2 2);
+}
+grain49
+{
+level (2 2);
+}
+grain50
+{
+level (2 2);
+}
+grain51
+{
+level (2 2);
+}
+grain52
+{
+level (2 2);
+}
+grain53
+{
+level (2 2);
+}
+grain54
+{
+level (2 2);
+}
+grain55
+{
+level (2 2);
+}
+grain56
+{
+level (2 2);
+}
+grain57
+{
+level (2 2);
+}
+grain58
+{
+level (2 2);
+}
+grain59
+{
+level (2 2);
+}
+grain60
+{
+level (2 2);
+}
+grain61
+{
+level (2 2);
+}
+grain62
+{
+level (2 2);
+}
+grain63
+{
+level (2 2);
+}
+grain64
+{
+level (2 2);
+}
+grain65
+{
+level (2 2);
+}
+grain66
+{
+level (2 2);
+}
+grain67
+{
+level (2 2);
+}
+grain68
+{
+level (2 2);
+}
+grain69
+{
+level (2 2);
+}
+grain70
+{
+level (2 2);
+}
+grain71
+{
+level (2 2);
+}
+grain72
+{
+level (2 2);
+}
+grain73
+{
+level (2 2);
+}
+grain74
+{
+level (2 2);
+}
+grain75
+{
+level (2 2);
+}
+grain76
+{
+level (2 2);
+}
+grain77
+{
+level (2 2);
+}
+grain78
+{
+level (2 2);
+}
+grain79
+{
+level (2 2);
+}
+grain80
+{
+level (2 2);
+}
+grain81
+{
+level (2 2);
+}
+grain82
+{
+level (2 2);
+}
+grain83
+{
+level (2 2);
+}
+grain84
+{
+level (2 2);
+}
+grain85
+{
+level (2 2);
+}
+grain86
+{
+level (2 2);
+}
+grain87
+{
+level (2 2);
+}
+grain88
+{
+level (2 2);
+}
+grain89
+{
+level (2 2);
+}
+grain90
+{
+level (2 2);
+}
+grain91
+{
+level (2 2);
+}
+grain92
+{
+level (2 2);
+}
+grain93
+{
+level (2 2);
+}
+grain94
+{
+level (2 2);
+}
+grain95
+{
+level (2 2);
+}
+grain96
+{
+level (2 2);
+}
+grain97
+{
+level (2 2);
+}
+grain98
+{
+level (2 2);
+}
+grain99
+{
+level (2 2);
+}
+grain100
+{
+level (2 2);
+}
+grain101
+{
+level (2 2);
+}
+grain102
+{
+level (2 2);
+}
+grain103
+{
+level (2 2);
+}
+grain104
+{
+level (2 2);
+}
+grain105
+{
+level (2 2);
+}
+grain106
+{
+level (2 2);
+}
+grain107
+{
+level (2 2);
+}
+grain108
+{
+level (2 2);
+}
+grain109
+{
+level (2 2);
+}
+grain110
+{
+level (2 2);
+}
+grain111
+{
+level (2 2);
+}
+grain112
+{
+level (2 2);
+}
+grain113
+{
+level (2 2);
+}
+grain114
+{
+level (2 2);
+}
+grain115
+{
+level (2 2);
+}
+grain116
+{
+level (2 2);
+}
+grain117
+{
+level (2 2);
+}
+grain118
+{
+level (2 2);
+}
+grain119
+{
+level (2 2);
+}
+grain120
+{
+level (2 2);
+}
+grain121
+{
+level (2 2);
+}
+grain122
+{
+level (2 2);
+}
+grain123
+{
+level (2 2);
+}
+grain124
+{
+level (2 2);
+}
+grain125
+{
+level (2 2);
+}
+grain126
+{
+level (2 2);
+}
+grain127
+{
+level (2 2);
+}
+grain128
+{
+level (2 2);
+}
+grain129
+{
+level (2 2);
+}
+grain130
+{
+level (2 2);
+}
+grain131
+{
+level (2 2);
+}
+grain132
+{
+level (2 2);
+}
+grain133
+{
+level (2 2);
+}
+grain134
+{
+level (2 2);
+}
+grain135
+{
+level (2 2);
+}
+grain136
+{
+level (2 2);
+}
+grain137
+{
+level (2 2);
+}
+grain138
+{
+level (2 2);
+}
+grain139
+{
+level (2 2);
+}
+grain140
+{
+level (2 2);
+}
+grain141
+{
+level (2 2);
+}
+grain142
+{
+level (2 2);
+}
+grain143
+{
+level (2 2);
+}
+grain144
+{
+level (2 2);
+}
+grain145
+{
+level (2 2);
+}
+grain146
+{
+level (2 2);
+}
+grain147
+{
+level (2 2);
+}
+grain148
+{
+level (2 2);
+}
+grain149
+{
+level (2 2);
+}
+grain150
+{
+level (2 2);
+}
+grain151
+{
+level (2 2);
+}
+grain152
+{
+level (2 2);
+}
+grain153
+{
+level (2 2);
+}
+grain154
+{
+level (2 2);
+}
+grain155
+{
+level (2 2);
+}
+grain156
+{
+level (2 2);
+}
+grain157
+{
+level (2 2);
+}
+grain158
+{
+level (2 2);
+}
+grain159
+{
+level (2 2);
+}
+grain160
+{
+level (2 2);
+}
+grain161
+{
+level (2 2);
+}
+grain162
+{
+level (2 2);
+}
+grain163
+{
+level (2 2);
+}
+grain164
+{
+level (2 2);
+}
+grain165
+{
+level (2 2);
+}
+grain166
+{
+level (2 2);
+}
+grain167
+{
+level (2 2);
+}
+grain168
+{
+level (2 2);
+}
+grain169
+{
+level (2 2);
+}
+grain170
+{
+level (2 2);
+}
+grain171
+{
+level (2 2);
+}
+grain172
+{
+level (2 2);
+}
+grain173
+{
+level (2 2);
+}
+grain174
+{
+level (2 2);
+}
+grain175
+{
+level (2 2);
+}
+grain176
+{
+level (2 2);
+}
+grain177
+{
+level (2 2);
+}
+grain178
+{
+level (2 2);
+}
+grain179
+{
+level (2 2);
+}
+grain180
+{
+level (2 2);
+}
+grain181
+{
+level (2 2);
+}
+grain182
+{
+level (2 2);
+}
+grain183
+{
+level (2 2);
+}
+grain184
+{
+level (2 2);
+}
+grain185
+{
+level (2 2);
+}
+grain186
+{
+level (2 2);
+}
+grain187
+{
+level (2 2);
+}
+grain188
+{
+level (2 2);
+}
+grain189
+{
+level (2 2);
+}
+grain190
+{
+level (2 2);
+}
+grain191
+{
+level (2 2);
+}
+grain192
+{
+level (2 2);
+}
+grain193
+{
+level (2 2);
+}
+grain194
+{
+level (2 2);
+}
+grain195
+{
+level (2 2);
+}
+grain196
+{
+level (2 2);
+}
+grain197
+{
+level (2 2);
+}
+grain198
+{
+level (2 2);
+}
+grain199
+{
+level (2 2);
+}
+grain200
+{
+level (2 2);
+}
+grain201
+{
+level (2 2);
+}
+grain202
+{
+level (2 2);
+}
+grain203
+{
+level (2 2);
+}
+grain204
+{
+level (2 2);
+}
+grain205
+{
+level (2 2);
+}
+grain206
+{
+level (2 2);
+}
+grain207
+{
+level (2 2);
+}
+grain208
+{
+level (2 2);
+}
+grain209
+{
+level (2 2);
+}
+grain210
+{
+level (2 2);
+}
+grain211
+{
+level (2 2);
+}
+grain212
+{
+level (2 2);
+}
+grain213
+{
+level (2 2);
+}
+grain214
+{
+level (2 2);
+}
+grain215
+{
+level (2 2);
+}
+grain216
+{
+level (2 2);
+}
+grain217
+{
+level (2 2);
+}
+grain218
+{
+level (2 2);
+}
+grain219
+{
+level (2 2);
+}
+grain220
+{
+level (2 2);
+}
+grain221
+{
+level (2 2);
+}
+grain222
+{
+level (2 2);
+}
+grain223
+{
+level (2 2);
+}
+grain224
+{
+level (2 2);
+}
+grain225
+{
+level (2 2);
+}
+grain226
+{
+level (2 2);
+}
+grain227
+{
+level (2 2);
+}
+grain228
+{
+level (2 2);
+}
+grain229
+{
+level (2 2);
+}
+grain230
+{
+level (2 2);
+}
+grain231
+{
+level (2 2);
+}
+grain232
+{
+level (2 2);
+}
+grain233
+{
+level (2 2);
+}
+grain234
+{
+level (2 2);
+}
+grain235
+{
+level (2 2);
+}
+grain236
+{
+level (2 2);
+}
+grain237
+{
+level (2 2);
+}
+grain238
+{
+level (2 2);
+}
+grain239
+{
+level (2 2);
+}
+grain240
+{
+level (2 2);
+}
+grain241
+{
+level (2 2);
+}
+grain242
+{
+level (2 2);
+}
+grain243
+{
+level (2 2);
+}
+grain244
+{
+level (2 2);
+}
+grain245
+{
+level (2 2);
+}
+grain246
+{
+level (2 2);
+}
+grain247
+{
+level (2 2);
+}
+grain248
+{
+level (2 2);
+}
+grain249
+{
+level (2 2);
+}
+grain250
+{
+level (2 2);
+}
+grain251
+{
+level (2 2);
+}
+grain252
+{
+level (2 2);
+}
+grain253
+{
+level (2 2);
+}
+grain254
+{
+level (2 2);
+}
+grain255
+{
+level (2 2);
+}
+grain256
+{
+level (2 2);
+}
+grain257
+{
+level (2 2);
+}
+grain258
+{
+level (2 2);
+}
+grain259
+{
+level (2 2);
+}
+grain260
+{
+level (2 2);
+}
+grain261
+{
+level (2 2);
+}
+grain262
+{
+level (2 2);
+}
+grain263
+{
+level (2 2);
+}
+grain264
+{
+level (2 2);
+}
+grain265
+{
+level (2 2);
+}
+grain266
+{
+level (2 2);
+}
+grain267
+{
+level (2 2);
+}
+grain268
+{
+level (2 2);
+}
+grain269
+{
+level (2 2);
+}
+grain270
+{
+level (2 2);
+}
+grain271
+{
+level (2 2);
+}
+grain272
+{
+level (2 2);
+}
+grain273
+{
+level (2 2);
+}
+grain274
+{
+level (2 2);
+}
+grain275
+{
+level (2 2);
+}
+grain276
+{
+level (2 2);
+}
+grain277
+{
+level (2 2);
+}
+grain278
+{
+level (2 2);
+}
+grain279
+{
+level (2 2);
+}
+grain280
+{
+level (2 2);
+}
+grain281
+{
+level (2 2);
+}
+grain282
+{
+level (2 2);
+}
+grain283
+{
+level (2 2);
+}
+grain284
+{
+level (2 2);
+}
+grain285
+{
+level (2 2);
+}
+grain286
+{
+level (2 2);
+}
+grain287
+{
+level (2 2);
+}
+grain288
+{
+level (2 2);
+}
+grain289
+{
+level (2 2);
+}
+grain290
+{
+level (2 2);
+}
+grain291
+{
+level (2 2);
+}
+grain292
+{
+level (2 2);
+}
+grain293
+{
+level (2 2);
+}
+grain294
+{
+level (2 2);
+}
+grain295
+{
+level (2 2);
+}
+grain296
+{
+level (2 2);
+}
+grain297
+{
+level (2 2);
+}
+grain298
+{
+level (2 2);
+}
+grain299
+{
+level (2 2);
+}
+grain300
+{
+level (2 2);
+}
+grain301
+{
+level (2 2);
+}
+grain302
+{
+level (2 2);
+}
+grain303
+{
+level (2 2);
+}
+grain304
+{
+level (2 2);
+}
+grain305
+{
+level (2 2);
+}
+grain306
+{
+level (2 2);
+}
+grain307
+{
+level (2 2);
+}
+grain308
+{
+level (2 2);
+}
+grain309
+{
+level (2 2);
+}
+grain310
+{
+level (2 2);
+}
+grain311
+{
+level (2 2);
+}
+grain312
+{
+level (2 2);
+}
+grain313
+{
+level (2 2);
+}
+grain314
+{
+level (2 2);
+}
+grain315
+{
+level (2 2);
+}
+grain316
+{
+level (2 2);
+}
+grain317
+{
+level (2 2);
+}
+grain318
+{
+level (2 2);
+}
+grain319
+{
+level (2 2);
+}
+grain320
+{
+level (2 2);
+}
+grain321
+{
+level (2 2);
+}
+grain322
+{
+level (2 2);
+}
+grain323
+{
+level (2 2);
+}
+grain324
+{
+level (2 2);
+}
+grain325
+{
+level (2 2);
+}
+grain326
+{
+level (2 2);
+}
+grain327
+{
+level (2 2);
+}
+grain328
+{
+level (2 2);
+}
+grain329
+{
+level (2 2);
+}
+grain330
+{
+level (2 2);
+}
+grain331
+{
+level (2 2);
+}
+grain332
+{
+level (2 2);
+}
+grain333
+{
+level (2 2);
+}
+grain334
+{
+level (2 2);
+}
+grain335
+{
+level (2 2);
+}
+grain336
+{
+level (2 2);
+}
+grain337
+{
+level (2 2);
+}
+grain338
+{
+level (2 2);
+}
+grain339
+{
+level (2 2);
+}
+grain340
+{
+level (2 2);
+}
+grain341
+{
+level (2 2);
+}
+grain342
+{
+level (2 2);
+}
+grain343
+{
+level (2 2);
+}
+grain344
+{
+level (2 2);
+}
+grain345
+{
+level (2 2);
+}
+grain346
+{
+level (2 2);
+}
+grain347
+{
+level (2 2);
+}
+grain348
+{
+level (2 2);
+}
+grain349
+{
+level (2 2);
+}
+grain350
+{
+level (2 2);
+}
+grain351
+{
+level (2 2);
+}
+grain352
+{
+level (2 2);
+}
+grain353
+{
+level (2 2);
+}
+grain354
+{
+level (2 2);
+}
+grain355
+{
+level (2 2);
+}
+grain356
+{
+level (2 2);
+}
+grain357
+{
+level (2 2);
+}
+grain358
+{
+level (2 2);
+}
+grain359
+{
+level (2 2);
+}
+grain360
+{
+level (2 2);
+}
+grain361
+{
+level (2 2);
+}
+grain362
+{
+level (2 2);
+}
+grain363
+{
+level (2 2);
+}
+grain364
+{
+level (2 2);
+}
+grain365
+{
+level (2 2);
+}
+grain366
+{
+level (2 2);
+}
+grain367
+{
+level (2 2);
+}
+grain368
+{
+level (2 2);
+}
+grain369
+{
+level (2 2);
+}
+grain370
+{
+level (2 2);
+}
+grain371
+{
+level (2 2);
+}
+grain372
+{
+level (2 2);
+}
+grain373
+{
+level (2 2);
+}
+grain374
+{
+level (2 2);
+}
+grain375
+{
+level (2 2);
+}
+grain376
+{
+level (2 2);
+}
+grain377
+{
+level (2 2);
+}
+grain378
+{
+level (2 2);
+}
+grain379
+{
+level (2 2);
+}
+grain380
+{
+level (2 2);
+}
+grain381
+{
+level (2 2);
+}
+grain382
+{
+level (2 2);
+}
+grain383
+{
+level (2 2);
+}
+grain384
+{
+level (2 2);
+}
+grain385
+{
+level (2 2);
+}
+grain386
+{
+level (2 2);
+}
+grain387
+{
+level (2 2);
+}
+grain388
+{
+level (2 2);
+}
+grain389
+{
+level (2 2);
+}
+grain390
+{
+level (2 2);
+}
+grain391
+{
+level (2 2);
+}
+grain392
+{
+level (2 2);
+}
+grain393
+{
+level (2 2);
+}
+grain394
+{
+level (2 2);
+}
+grain395
+{
+level (2 2);
+}
+grain396
+{
+level (2 2);
+}
+grain397
+{
+level (2 2);
+}
+grain398
+{
+level (2 2);
+}
+grain399
+{
+level (2 2);
+}
+grain400
+{
+level (2 2);
+}
+grain401
+{
+level (2 2);
+}
+grain402
+{
+level (2 2);
+}
+grain403
+{
+level (2 2);
+}
+grain404
+{
+level (2 2);
+}
+grain405
+{
+level (2 2);
+}
+grain406
+{
+level (2 2);
+}
+grain407
+{
+level (2 2);
+}
+grain408
+{
+level (2 2);
+}
+grain409
+{
+level (2 2);
+}
+grain410
+{
+level (2 2);
+}
+grain411
+{
+level (2 2);
+}
+grain412
+{
+level (2 2);
+}
+grain413
+{
+level (2 2);
+}
+grain414
+{
+level (2 2);
+}
+grain415
+{
+level (2 2);
+}
+grain416
+{
+level (2 2);
+}
+grain417
+{
+level (2 2);
+}
+grain418
+{
+level (2 2);
+}
+grain419
+{
+level (2 2);
+}
+grain420
+{
+level (2 2);
+}
+grain421
+{
+level (2 2);
+}
+grain422
+{
+level (2 2);
+}
+grain423
+{
+level (2 2);
+}
+grain424
+{
+level (2 2);
+}
+grain425
+{
+level (2 2);
+}
+grain426
+{
+level (2 2);
+}
+grain427
+{
+level (2 2);
+}
+grain428
+{
+level (2 2);
+}
+grain429
+{
+level (2 2);
+}
+grain430
+{
+level (2 2);
+}
+grain431
+{
+level (2 2);
+}
+grain432
+{
+level (2 2);
+}
+grain433
+{
+level (2 2);
+}
+grain434
+{
+level (2 2);
+}
+grain435
+{
+level (2 2);
+}
+grain436
+{
+level (2 2);
+}
+grain437
+{
+level (2 2);
+}
+grain438
+{
+level (2 2);
+}
+grain439
+{
+level (2 2);
+}
+grain440
+{
+level (2 2);
+}
+grain441
+{
+level (2 2);
+}
+grain442
+{
+level (2 2);
+}
+grain443
+{
+level (2 2);
+}
+grain444
+{
+level (2 2);
+}
+grain445
+{
+level (2 2);
+}
+grain446
+{
+level (2 2);
+}
+grain447
+{
+level (2 2);
+}
+grain448
+{
+level (2 2);
+}
+grain449
+{
+level (2 2);
+}
+grain450
+{
+level (2 2);
+}
+grain451
+{
+level (2 2);
+}
+grain452
+{
+level (2 2);
+}
+grain453
+{
+level (2 2);
+}
+grain454
+{
+level (2 2);
+}
+grain455
+{
+level (2 2);
+}
+grain456
+{
+level (2 2);
+}
+grain457
+{
+level (2 2);
+}
+grain458
+{
+level (2 2);
+}
+grain459
+{
+level (2 2);
+}
+grain460
+{
+level (2 2);
+}
+grain461
+{
+level (2 2);
+}
+grain462
+{
+level (2 2);
+}
+grain463
+{
+level (2 2);
+}
+grain464
+{
+level (2 2);
+}
+grain465
+{
+level (2 2);
+}
+grain466
+{
+level (2 2);
+}
+grain467
+{
+level (2 2);
+}
+grain468
+{
+level (2 2);
+}
+grain469
+{
+level (2 2);
+}
+grain470
+{
+level (2 2);
+}
+grain471
+{
+level (2 2);
+}
+grain472
+{
+level (2 2);
+}
+grain473
+{
+level (2 2);
+}
+grain474
+{
+level (2 2);
+}
+grain475
+{
+level (2 2);
+}
+grain476
+{
+level (2 2);
+}
+grain477
+{
+level (2 2);
+}
+grain478
+{
+level (2 2);
+}
+grain479
+{
+level (2 2);
+}
+grain480
+{
+level (2 2);
+}
+grain481
+{
+level (2 2);
+}
+grain482
+{
+level (2 2);
+}
+grain483
+{
+level (2 2);
+}
+grain484
+{
+level (2 2);
+}
+grain485
+{
+level (2 2);
+}
+grain486
+{
+level (2 2);
+}
+grain487
+{
+level (2 2);
+}
+grain488
+{
+level (2 2);
+}
+grain489
+{
+level (2 2);
+}
+grain490
+{
+level (2 2);
+}
+grain491
+{
+level (2 2);
+}
+grain492
+{
+level (2 2);
+}
+grain493
+{
+level (2 2);
+}
+grain494
+{
+level (2 2);
+}
+grain495
+{
+level (2 2);
+}
+grain496
+{
+level (2 2);
+}
+grain497
+{
+level (2 2);
+}
+grain498
+{
+level (2 2);
+}
+grain499
+{
+level (2 2);
+}
+grain500
+{
+level (2 2);
+}
+grain501
+{
+level (2 2);
+}
+grain502
+{
+level (2 2);
+}
+grain503
+{
+level (2 2);
+}
+grain504
+{
+level (2 2);
+}
+grain505
+{
+level (2 2);
+}
+grain506
+{
+level (2 2);
+}
+grain507
+{
+level (2 2);
+}
+grain508
+{
+level (2 2);
+}
+grain509
+{
+level (2 2);
+}
+grain510
+{
+level (2 2);
+}
+grain511
+{
+level (2 2);
+}
+grain512
+{
+level (2 2);
+}
+grain513
+{
+level (2 2);
+}
+grain514
+{
+level (2 2);
+}
+grain515
+{
+level (2 2);
+}
+grain516
+{
+level (2 2);
+}
+grain517
+{
+level (2 2);
+}
+grain518
+{
+level (2 2);
+}
+grain519
+{
+level (2 2);
+}
+grain520
+{
+level (2 2);
+}
+grain521
+{
+level (2 2);
+}
+grain522
+{
+level (2 2);
+}
+grain523
+{
+level (2 2);
+}
+grain524
+{
+level (2 2);
+}
+grain525
+{
+level (2 2);
+}
+grain526
+{
+level (2 2);
+}
+grain527
+{
+level (2 2);
+}
+grain528
+{
+level (2 2);
+}
+grain529
+{
+level (2 2);
+}
+grain530
+{
+level (2 2);
+}
+grain531
+{
+level (2 2);
+}
+grain532
+{
+level (2 2);
+}
+grain533
+{
+level (2 2);
+}
+grain534
+{
+level (2 2);
+}
+grain535
+{
+level (2 2);
+}
+grain536
+{
+level (2 2);
+}
+grain537
+{
+level (2 2);
+}
+grain538
+{
+level (2 2);
+}
+grain539
+{
+level (2 2);
+}
+grain540
+{
+level (2 2);
+}
+grain541
+{
+level (2 2);
+}
+grain542
+{
+level (2 2);
+}
+grain543
+{
+level (2 2);
+}
+grain544
+{
+level (2 2);
+}
+grain545
+{
+level (2 2);
+}
+grain546
+{
+level (2 2);
+}
+grain547
+{
+level (2 2);
+}
+grain548
+{
+level (2 2);
+}
+grain549
+{
+level (2 2);
+}
+grain550
+{
+level (2 2);
+}
+grain551
+{
+level (2 2);
+}
+grain552
+{
+level (2 2);
+}
+grain553
+{
+level (2 2);
+}
+grain554
+{
+level (2 2);
+}
+grain555
+{
+level (2 2);
+}
+grain556
+{
+level (2 2);
+}
+grain557
+{
+level (2 2);
+}
+grain558
+{
+level (2 2);
+}
+grain559
+{
+level (2 2);
+}
+grain560
+{
+level (2 2);
+}
+grain561
+{
+level (2 2);
+}
+grain562
+{
+level (2 2);
+}
+grain563
+{
+level (2 2);
+}
+grain564
+{
+level (2 2);
+}
+grain565
+{
+level (2 2);
+}
+grain566
+{
+level (2 2);
+}
+grain567
+{
+level (2 2);
+}
+grain568
+{
+level (2 2);
+}
+grain569
+{
+level (2 2);
+}
+grain570
+{
+level (2 2);
+}
+grain571
+{
+level (2 2);
+}
+grain572
+{
+level (2 2);
+}
+grain573
+{
+level (2 2);
+}
+grain574
+{
+level (2 2);
+}
+grain575
+{
+level (2 2);
+}
+grain576
+{
+level (2 2);
+}
+grain577
+{
+level (2 2);
+}
+grain578
+{
+level (2 2);
+}
+grain579
+{
+level (2 2);
+}
+grain580
+{
+level (2 2);
+}
+grain581
+{
+level (2 2);
+}
+grain582
+{
+level (2 2);
+}
+grain583
+{
+level (2 2);
+}
+grain584
+{
+level (2 2);
+}
+grain585
+{
+level (2 2);
+}
+grain586
+{
+level (2 2);
+}
+grain587
+{
+level (2 2);
+}
+grain588
+{
+level (2 2);
+}
+grain589
+{
+level (2 2);
+}
+grain590
+{
+level (2 2);
+}
+grain591
+{
+level (2 2);
+}
+grain592
+{
+level (2 2);
+}
+grain593
+{
+level (2 2);
+}
+grain594
+{
+level (2 2);
+}
+grain595
+{
+level (2 2);
+}
+grain596
+{
+level (2 2);
+}
+grain597
+{
+level (2 2);
+}
+grain598
+{
+level (2 2);
+}
+grain599
+{
+level (2 2);
+}
+grain600
+{
+level (2 2);
+}
+grain601
+{
+level (2 2);
+}
+grain602
+{
+level (2 2);
+}
+grain603
+{
+level (2 2);
+}
+grain604
+{
+level (2 2);
+}
+grain605
+{
+level (2 2);
+}
+grain606
+{
+level (2 2);
+}
+grain607
+{
+level (2 2);
+}
+grain608
+{
+level (2 2);
+}
+grain609
+{
+level (2 2);
+}
+grain610
+{
+level (2 2);
+}
+grain611
+{
+level (2 2);
+}
+grain612
+{
+level (2 2);
+}
+grain613
+{
+level (2 2);
+}
+grain614
+{
+level (2 2);
+}
+grain615
+{
+level (2 2);
+}
+grain616
+{
+level (2 2);
+}
+grain617
+{
+level (2 2);
+}
+grain618
+{
+level (2 2);
+}
+grain619
+{
+level (2 2);
+}
+grain620
+{
+level (2 2);
+}
+grain621
+{
+level (2 2);
+}
+grain622
+{
+level (2 2);
+}
+grain623
+{
+level (2 2);
+}
+grain624
+{
+level (2 2);
+}
+grain625
+{
+level (2 2);
+}
+grain626
+{
+level (2 2);
+}
+grain627
+{
+level (2 2);
+}
+grain628
+{
+level (2 2);
+}
+grain629
+{
+level (2 2);
+}
+grain630
+{
+level (2 2);
+}
+grain631
+{
+level (2 2);
+}
+grain632
+{
+level (2 2);
+}
+grain633
+{
+level (2 2);
+}
+grain634
+{
+level (2 2);
+}
+
+     }
+
+    // Resolve sharp angles
+    resolveFeatureAngle 60;
+
+    // Region-wise refinement
+    // ~~~~~~~~~~~~~~~~~~~~~~
+
+    // Specifies refinement level for cells in relation to a surface. One of
+    // three modes
+    // - distance. 'levels' specifies per distance to the surface the
+    //   wanted refinement level. The distances need to be specified in
+    //   descending order.
+    // - inside. 'levels' is only one entry and only the level is used. All
+    //   cells inside the surface get refined up to the level. The surface
+    //   needs to be closed for this to be possible.
+    // - outside. Same but cells outside.
+
+    refinementRegions
+    {
+     
+    }
+
+
+    // Mesh selection
+    // ~~~~~~~~~~~~~~
+
+    // After refinement patches get added for all refinementSurfaces and
+    // all cells intersecting the surfaces get put into these patches. The
+    // section reachable from the locationInMesh is kept.
+    // NOTE: This point should never be on a face, always inside a cell, even
+    // after refinement.
+    locationInMesh (4.35472152188 2.51166824232 0.5);
+
+
+    // Whether any faceZones (as specified in the refinementSurfaces)
+    // are only on the boundary of corresponding cellZones or also allow
+    // free-standing zone faces. Not used if there are no faceZones.
+    allowFreeStandingZoneFaces true;
+}
+
+
+
+// Settings for the snapping.
+snapControls
+{
+    //- Number of patch smoothing iterations before finding correspondence
+    //  to surface
+    nSmoothPatch 3;
+
+    //- Relative distance for points to be attracted by surface feature point
+    //  or edge. True distance is this factor times local
+    //  maximum edge length.
+    tolerance 2.0;
+
+    //- Number of mesh displacement relaxation iterations.
+    nSolveIter 30;
+
+    //- Maximum number of snapping relaxation iterations. Should stop
+    //  before upon reaching a correct mesh.
+    nRelaxIter 5;
+
+
+    // Feature snapping
+
+        //- Number of feature edge snapping iterations.
+        //  Leave out altogether to disable.
+        nFeatureSnapIter 10;
+
+        //- Detect (geometric) features by sampling the surface (default=false)
+        implicitFeatureSnap false;
+
+        //- Use castellatedMeshControls::features (default = true)
+        explicitFeatureSnap true;
+}
+
+
+
+// Settings for the layer addition.
+addLayersControls
+{
+    // Are the thickness parameters below relative to the undistorted
+    // size of the refined cell outside layer (true) or absolute sizes (false).
+    relativeSizes true;
+
+    // Per final patch (so not geometry!) the layer information
+    layers
+    {
+
+    }
+
+    // Expansion factor for layer mesh
+    expansionRatio 1.0;
+
+    // Wanted thickness of final added cell layer. If multiple layers
+    // is the thickness of the layer furthest away from the wall.
+    // Relative to undistorted size of cell outside layer.
+    // is the thickness of the layer furthest away from the wall.
+    // See relativeSizes parameter.
+    finalLayerThickness 0.5;
+
+    // Minimum thickness of cell layer. If for any reason layer
+    // cannot be above minThickness do not add layer.
+    // Relative to undistorted size of cell outside layer.
+    // See relativeSizes parameter.
+    minThickness 0.25;
+
+    // If points get not extruded do nGrow layers of connected faces that are
+    // also not grown. This helps convergence of the layer addition process
+    // close to features.
+    // Note: changed(corrected) w.r.t 17x! (didn't do anything in 17x)
+    nGrow 0;
+
+
+    // Advanced settings
+
+    // When not to extrude surface. 0 is flat surface, 90 is when two faces
+    // are perpendicular
+    featureAngle 60;
+
+    // Maximum number of snapping relaxation iterations. Should stop
+    // before upon reaching a correct mesh.
+    nRelaxIter 5;
+
+    // Number of smoothing iterations of surface normals
+    nSmoothSurfaceNormals 1;
+
+    // Number of smoothing iterations of interior mesh movement direction
+    nSmoothNormals 3;
+
+    // Smooth layer thickness over surface patches
+    nSmoothThickness 10;
+
+    // Stop layer growth on highly warped cells
+    maxFaceThicknessRatio 0.5;
+
+    // Reduce layer growth where ratio thickness to medial
+    // distance is large
+    maxThicknessToMedialRatio 0.3;
+
+    // Angle used to pick up medial axis points
+    // Note: changed(corrected) w.r.t 16x! 90 degrees corresponds to 130 in 16x.
+    minMedianAxisAngle 90;
+
+    // Create buffer region for new layer terminations
+    nBufferCellsNoExtrude 0;
+
+
+    // Overall max number of layer addition iterations. The mesher will exit
+    // if it reaches this number of iterations; possibly with an illegal
+    // mesh.
+    nLayerIter 50;
+}
+
+
+
+// Generic mesh quality settings. At any undoable phase these determine
+// where to undo.
+meshQualityControls
+{
+    #include "meshQualityDict"
+
+    // Advanced
+
+    //- Number of error distribution iterations
+    nSmoothScale 4;
+    //- amount to scale back displacement at error points
+    errorReduction 0.75;
+}
+
+
+// Advanced
+
+// Merge tolerance. Is fraction of overall bounding box of initial mesh.
+// Note: the write tolerance needs to be higher than this.
+mergeTolerance 1e-6;
+
+
+// ************************************************************************* //

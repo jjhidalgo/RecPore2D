@@ -61,7 +61,7 @@ castellatedMeshControls
     // Number of buffer layers between different levels.
     // 1 means normal 2:1 refinement restriction, larger means slower
     // refinement.
-    nCellsBetweenLevels 1;
+    nCellsBetweenLevels 5;
 
 
 
@@ -91,7 +91,7 @@ castellatedMeshControls
       $refinementsurfaces
      }
 
-    // Resolve sharp angles on fridges
+    // Resolve sharp angles
     resolveFeatureAngle 60;
 
     // Region-wise refinement
@@ -159,10 +159,10 @@ snapControls
         nFeatureSnapIter 10;
 
         //- Detect (geometric) features by sampling the surface (default=false)
-        implicitFeatureSnap true;
+        implicitFeatureSnap false;
 
         //- Use castellatedMeshControls::features (default = true)
-        explicitFeatureSnap false;
+        explicitFeatureSnap true;
 }
 
 

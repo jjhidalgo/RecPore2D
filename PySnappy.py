@@ -13,9 +13,32 @@ class PySnappy(object):
         self.cylinders = []
         self.spheres = []
         self.bbox = None
+        self._is3D = False
         self.__bbox_set = False
         self.nblocks = [400, 400, 1]
         self.grading = [1, 1, 1]
+        self.point_inside = [0., 0., 0.]
+#
+#-----------------------------------------------------------------------
+#
+    @property
+    def is3D(self):
+        """Gets the 3D status."""
+
+        return self._is3D
+#
+#-----------------------------------------------------------------------
+#
+    @is3D.setter
+    def is3D(self, value):
+        """set 3D."""
+
+        if type(value) == bool:
+            self._is3D = value
+            self.nblocks[2] = 1 + 399*value
+        else:
+           warnings.warn("Value must be True/False.")
+           self._is3D = False
 
 #
 #-----------------------------------------------------------------------
@@ -81,18 +104,22 @@ class PySnappy(object):
 #
     def __get_point_inside(self):
         """" Gets a point inside the mesh.
-             The point is on the top right corner of the square
-             in which the first grain is inscribed."""
+             The point is a distance 1e-5 to the right
+             of the first grain."""
+        
+#TO DO: Check that it is not inside another grain.
 
         center1 = self.cylinders[0].center
-        radius = self.cylinders[1].radius
+        radius = self.cylinders[0].radius
 
-        #x_in = self.bbox[0][0] + (center1[0] - radius - self.bbox[0][0])
-        #y_in = center1[1] + 0.01
-        #z_in = center1[2] + 0.01
-        x_in = center1[0] + radius
-        y_in = center1[2] + radius
+        #x_in = center1[0] + radius
+        #y_in = center1[2] + radius
+        #z_in = center1[2]
+
+        x_in = center1[0] + radius + 0.00001
+        y_in = center1[1]
         z_in = center1[2]
+
         return [x_in, y_in, z_in]
 #
 #-----------------------------------------------------------------------
@@ -136,9 +163,9 @@ class PySnappy(object):
                 grainid=igrain,
                 cnt='level (2 2);'))
 
-# point inside a cell
+        # point inside a cell
+        p_inside = self.point_inside
 
-        p_inside = self.__get_point_inside()
 
         import pkg_resources as pkg_r
         snappy_tmpl_file = pkg_r.resource_string('PySnappy','snappy.tmpl')
@@ -170,6 +197,11 @@ class PySnappy(object):
             blockmesh_tmpl_file = pkg_r.resource_string('PySnappy','blockMeshDict.tmpl')
 
             #blockmesh_tmpl_file = open('blockMeshDict.tmpl')
+            if self.is3D:
+                gr_cl_type = "wall"
+            else:
+                gr_cl_type = "empty"
+            
             blockmesh_tmpl = Template(blockmesh_tmpl_file)
             blockmesh_code = blockmesh_tmpl.substitute(
                 nx=self.nblocks[0],
@@ -183,7 +215,9 @@ class PySnappy(object):
                 z1=self.bbox[0][2],
                 x2=self.bbox[1][0],
                 y2=self.bbox[1][1],
-                z2=self.bbox[1][2])
+                z2=self.bbox[1][2],
+                groundtype=gr_cl_type,
+                ceilingtype=gr_cl_type),
 
             fname = 'blockMeshDict'
 
@@ -290,15 +324,15 @@ class SnappySphere(SnappyObject):
         sphere_template_string = ';\n'.join(
             ['  type searchableSphere',
              '    centre ($x1 $y1 $z1)',
-             '    radius $radius'
+             '    radius $radius',
              ''])
 
         sphere_tmpl = Template(sphere_template_string)
 
         sphere_code = sphere_tmpl.substitute(
-            x1=self.center.x,
-            y1=self.center.y,
-            z1=self.center.z,
+            x1=self.center[0],
+            y1=self.center[1],
+            z1=self.center[2],
             radius=self.radius)
 
         return sphere_code

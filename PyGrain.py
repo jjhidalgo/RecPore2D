@@ -16,6 +16,8 @@ class Grain(object):
         self.x = np.random.uniform(0.0, lx)
         self.y = np.random.uniform(0.0, ly)
         self.radius = np.random.uniform(rmin, rmax)
+        #aa = np.exp(np.random.lognormal(1.,1.,1))
+        
         self.area = np.pi*self.radius*self.radius
         self.tolerance = tolerance
 #
@@ -104,7 +106,7 @@ class Grain(object):
     def overlap_grains(self, grains):
         """Check if grain overlaps any of the given grains."""
 
-        tolerance = self._tolerance
+        tolerance = self.tolerance
         if grains:
 
             xx = np.fromiter((gr.x for gr in grains), dtype='float64')

@@ -20,8 +20,10 @@ class RecPore2D(object):
         self._lx = None
         self._ly = None
         self._size = None
+        self._is3D = False
         self._zeta = 0.5
         self._packing_done = False
+
 #
 #-----------------------------------------------------------------------
 #
@@ -66,7 +68,7 @@ class RecPore2D(object):
     @bounding_box.setter
     def bounding_box(self, value):
         """Sets the mesh bounding box.
-           It is only used when writting SnappyHexMesh meshes."""
+           The bounding box is only used when writting SnappyHexMesh meshes."""
 
         pmin, pmax = value
         if (pmax is None) | (pmin is None):
@@ -88,9 +90,13 @@ class RecPore2D(object):
 #-----------------------------------------------------------------------
 #
     @nblocks.setter
-    def nblocks(self, nblocks_x, nblocks_y, nblocks_z):
+    def nblocks(self, value):
         """" Set the number of blocks in each direction.
             It is used to write BlockMeshDict in PySnnapy."""
+        nblocks_x = value[0]
+        nblocks_y = value[1]
+        nblocks_z = value[2]
+        
         if self._check_nblocks(nblocks_x, nblocks_y, nblocks_z):
             self._nblocks = [nblocks_x, nblocks_y, nblocks_z]
             self._packing_done = False
@@ -201,6 +207,27 @@ class RecPore2D(object):
 #
 #-----------------------------------------------------------------------
 #
+    @property
+    def is3D(self):
+        """Gets the 3D status."""
+
+        return self._is3D
+#
+#-----------------------------------------------------------------------
+#
+    @is3D.setter
+    def is3D(self, value):
+        """set 3D."""
+
+        if type(value) == bool:
+            self._is3D = value
+        else:
+           warnings.warn("Value must be True/False.")
+           self._is3D = False
+          
+#
+#-----------------------------------------------------------------------
+#
     def _generate_packing(self):
         """Defined in children"""
         pass
@@ -283,8 +310,9 @@ class RecPore2D(object):
                 dtype={'names':['x', 'y', 'z', 'r'], \
                 'formats':['float64', 'float64', 'float64', 'float64']})
 
-            newcircles[:]['x'] = np.concatenate((self.circles['x'], \
-                                            other.circles['x']), axis=0)
+            newcircles[:]['x'] = np.concatenate((
+                                 self.circles['x'] + self.xoffset, \
+                                 other.circles['x']+ other.xoffset), axis=0)
 
             newcircles[:]['y'] = np.concatenate((self.circles['y'], \
                                             other.circles['y']), axis=0)
@@ -296,14 +324,16 @@ class RecPore2D(object):
                                             other.circles['r']), axis=0)
 
             new_pore.circles = newcircles
+            
             new_pore.size = min([self.size, other.size])
+            new_pore.is3D = self.is3D | other.is3D
             #Bounding box for the new porous media
             [pmin1, pmax1] = self.bounding_box
             [pmin2, pmax2] = other.bounding_box
-            pmin = [np.min([pmin1[0], pmin2[0]]),
+            pmin = [np.min([pmin1[0] + self.xoffset, pmin2[0] + other.xoffset]),
                     np.min([pmin1[1], pmin2[1]]),
                     pmin1[2]]
-            pmax = [np.max([pmax1[0], pmax2[0]]),
+            pmax = [np.max([pmax1[0] + self.xoffset, pmax2[0] + other.xoffset]),
                     np.max([pmax1[1], pmax2[1]]),
                     pmax1[2]]
             
@@ -322,13 +352,13 @@ class RecPore2D(object):
         if other.__class__.__name__ not in ['RegPore2D', 'RndPore2D']:
             raise PoreError.ErrorNotPorousMedium
 
-        a_x1 = np.min(self.circles['x'])
-        a_x2 = np.max(self.circles['x'])
+        a_x1 = np.min(self.circles['x'] + self.xoffset)
+        a_x2 = np.max(self.circles['x'] + self.xoffset)
         a_y1 = np.min(self.circles['y'])
         a_y2 = np.max(self.circles['y'])
 
-        b_x1 = np.min(other.circles['x'])
-        b_x2 = np.max(other.circles['x'])
+        b_x1 = np.min(other.circles['x'] + other.xoffset)
+        b_x2 = np.max(other.circles['x'] + other.xoffset)
         b_y1 = np.min(other.circles['y'])
         b_y2 = np.max(other.circles['y'])
 
@@ -372,7 +402,7 @@ class RecPore2D(object):
 
         size = self.size
 
-        mesh.add_BoundingBox(pmin[0], pmax[0], pmin[1], pmax[1], pmin[2], size)
+        mesh.add_BoundingBox(pmin[0] +  self.xoffset, pmax[0] + self.xoffset, pmin[1], pmax[1], pmin[2], size)
 
 
         for circ in self._circles:
@@ -415,18 +445,44 @@ class RecPore2D(object):
 
         mesh = snappy.PySnappy()
 
+        mesh.is3D = self.is3D
+        
         for circ in self._circles:
 
             center = (circ['x'] + self.xoffset, circ['y'], circ['z'])
             r = circ['r']
-            mesh.add_cylinder(z, r, center)
-
+            
+            if self.is3D:
+                mesh.add_sphere(r, center)
+            else:
+               mesh.add_cylinder(z, r, center)
 
         [pmin, pmax] = self.bounding_box
+        
         mesh.set_bounding_box(pmin, pmax)
 
         mesh.set_number_of_blocks(self.nblocks[0], self.nblocks[1],
                                   self.nblocks[2])
+
+        # Gets a point inside the mesh
+        point_inside_circle = True
+        p1z = self._zeta
+
+        while point_inside_circle:
+            
+            p1x =  np.random.uniform(pmin[0], pmax[0])
+            p1y =  np.random.uniform(pmin[1], pmax[1])
+            point_inside_circle = False
+
+            for circ in self._circles:
+                center = (circ['x'] + self.xoffset, circ['y'], circ['z'])
+                d = np.sqrt((center[0]-p1x)**2. + (center[1]-p1y)**2.)
+                if d<circ['r']:
+                    point_inside_circle = True
+                    break
+
+        print [p1x, p1y, p1z]
+        mesh.point_inside = [p1x, p1y, p1z]
 
         mesh.write_code(fname)
 #
@@ -497,6 +553,8 @@ class RegPore2D(RecPore2D):
         if self._check_throat(value):
             self._throat = value
             self._packing_done = False
+            self.lx = self._compute_lx()
+            self.ly = self._compute_ly()
         else:
             raise PoreError.ErrorThroatNegative
 #
@@ -515,7 +573,7 @@ class RegPore2D(RecPore2D):
         if self._check_nx(value):
             self._nx = value
             self.ngrains = self._compute_number_of_grains()
-            self.ngrains = self._compute_lx()
+            self.lx = self._compute_lx()
             self._packing_done = False
         else:
             raise PoreError.ErrorNx
@@ -535,7 +593,7 @@ class RegPore2D(RecPore2D):
         if self._check_ny(value):
             self._ny = value
             self.ngrains = self._compute_number_of_grains()
-            self.ngrains = self._compute_ly()
+            self.ly = self._compute_ly()
             self._packing_done = False
         else:
             raise PoreError.ErrorNy
@@ -619,15 +677,18 @@ class RegPore2D(RecPore2D):
            direction according to the packing and the geometry"""
 
         if self.packing == 'tri' or self.packing == 'etri':
-            lx = (3.0*self.nx + 1.0)*self.throat \
-                + 2.0*self.radius*(2.0*self.nx+1.0)
-
+            # old lx. 99% sure it is wrong.
+            #lx = (3.0*self.nx + 1.0)*self.throat \
+            #    + 2.0*self.radius*(2.0*self.nx+1.0)
+            lx = (self.nx - 1.0)*self.throat \
+                + 2.0*self.nx*self.radius
         elif self.packing == 'sqr':
             lx = (self.nx + 1.0)*self.throat \
                 + 2.0*self.nx*self.radius
 
         elif self.packing == 'rnd':
-            lx = self.nx*self.radius
+            #lx = self.nx*self.radius
+            print "que hago aqui?"
 
         return lx
 
@@ -641,9 +702,10 @@ class RegPore2D(RecPore2D):
 
         if self.packing == 'rnd':
             ly = 2.*self._ny*self._radius
+            print "que hago aqui?"
         else:
             ly = self._ny*(self._throat + 2.*self._radius)
-
+            
         return ly
 #
 #-----------------------------------------------------------------------
@@ -714,28 +776,32 @@ class RegPore2D(RecPore2D):
         """ Generates the coordinates of the grain centers
             for the tri packing"""
 
-        i = np.arange(1, self._nx + 1)
-        xi = i*self._throat + (2.0*i -1.0)*self._radius
+        i = np.arange(1, self.nx + 1)
+        xi = i*self.throat + (2.0*i -1.0)*self.radius
 
         j_odd = np.arange(1, self._ny+1)
-        yj_odd = j_odd*self._throat + (2.0*j_odd -1.0)*self._radius
+        yj_odd = j_odd*self.throat + (2.0*j_odd -1.0)*self.radius
 
-        j_even = np.arange(1, self._ny)
-        yj_even = j_even*(self._throat + 2.0*self._radius) + self._throat/2.0
+        j_even = np.arange(1, self.ny)
+        yj_even = j_even*(self.throat + 2.0*self.radius) + self.throat/2.0
         yj = np.hstack((yj_odd, yj_even))
 
 
-        xrep = np.ones(self._nx, dtype=np.int)
-        xrep[::2] = self._ny*xrep[::2] #odd
-        xrep[1::2] = (self._ny-1)*xrep[1::2] #even
+        xrep = np.ones(self.nx, dtype=np.int)
+        xrep[::2] = self.ny*xrep[::2] #odd
+        xrep[1::2] = (self.ny-1)*xrep[1::2] #even
 
-        circles = np.zeros(self._ngrains, \
+        circles = np.zeros(self.ngrains, \
             dtype={'names':['x', 'y', 'z', 'r'], \
             'formats':['float64', 'float64', 'float64', 'float64']})
 
-
+        # If nx is odd, we need one more yj_odd column.
+        y_aux = np.tile(yj, self.nx/2)
+        if self.nx%2>0:
+            y_aux = np.hstack((y_aux, yj_odd))
+            
         circles[:]['x'] = xi.repeat(xrep)
-        circles[:]['y'] = np.hstack((np.tile(yj, self._nx/2), yj_odd))
+        circles[:]['y'] = y_aux
         circles[:]['z'] = np.tile(self.zeta, self._ngrains)
         circles[:]['r'] = np.tile(self._radius, self._ngrains)
 
@@ -779,7 +845,10 @@ class RegPore2D(RecPore2D):
             ngrains = self.nx*self.ny
 
         else:
-            ngrains = (self.nx/2)*(self.ny - 1)+ (self.nx/2 + 1)*(self.ny)
+            if self.nx%2==0:
+                ngrains = (self.nx/2)*(self.ny - 1) + (self.nx/2)*(self.ny)
+            else:
+                ngrains = (self.nx/2)*(self.ny - 1) + (self.nx/2 + 1)*(self.ny)
 
         return ngrains
 #
@@ -793,8 +862,10 @@ class RegPore2D(RecPore2D):
             xmax = np.max(self.circles[:]['x'] + self.circles[:]['r'])
             ymin = np.min(self.circles[:]['y'] - self.circles[:]['r'])
             ymax = np.max(self.circles[:]['y'] + self.circles[:]['r'])
-            zmin = self.zeta
-            zmax = 1.0
+            rmax = np.max(self.circles[:]['r'])
+            zmin = self.zeta - rmax
+            zmax = self.zeta + rmax
+
             pmin = [xmin - self.throat, ymin - self.throat, zmin]
             pmax = [xmax + self.throat, ymax + self.throat, zmax]
         else:
@@ -828,6 +899,7 @@ class RndPore2D(RecPore2D):
         self._packing = None
         self._ntries_max = None
         self._ngrains_max = None
+        self._tolerance = rmin/10.
 
         self.lx = lx
         self.ly = ly
@@ -951,6 +1023,20 @@ class RndPore2D(RecPore2D):
 #
 #-----------------------------------------------------------------------
 #
+    @property
+    def tolerance(self):
+     return self._tolerance
+#
+#-----------------------------------------------------------------------
+#
+    @tolerance.setter
+    def tolerance(self, value):
+        """ Sets the tolerance."""
+        # TODO: Check tolerance
+        self._tolerance = value
+#
+#-----------------------------------------------------------------------
+#
     @staticmethod
     def _check_rmin(rmin):
         """ Checks minimum grain radius."""
@@ -998,7 +1084,7 @@ class RndPore2D(RecPore2D):
 
         if self.packing == 'rnd':
             print "entro en rnd pack"
-            self.circles = self._pack_rnd()
+            self.circles, self.ngrains = self._pack_rnd()
 
         if None in self.bounding_box:
             self.bounding_box = self._get_BoundingBox()
@@ -1015,19 +1101,21 @@ class RndPore2D(RecPore2D):
         ngrains = 0
         grains = []
         rg = []
-        from PyGrain import Grain as grain
         
+        from PyGrain import Grain as grain
+
         while porosity > self.target_porosity and \
               ntries < self.ntries_max and \
               ngrains < self.ngrains_max:
 
-            new_grain = grain(self.rmin, self.rmax, self.lx, self.ly, self.size/5.)
+            new_grain = grain(rmin=self.rmin, rmax=self.rmax, \
+                              lx=self.lx, ly=self.ly, \
+                              tolerance=self.tolerance)
 
             if (new_grain.overlap_grains(grains)) or \
                new_grain.overlap_rectangle([0.,0.] ,[self.lx, self.ly]):
 
                 ntries = ntries + 1
-                #rg.append(new_grain)
                 
             else:
 
@@ -1054,7 +1142,7 @@ class RndPore2D(RecPore2D):
         circles[:]['r'] = np.fromiter((grain.radius for grain in grains), \
                                        dtype='float64')
         
-        return circles
+        return circles, ngrains
  #
 #-----------------------------------------------------------------------
 #   
@@ -1066,8 +1154,10 @@ class RndPore2D(RecPore2D):
             xmax = np.max(self.circles[:]['x'] + self.circles[:]['r'])
             ymin = np.min(self.circles[:]['y'] - self.circles[:]['r'])
             ymax = np.max(self.circles[:]['y'] + self.circles[:]['r'])
-            zmin = self.zeta
-            zmax = 1.0
+            rmax = np.max(self.circles[:]['r'])
+            rmin = np.min(self.circles[:]['r'])
+            zmin = self.zeta - rmax
+            zmax = self.zeta + rmin
             pmin = [xmin, ymin, zmin]
             pmax = [xmax, ymax, zmax]
         else:
