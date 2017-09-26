@@ -14,9 +14,11 @@ c = a + b
 
 a.write_mesh(fname='a.geo', meshtype='gmsh')
 #a.write_mesh(meshtype='snappy')
-b.write_mesh(fname='b.geo', meshtype='gmsh')
+#b.write_mesh(fname='b.geo', meshtype='gmsh')
 c.write_mesh(fname='c.geo', meshtype='gmsh')
-c.write_mesh(fname='c.scad', meshtype='oscad')
-c.write_mesh(meshtype='snappy')
+#c.write_mesh(fname='c.scad', meshtype='oscad')
+#c.write_mesh(meshtype='snappy')
+c.is3D=True
+c.write_mesh(fname='c.stl',meshtype='stl')
 
 

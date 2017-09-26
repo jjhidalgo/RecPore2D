@@ -23,6 +23,7 @@ class RecPore2D(object):
         self._is3D = False
         self._zeta = 0.5
         self._packing_done = False
+        self._circles_done = False
 
 #
 #-----------------------------------------------------------------------
@@ -195,6 +196,8 @@ class RecPore2D(object):
     def circles(self):
         """Gets circles."""
 
+        if not self._circles_done:
+            self._packing_done = self._generate_packing()
         return self._circles
 #
 #-----------------------------------------------------------------------
@@ -374,7 +377,8 @@ class RecPore2D(object):
     def write_mesh(self, fname='', meshtype='gmsh'):
         """ Writes the porus media for the mesh/cad program"""
         meshes = {'gmsh':self._writeGMSH, 'oscad':self._writeOPENSCAD, \
-                  'snappy':self._writeSNAPPYHEXMESH}
+                  'snappy':self._writeSNAPPYHEXMESH, \
+                  'stl': self._writeSTL}
 
         if not self._packing_done:
             self._packing_done = self._generate_packing()
@@ -415,6 +419,39 @@ class RecPore2D(object):
 #
 #-----------------------------------------------------------------------
 #
+    def _writeSTL(self, fname, isBinary=False, addBoundingBox=False):
+        """Writes the discs as STL file"""
+
+        import trimesh as trimesh
+
+        if addBoundingBox:
+            [pmin, pmax] = self.bounding_box
+            lx = pmax[0] - pmin[0]
+            ly = pmax[1] - pmin[1]
+            lz = pmax[2] - pmin[2]
+            mesh = trimesh.creation.box(extents=[lx, ly, lz])
+            trans = np.array([pmin[0]+lx/2., pmin[1]+ly/2.,pmin[2]+lz/2.])
+            mesh.apply_translation(translation=trans)
+
+        for circ in self._circles:
+            r = circ['r']
+            center = (circ['x'] + self.xoffset, circ['y'], circ['z'])
+            
+            if self.is3D:    
+                aux = trimesh.creation.icosphere(subdivisions=3, radius=r)
+            else:
+                aux = trimesh.creation.cylinder(radius=r, height=lz, sections=64)
+            aux.apply_translation(translation=center)
+            
+            try:
+              mesh = mesh + aux
+            except:
+              mesh = aux
+              
+        mesh.export(fname,'stl_ascii')
+#
+#-----------------------------------------------------------------------
+#
     def _writeOPENSCAD(self, fname):
         """Writes the discs packing for OpenSCAD"""
 
@@ -437,7 +474,9 @@ class RecPore2D(object):
 #-----------------------------------------------------------------------
 #
     def _writeSNAPPYHEXMESH(self, fname):
-        """Writes the discs packing for snappyHexMesh"""
+        """Writes the discs packing for snappyHexMesh.
+           addBoundingBox ignored."""
+        
 
         import PySnappy as snappy
 
@@ -667,7 +706,7 @@ class RegPore2D(RecPore2D):
     def _check_throat(throat):
         """Checks if the pore throat is greater than 1.0e-9"""
 
-        return throat > 1.0e-9
+        return throat > -1.0e-9
 
 #
 #-----------------------------------------------------------------------
@@ -723,13 +762,13 @@ class RegPore2D(RecPore2D):
         """ Generates the position of the grains"""
 
         if self.packing == 'tri':
-            self.circles = self._pack_tri()
+            self.circles, self._circles_done = self._pack_tri()
 
         elif self.packing == 'sqr':
-            self.circles = self._pack_sqr()
+            self.circles, self._circles_done = self._pack_sqr()
 
         elif self.packing == 'etri':
-            self.circles = self._pack_etri()
+            self.circles, self._circles_done = self._pack_etri()
 
         if None in self.bounding_box:
             self.bounding_box = self._get_BoundingBox()
@@ -750,7 +789,6 @@ class RegPore2D(RecPore2D):
         """ Generates the coordinates of the grain centers
             for the square packing"""
 
-
         i = np.arange(1, self._nx + 1)
         xi = i*self._throat + (2.0*i -1.0)*self._radius
 
@@ -767,7 +805,7 @@ class RegPore2D(RecPore2D):
         circles[:]['z'] = np.tile(self.zeta, self._ngrains)
         circles[:]['r'] = np.tile(self._radius, self._ngrains)
 
-        return circles
+        return circles, True
 
 #
 #-----------------------------------------------------------------------
@@ -797,7 +835,7 @@ class RegPore2D(RecPore2D):
 
         # If nx is odd, we need one more yj_odd column.
         y_aux = np.tile(yj, self.nx/2)
-        if self.nx%2>0:
+        if self.nx% 2> 0:
             y_aux = np.hstack((y_aux, yj_odd))
             
         circles[:]['x'] = xi.repeat(xrep)
@@ -806,7 +844,7 @@ class RegPore2D(RecPore2D):
         circles[:]['r'] = np.tile(self._radius, self._ngrains)
 
 
-        return circles
+        return circles, True
 #
 #-----------------------------------------------------------------------
 #
@@ -833,7 +871,7 @@ class RegPore2D(RecPore2D):
         circles[:]['r'] = np.tile(self._radius, self._ngrains)
 
 
-        return circles
+        return circles, True
 #
 #-----------------------------------------------------------------------
 #
@@ -887,7 +925,7 @@ class RndPore2D(RecPore2D):
 #-----------------------------------------------------------------------
 #
     def __init__(self, lx=1., ly=1., rmin=0.01, rmax=0.2, target_porosity=0.5, packing='rnd'):
-        """Checks arguments and creates random packing of discs."""
+        """Chaks arguments and creates random packing of discs."""
 
         #RecPore2D.__init__(self)
         super(RndPore2D, self).__init__()
@@ -1084,7 +1122,7 @@ class RndPore2D(RecPore2D):
 
         if self.packing == 'rnd':
             print "entro en rnd pack"
-            self.circles, self.ngrains = self._pack_rnd()
+            self.circles, self.ngrains, self._circles_done = self._pack_rnd()
 
         if None in self.bounding_box:
             self.bounding_box = self._get_BoundingBox()
@@ -1142,7 +1180,7 @@ class RndPore2D(RecPore2D):
         circles[:]['r'] = np.fromiter((grain.radius for grain in grains), \
                                        dtype='float64')
         
-        return circles, ngrains
+        return circles, ngrains, True
  #
 #-----------------------------------------------------------------------
 #   

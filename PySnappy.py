@@ -168,13 +168,8 @@ class PySnappy(object):
 
 
         import pkg_resources as pkg_r
-        snappy_tmpl_file = pkg_r.resource_string('PySnappy','snappy.tmpl')
-        
-        
-        #snappy_tmpl_file = open('snappy.tmpl')
-
-        #snappy_tmpl_file = open(pkg_path)
-        #snappy_tmpl = Template(snappy_tmpl_file.read())
+        snappy_tmpl_file = pkg_r.resource_string('PySnappy','templates/snappy.tmpl')
+  
         snappy_tmpl = Template(snappy_tmpl_file)
         snappy_code = snappy_tmpl.substitute(
             grains=''.join(grains_code),
@@ -194,9 +189,9 @@ class PySnappy(object):
         if self.__bbox_set:
 
             import pkg_resources as pkg_r
-            blockmesh_tmpl_file = pkg_r.resource_string('PySnappy','blockMeshDict.tmpl')
+            blockmesh_tmpl_file = pkg_r.resource_string('PySnappy','templates/blockMeshDict.tmpl')
 
-            #blockmesh_tmpl_file = open('blockMeshDict.tmpl')
+
             if self.is3D:
                 gr_cl_type = "wall"
             else:
