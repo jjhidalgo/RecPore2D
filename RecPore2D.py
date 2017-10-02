@@ -432,17 +432,18 @@ class RecPore2D(object):
             mesh = trimesh.creation.box(extents=[lx, ly, lz])
             trans = np.array([pmin[0]+lx/2., pmin[1]+ly/2.,pmin[2]+lz/2.])
             mesh.apply_translation(translation=trans)
-
+        #ii=0
         for circ in self._circles:
+            #ii = ii + 1
             r = circ['r']
             center = (circ['x'] + self.xoffset, circ['y'], circ['z'])
             
-            if self.is3D:    
-                aux = trimesh.creation.icosphere(subdivisions=3, radius=r)
+            if self.is3D:                    aux = trimesh.creation.icosphere(subdivisions=3, radius=r)
             else:
                 aux = trimesh.creation.cylinder(radius=r, height=lz, sections=64)
             aux.apply_translation(translation=center)
-            
+            #import pdb; pdb.set_trace()
+            #aux.export(''.join([str(ii), '.stl']),'stl_ascii')
             try:
               mesh = mesh + aux
             except:
@@ -533,7 +534,9 @@ class RecPore2D(object):
 class RegPore2D(RecPore2D):
     """Regular porous medium
        Pore throat, lx (length) and ly (height)
-        are computed according to the packing."""
+        are computed according to the packing.
+       The distance to the boundaries is equal
+       to throat."""
 #
 #-----------------------------------------------------------------------
 #
@@ -715,18 +718,10 @@ class RegPore2D(RecPore2D):
         """Computes the lenght of the system in the x
            direction according to the packing and the geometry"""
 
-        if self.packing == 'tri' or self.packing == 'etri':
-            # old lx. 99% sure it is wrong.
-            #lx = (3.0*self.nx + 1.0)*self.throat \
-            #    + 2.0*self.radius*(2.0*self.nx+1.0)
-            lx = (self.nx - 1.0)*self.throat \
-                + 2.0*self.nx*self.radius
-        elif self.packing == 'sqr':
-            lx = (self.nx + 1.0)*self.throat \
-                + 2.0*self.nx*self.radius
+        lx = (self.nx + 1.0)*self.throat + 2.0*self.nx*self.radius
 
-        elif self.packing == 'rnd':
-            #lx = self.nx*self.radius
+        if self.packing == 'rnd':
+            lx = None
             print "que hago aqui?"
 
         return lx
