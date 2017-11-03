@@ -521,7 +521,7 @@ class RecPore2D(object):
                     point_inside_circle = True
                     break
 
-        print [p1x, p1y, p1z]
+        print ([p1x, p1y, p1z])
         mesh.point_inside = [p1x, p1y, p1z]
 
         mesh.write_code(fname)
@@ -543,7 +543,6 @@ class RegPore2D(RecPore2D):
     def __init__(self, nx=2, ny=2, radius=0.1, throat=0.1, packing='sqr'):
         """Checks arguments and creates the packing of discs."""
 
-        #RecPore2D.__init__(self)
         super(RegPore2D, self).__init__()
         self._packs = ['tri', 'sqr', 'etri']
         self._radius = None
@@ -722,7 +721,7 @@ class RegPore2D(RecPore2D):
 
         if self.packing == 'rnd':
             lx = None
-            print "que hago aqui?"
+            print ("que hago aqui?")
 
         return lx
 
@@ -736,7 +735,7 @@ class RegPore2D(RecPore2D):
 
         if self.packing == 'rnd':
             ly = 2.*self._ny*self._radius
-            print "que hago aqui?"
+            print ("que hago aqui?")
         else:
             ly = self._ny*(self._throat + 2.*self._radius)
             
@@ -829,10 +828,12 @@ class RegPore2D(RecPore2D):
             'formats':['float64', 'float64', 'float64', 'float64']})
 
         # If nx is odd, we need one more yj_odd column.
-        y_aux = np.tile(yj, self.nx/2)
-        if self.nx% 2> 0:
+        
+        y_aux = np.tile(yj, self.nx//2)
+
+        if self.nx%2 > 0:
             y_aux = np.hstack((y_aux, yj_odd))
-            
+    
         circles[:]['x'] = xi.repeat(xrep)
         circles[:]['y'] = y_aux
         circles[:]['z'] = np.tile(self.zeta, self._ngrains)
@@ -879,11 +880,11 @@ class RegPore2D(RecPore2D):
 
         else:
             if self.nx%2==0:
-                ngrains = (self.nx/2)*(self.ny - 1) + (self.nx/2)*(self.ny)
+                ngrains = (self.nx//2)*(self.ny - 1) + (self.nx//2)*(self.ny)
             else:
-                ngrains = (self.nx/2)*(self.ny - 1) + (self.nx/2 + 1)*(self.ny)
+                ngrains = (self.nx//2)*(self.ny - 1) + (self.nx//2 + 1)*(self.ny)
 
-        return ngrains
+        return np.int(ngrains)
 #
 #-----------------------------------------------------------------------
 #
@@ -920,9 +921,8 @@ class RndPore2D(RecPore2D):
 #-----------------------------------------------------------------------
 #
     def __init__(self, lx=1., ly=1., rmin=0.01, rmax=0.2, target_porosity=0.5, packing='rnd'):
-        """Chaks arguments and creates random packing of discs."""
+        """Checks arguments and creates random packing of discs."""
 
-        #RecPore2D.__init__(self)
         super(RndPore2D, self).__init__()
 
         self._packs = ['rnd'] #TO DO Jodry-Tory, etc.
@@ -1116,7 +1116,7 @@ class RndPore2D(RecPore2D):
         """ Generates the position of the grains."""
 
         if self.packing == 'rnd':
-            print "entro en rnd pack"
+            print ("entro en rnd pack")
             self.circles, self.ngrains, self._circles_done = self._pack_rnd()
 
         if None in self.bounding_box:
@@ -1159,9 +1159,9 @@ class RndPore2D(RecPore2D):
                 rg = []
 
     
-        print "ngrains = %d (max= %d)" %(ngrains, self.ngrains_max)
-        print "porosity = %g (target = %g)" %(porosity, self.target_porosity)
-        print "ntries = %d (max= %d)" %(ntries, self.ntries_max)
+        print ("ngrains = %d (max= %d)" %(ngrains, self.ngrains_max))
+        print ("porosity = %g (target = %g)" %(porosity, self.target_porosity))
+        print ("ntries = %d (max= %d)" %(ntries, self.ntries_max))
         
         circles = np.zeros(ngrains, \
             dtype={'names':['x', 'y', 'z', 'r'], \

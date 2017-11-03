@@ -17,7 +17,7 @@ class ErrorPacking(PoreError):
     def __init__(self):
         """Just prints the error message"""
         PoreError.__init__(self)
-        print "Wrong packing!"
+        print ("Wrong packing!")
 
 class ErrorNx(PoreError):
     """Exception raised for nx!
@@ -28,7 +28,7 @@ class ErrorNx(PoreError):
         PoreError.__init__(self)
         msg = "Number of grains in x direction too small, negative,"
         msg = msg + "or even with tri and etri packings!"
-        print msg
+        print (msg)
 
 class ErrorNy(PoreError):
     """Exception raised for ny<1  or nx*radius>1.0!"""
@@ -36,7 +36,7 @@ class ErrorNy(PoreError):
     def __init__(self):
         """Just prints the error message"""
         PoreError.__init__(self)
-        print "Number of grains in y direction too small or negative!"
+        print ("Number of grains in y direction too small or negative!")
 
 class ErrorRadius(PoreError):
     """Exception raised for grain radius. Radius <1e-9"""
@@ -44,7 +44,7 @@ class ErrorRadius(PoreError):
     def __init__(self):
         """Just prints the error message"""
         PoreError.__init__(self)
-        print "Grain radius too small or negative!"
+        print ("Grain radius too small or negative!")
 
 class ErrorThroatNegative(PoreError):
     """Exception raised for pore throat. Pore throat is negative"""
@@ -52,7 +52,7 @@ class ErrorThroatNegative(PoreError):
     def __init__(self):
         """Just prints the error message"""
         PoreError.__init__(self)
-        print "Pore throat negative! Check number of grains in y and radius."
+        print ("Pore throat negative! Check number of grains in y and radius.")
 
 class ErrorNotPorousMedium(PoreError):
     """Exception when an variable is not an instance of RegPore2D."""
@@ -62,7 +62,7 @@ class ErrorNotPorousMedium(PoreError):
         PoreError.__init__(self)
         msg = "A porous medium (instance of RegPore2D"
         msg = msg + " is needed for this operation."
-        print msg
+        print (msg)
 
 class ErrorRmin(PoreError):
     """Exception when minimun grain radius is negative, zero,
@@ -72,7 +72,7 @@ class ErrorRmin(PoreError):
         """Just prints the error message"""
         PoreError.__init__(self)
         msg = "Minimun grain radius too small, zero or greater than maximum radius."
-        print msg
+        print (msg)
 
 class ErrorRmax(PoreError):
     """Exception when maximum grain radius is negative, zero,
@@ -82,7 +82,7 @@ class ErrorRmax(PoreError):
         """Just prints the error message"""
         PoreError.__init__(self)
         msg = "Maximun grain radius too small, zero or lower than minimum radius."
-        print msg
+        print (msg)
 
 class ErrorLx(PoreError):
     """Exception when horizontal lenght is zero or negative."""
@@ -91,7 +91,7 @@ class ErrorLx(PoreError):
         """Just prints the error message"""
         PoreError.__init__(self)
         msg = "Lx too small or negative."
-        print msg
+        print (msg)
 
 class ErrorLy(PoreError):
     """Exception when vertical lenght is zero or negative."""
@@ -100,7 +100,7 @@ class ErrorLy(PoreError):
         """Just prints the error message"""
         PoreError.__init__(self)
         msg = "Ly too small or negative."
-        print msg
+        print (msg)
 
 class ErrorPorosity(PoreError):
     """Exception when porosity is zero, negative, or greater than 1."""
@@ -109,7 +109,7 @@ class ErrorPorosity(PoreError):
         """Just prints the error message"""
         PoreError.__init__(self)
         msg = "Porosity  is negative, zero, or greater than one."
-        print msg
+        print (msg)
 
 class ErrorNtriesMax(PoreError):
     """Exception when maximum number of attempts to add a new grain is zero
@@ -119,7 +119,7 @@ class ErrorNtriesMax(PoreError):
         """Just prints the error message"""
         PoreError.__init__(self)
         msg = "Number of tries must be greater than zero."
-        print msg
+        print (msg)
 
 class ErrorNgrainsMax(PoreError):
     """Exception when maximum allowed number of grains is negative or zero."""
@@ -128,7 +128,7 @@ class ErrorNgrainsMax(PoreError):
         """Just prints the error message"""
         PoreError.__init__(self)
         msg = "The maximum number of grains must be greater than zero."
-        print msg
+        print (msg)
 
 class ErrorNBlocks(PoreError):
     """Exception when the number of blocks for PySnnapy is zero or negative
@@ -138,7 +138,7 @@ class ErrorNBlocks(PoreError):
         """Just prints the error message"""
         PoreError.__init__(self)
         msg = "The number of blocks in all directions must be greater than zero."
-        print msg
+        print (msg)
 
 class ErrorSize(PoreError):
     """Exception when the mesh size is zero or negative."""
@@ -147,7 +147,7 @@ class ErrorSize(PoreError):
         """Just prints the error message"""
         PoreError.__init__(self)
         msg = "Mesh size must be greater than zero."
-        print msg
+        print (msg)
 
 class ErrorXoffset(PoreError):
     """Exception when the x offset is wrong."""
@@ -156,6 +156,6 @@ class ErrorXoffset(PoreError):
         """Just prints the error message"""
         PoreError.__init__(self)
         msg = "Something is wrong with the x offset."
-        print msg
+        print (msg)
 
 
