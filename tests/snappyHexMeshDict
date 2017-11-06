@@ -1,0 +1,601 @@
+b'/*--------------------------------*- C++ -*----------------------------------*\\\n| =========                 |                                                 |\n| \\\\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |\n|  \\\\    /   O peration     | Version:  2.3.1                                 |\n|   \\\\  /    A nd           | Web:      www.OpenFOAM.org                      |\n|    \\\\/     M anipulation  |                                                 |\n\\*---------------------------------------------------------------------------*/\nFoamFile\n{\n    version     2.0;\n    format      ascii;\n    class       dictionary;\n    object      snappyHexMeshDict;\n}\n// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //\n\n// Which of the steps to run\ncastellatedMesh true;\nsnap            true;\naddLayers       true;\n\n\n// Geometry. Definition of all surfaces. All surfaces are of class\n// searchableSurface.\n// Surfaces are used\n// - to specify refinement for any mesh cell intersecting it\n// - to specify refinement for any mesh cell inside/outside/near\n// - to \'snap\' the mesh boundary to the surface\ngeometry\n{\ngrain1
+{
+  type searchableCylinder;
+    point1 (0.12 0.12 0.5);
+    point2 (0.12 0.12 1.0);
+    radius 0.02;
+
+}
+grain2
+{
+  type searchableCylinder;
+    point1 (0.12 0.26 0.5);
+    point2 (0.12 0.26 1.0);
+    radius 0.02;
+
+}
+grain3
+{
+  type searchableCylinder;
+    point1 (0.12 0.4 0.5);
+    point2 (0.12 0.4 1.0);
+    radius 0.02;
+
+}
+grain4
+{
+  type searchableCylinder;
+    point1 (0.12 0.54 0.5);
+    point2 (0.12 0.54 1.0);
+    radius 0.02;
+
+}
+grain5
+{
+  type searchableCylinder;
+    point1 (0.12 0.68 0.5);
+    point2 (0.12 0.68 1.0);
+    radius 0.02;
+
+}
+grain6
+{
+  type searchableCylinder;
+    point1 (0.26 0.19 0.5);
+    point2 (0.26 0.19 1.0);
+    radius 0.02;
+
+}
+grain7
+{
+  type searchableCylinder;
+    point1 (0.26 0.33 0.5);
+    point2 (0.26 0.33 1.0);
+    radius 0.02;
+
+}
+grain8
+{
+  type searchableCylinder;
+    point1 (0.26 0.47 0.5);
+    point2 (0.26 0.47 1.0);
+    radius 0.02;
+
+}
+grain9
+{
+  type searchableCylinder;
+    point1 (0.26 0.61 0.5);
+    point2 (0.26 0.61 1.0);
+    radius 0.02;
+
+}
+grain10
+{
+  type searchableCylinder;
+    point1 (0.4 0.12 0.5);
+    point2 (0.4 0.12 1.0);
+    radius 0.02;
+
+}
+grain11
+{
+  type searchableCylinder;
+    point1 (0.4 0.26 0.5);
+    point2 (0.4 0.26 1.0);
+    radius 0.02;
+
+}
+grain12
+{
+  type searchableCylinder;
+    point1 (0.4 0.4 0.5);
+    point2 (0.4 0.4 1.0);
+    radius 0.02;
+
+}
+grain13
+{
+  type searchableCylinder;
+    point1 (0.4 0.54 0.5);
+    point2 (0.4 0.54 1.0);
+    radius 0.02;
+
+}
+grain14
+{
+  type searchableCylinder;
+    point1 (0.4 0.68 0.5);
+    point2 (0.4 0.68 1.0);
+    radius 0.02;
+
+}
+grain15
+{
+  type searchableCylinder;
+    point1 (0.54 0.19 0.5);
+    point2 (0.54 0.19 1.0);
+    radius 0.02;
+
+}
+grain16
+{
+  type searchableCylinder;
+    point1 (0.54 0.33 0.5);
+    point2 (0.54 0.33 1.0);
+    radius 0.02;
+
+}
+grain17
+{
+  type searchableCylinder;
+    point1 (0.54 0.47 0.5);
+    point2 (0.54 0.47 1.0);
+    radius 0.02;
+
+}
+grain18
+{
+  type searchableCylinder;
+    point1 (0.54 0.61 0.5);
+    point2 (0.54 0.61 1.0);
+    radius 0.02;
+
+}
+grain19
+{
+  type searchableCylinder;
+    point1 (0.68 0.12 0.5);
+    point2 (0.68 0.12 1.0);
+    radius 0.02;
+
+}
+grain20
+{
+  type searchableCylinder;
+    point1 (0.68 0.26 0.5);
+    point2 (0.68 0.26 1.0);
+    radius 0.02;
+
+}
+grain21
+{
+  type searchableCylinder;
+    point1 (0.68 0.4 0.5);
+    point2 (0.68 0.4 1.0);
+    radius 0.02;
+
+}
+grain22
+{
+  type searchableCylinder;
+    point1 (0.68 0.54 0.5);
+    point2 (0.68 0.54 1.0);
+    radius 0.02;
+
+}
+grain23
+{
+  type searchableCylinder;
+    point1 (0.68 0.68 0.5);
+    point2 (0.68 0.68 1.0);
+    radius 0.02;
+
+}
+grain24
+{
+  type searchableCylinder;
+    point1 (0.82 0.19 0.5);
+    point2 (0.82 0.19 1.0);
+    radius 0.02;
+
+}
+grain25
+{
+  type searchableCylinder;
+    point1 (0.82 0.33 0.5);
+    point2 (0.82 0.33 1.0);
+    radius 0.02;
+
+}
+grain26
+{
+  type searchableCylinder;
+    point1 (0.82 0.47 0.5);
+    point2 (0.82 0.47 1.0);
+    radius 0.02;
+
+}
+grain27
+{
+  type searchableCylinder;
+    point1 (0.82 0.61 0.5);
+    point2 (0.82 0.61 1.0);
+    radius 0.02;
+
+}
+grain28
+{
+  type searchableCylinder;
+    point1 (0.96 0.12 0.5);
+    point2 (0.96 0.12 1.0);
+    radius 0.02;
+
+}
+grain29
+{
+  type searchableCylinder;
+    point1 (0.96 0.26 0.5);
+    point2 (0.96 0.26 1.0);
+    radius 0.02;
+
+}
+grain30
+{
+  type searchableCylinder;
+    point1 (0.96 0.4 0.5);
+    point2 (0.96 0.4 1.0);
+    radius 0.02;
+
+}
+grain31
+{
+  type searchableCylinder;
+    point1 (0.96 0.54 0.5);
+    point2 (0.96 0.54 1.0);
+    radius 0.02;
+
+}
+grain32
+{
+  type searchableCylinder;
+    point1 (0.96 0.68 0.5);
+    point2 (0.96 0.68 1.0);
+    radius 0.02;
+
+}
+grain33
+{
+  type searchableCylinder;
+    point1 (1.1 0.19 0.5);
+    point2 (1.1 0.19 1.0);
+    radius 0.02;
+
+}
+grain34
+{
+  type searchableCylinder;
+    point1 (1.1 0.33 0.5);
+    point2 (1.1 0.33 1.0);
+    radius 0.02;
+
+}
+grain35
+{
+  type searchableCylinder;
+    point1 (1.1 0.47 0.5);
+    point2 (1.1 0.47 1.0);
+    radius 0.02;
+
+}
+grain36
+{
+  type searchableCylinder;
+    point1 (1.1 0.61 0.5);
+    point2 (1.1 0.61 1.0);
+    radius 0.02;
+
+}
+grain37
+{
+  type searchableCylinder;
+    point1 (1.24 0.12 0.5);
+    point2 (1.24 0.12 1.0);
+    radius 0.02;
+
+}
+grain38
+{
+  type searchableCylinder;
+    point1 (1.24 0.26 0.5);
+    point2 (1.24 0.26 1.0);
+    radius 0.02;
+
+}
+grain39
+{
+  type searchableCylinder;
+    point1 (1.24 0.4 0.5);
+    point2 (1.24 0.4 1.0);
+    radius 0.02;
+
+}
+grain40
+{
+  type searchableCylinder;
+    point1 (1.24 0.54 0.5);
+    point2 (1.24 0.54 1.0);
+    radius 0.02;
+
+}
+grain41
+{
+  type searchableCylinder;
+    point1 (1.24 0.68 0.5);
+    point2 (1.24 0.68 1.0);
+    radius 0.02;
+
+}
+grain42
+{
+  type searchableCylinder;
+    point1 (1.38 0.19 0.5);
+    point2 (1.38 0.19 1.0);
+    radius 0.02;
+
+}
+grain43
+{
+  type searchableCylinder;
+    point1 (1.38 0.33 0.5);
+    point2 (1.38 0.33 1.0);
+    radius 0.02;
+
+}
+grain44
+{
+  type searchableCylinder;
+    point1 (1.38 0.47 0.5);
+    point2 (1.38 0.47 1.0);
+    radius 0.02;
+
+}
+grain45
+{
+  type searchableCylinder;
+    point1 (1.38 0.61 0.5);
+    point2 (1.38 0.61 1.0);
+    radius 0.02;
+
+}
+grain46
+{
+  type searchableCylinder;
+    point1 (1.52 0.12 0.5);
+    point2 (1.52 0.12 1.0);
+    radius 0.02;
+
+}
+grain47
+{
+  type searchableCylinder;
+    point1 (1.52 0.26 0.5);
+    point2 (1.52 0.26 1.0);
+    radius 0.02;
+
+}
+grain48
+{
+  type searchableCylinder;
+    point1 (1.52 0.4 0.5);
+    point2 (1.52 0.4 1.0);
+    radius 0.02;
+
+}
+grain49
+{
+  type searchableCylinder;
+    point1 (1.52 0.54 0.5);
+    point2 (1.52 0.54 1.0);
+    radius 0.02;
+
+}
+grain50
+{
+  type searchableCylinder;
+    point1 (1.52 0.68 0.5);
+    point2 (1.52 0.68 1.0);
+    radius 0.02;
+
+}
+\n};\n\n\n\n// Settings for the castellatedMesh generation.\ncastellatedMeshControls\n{\n\n    // Refinement parameters\n    // ~~~~~~~~~~~~~~~~~~~~~\n\n    // If local number of cells is >= maxLocalCells on any processor\n    // switches from from refinement followed by balancing\n    // (current method) to (weighted) balancing before refinement.\n    maxLocalCells 100000;\n\n    // Overall cell limit (approximately). Refinement will stop immediately\n    // upon reaching this number so a refinement level might not complete.\n    // Note that this is the number of cells before removing the part which\n    // is not \'visible\' from the keepPoint. The final number of cells might\n    // actually be a lot less.\n    maxGlobalCells 2000000;\n\n    // The surface refinement loop might spend lots of iterations refining just a\n    // few cells. This setting will cause refinement to stop if <= minimumRefine\n    // are selected for refinement. Note: it will at least do one iteration\n    // (unless the number of cells to refine is 0)\n    minRefinementCells 100;\n\n    // Number of buffer layers between different levels.\n    // 1 means normal 2:1 refinement restriction, larger means slower\n    // refinement.\n    nCellsBetweenLevels 5;\n\n\n\n    // Explicit feature edge refinement\n    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n    // Specifies a level for any cell intersected by its edges.\n    // This is a featureEdgeMesh, read from constant/triSurface for now.\n     features\n     (\n\n     );\n\n\n\n    // Surface based refinement\n    // ~~~~~~~~~~~~~~~~~~~~~~~~\n\n    // Specifies two levels for every surface. The first is the minimum level,\n    // every cell intersecting a surface gets refined up to the minimum level.\n    // The second level is the maximum level. Cells that \'see\' multiple\n    // intersections where the intersections make an\n    // angle > resolveFeatureAngle get refined up to the maximum level.\n\n     refinementSurfaces\n     {\n      grain1
+{
+level (2 2);
+}
+grain2
+{
+level (2 2);
+}
+grain3
+{
+level (2 2);
+}
+grain4
+{
+level (2 2);
+}
+grain5
+{
+level (2 2);
+}
+grain6
+{
+level (2 2);
+}
+grain7
+{
+level (2 2);
+}
+grain8
+{
+level (2 2);
+}
+grain9
+{
+level (2 2);
+}
+grain10
+{
+level (2 2);
+}
+grain11
+{
+level (2 2);
+}
+grain12
+{
+level (2 2);
+}
+grain13
+{
+level (2 2);
+}
+grain14
+{
+level (2 2);
+}
+grain15
+{
+level (2 2);
+}
+grain16
+{
+level (2 2);
+}
+grain17
+{
+level (2 2);
+}
+grain18
+{
+level (2 2);
+}
+grain19
+{
+level (2 2);
+}
+grain20
+{
+level (2 2);
+}
+grain21
+{
+level (2 2);
+}
+grain22
+{
+level (2 2);
+}
+grain23
+{
+level (2 2);
+}
+grain24
+{
+level (2 2);
+}
+grain25
+{
+level (2 2);
+}
+grain26
+{
+level (2 2);
+}
+grain27
+{
+level (2 2);
+}
+grain28
+{
+level (2 2);
+}
+grain29
+{
+level (2 2);
+}
+grain30
+{
+level (2 2);
+}
+grain31
+{
+level (2 2);
+}
+grain32
+{
+level (2 2);
+}
+grain33
+{
+level (2 2);
+}
+grain34
+{
+level (2 2);
+}
+grain35
+{
+level (2 2);
+}
+grain36
+{
+level (2 2);
+}
+grain37
+{
+level (2 2);
+}
+grain38
+{
+level (2 2);
+}
+grain39
+{
+level (2 2);
+}
+grain40
+{
+level (2 2);
+}
+grain41
+{
+level (2 2);
+}
+grain42
+{
+level (2 2);
+}
+grain43
+{
+level (2 2);
+}
+grain44
+{
+level (2 2);
+}
+grain45
+{
+level (2 2);
+}
+grain46
+{
+level (2 2);
+}
+grain47
+{
+level (2 2);
+}
+grain48
+{
+level (2 2);
+}
+grain49
+{
+level (2 2);
+}
+grain50
+{
+level (2 2);
+}
+\n     }\n\n    // Resolve sharp angles\n    resolveFeatureAngle 60;\n\n    // Region-wise refinement\n    // ~~~~~~~~~~~~~~~~~~~~~~\n\n    // Specifies refinement level for cells in relation to a surface. One of\n    // three modes\n    // - distance. \'levels\' specifies per distance to the surface the\n    //   wanted refinement level. The distances need to be specified in\n    //   descending order.\n    // - inside. \'levels\' is only one entry and only the level is used. All\n    //   cells inside the surface get refined up to the level. The surface\n    //   needs to be closed for this to be possible.\n    // - outside. Same but cells outside.\n\n    refinementRegions\n    {\n     \n    }\n\n\n    // Mesh selection\n    // ~~~~~~~~~~~~~~\n\n    // After refinement patches get added for all refinementSurfaces and\n    // all cells intersecting the surfaces get put into these patches. The\n    // section reachable from the locationInMesh is kept.\n    // NOTE: This point should never be on a face, always inside a cell, even\n    // after refinement.\n    locationInMesh (1.31284742891178 0.5372005321473742 0.5);\n\n\n    // Whether any faceZones (as specified in the refinementSurfaces)\n    // are only on the boundary of corresponding cellZones or also allow\n    // free-standing zone faces. Not used if there are no faceZones.\n    allowFreeStandingZoneFaces true;\n}\n\n\n\n// Settings for the snapping.\nsnapControls\n{\n    //- Number of patch smoothing iterations before finding correspondence\n    //  to surface\n    nSmoothPatch 3;\n\n    //- Relative distance for points to be attracted by surface feature point\n    //  or edge. True distance is this factor times local\n    //  maximum edge length.\n    tolerance 2.0;\n\n    //- Number of mesh displacement relaxation iterations.\n    nSolveIter 30;\n\n    //- Maximum number of snapping relaxation iterations. Should stop\n    //  before upon reaching a correct mesh.\n    nRelaxIter 5;\n\n\n    // Feature snapping\n\n        //- Number of feature edge snapping iterations.\n        //  Leave out altogether to disable.\n        nFeatureSnapIter 10;\n\n        //- Detect (geometric) features by sampling the surface (default=false)\n        implicitFeatureSnap false;\n\n        //- Use castellatedMeshControls::features (default = true)\n        explicitFeatureSnap true;\n}\n\n\n\n// Settings for the layer addition.\naddLayersControls\n{\n    // Are the thickness parameters below relative to the undistorted\n    // size of the refined cell outside layer (true) or absolute sizes (false).\n    relativeSizes true;\n\n    // Per final patch (so not geometry!) the layer information\n    layers\n    {\n\n    }\n\n    // Expansion factor for layer mesh\n    expansionRatio 1.0;\n\n    // Wanted thickness of final added cell layer. If multiple layers\n    // is the thickness of the layer furthest away from the wall.\n    // Relative to undistorted size of cell outside layer.\n    // is the thickness of the layer furthest away from the wall.\n    // See relativeSizes parameter.\n    finalLayerThickness 0.5;\n\n    // Minimum thickness of cell layer. If for any reason layer\n    // cannot be above minThickness do not add layer.\n    // Relative to undistorted size of cell outside layer.\n    // See relativeSizes parameter.\n    minThickness 0.25;\n\n    // If points get not extruded do nGrow layers of connected faces that are\n    // also not grown. This helps convergence of the layer addition process\n    // close to features.\n    // Note: changed(corrected) w.r.t 17x! (didn\'t do anything in 17x)\n    nGrow 0;\n\n\n    // Advanced settings\n\n    // When not to extrude surface. 0 is flat surface, 90 is when two faces\n    // are perpendicular\n    featureAngle 60;\n\n    // Maximum number of snapping relaxation iterations. Should stop\n    // before upon reaching a correct mesh.\n    nRelaxIter 5;\n\n    // Number of smoothing iterations of surface normals\n    nSmoothSurfaceNormals 1;\n\n    // Number of smoothing iterations of interior mesh movement direction\n    nSmoothNormals 3;\n\n    // Smooth layer thickness over surface patches\n    nSmoothThickness 10;\n\n    // Stop layer growth on highly warped cells\n    maxFaceThicknessRatio 0.5;\n\n    // Reduce layer growth where ratio thickness to medial\n    // distance is large\n    maxThicknessToMedialRatio 0.3;\n\n    // Angle used to pick up medial axis points\n    // Note: changed(corrected) w.r.t 16x! 90 degrees corresponds to 130 in 16x.\n    minMedianAxisAngle 90;\n\n    // Create buffer region for new layer terminations\n    nBufferCellsNoExtrude 0;\n\n\n    // Overall max number of layer addition iterations. The mesher will exit\n    // if it reaches this number of iterations; possibly with an illegal\n    // mesh.\n    nLayerIter 50;\n}\n\n\n\n// Generic mesh quality settings. At any undoable phase these determine\n// where to undo.\nmeshQualityControls\n{\n    #include "meshQualityDict"\n\n    // Advanced\n\n    //- Number of error distribution iterations\n    nSmoothScale 4;\n    //- amount to scale back displacement at error points\n    errorReduction 0.75;\n}\n\n\n// Advanced\n\n// Merge tolerance. Is fraction of overall bounding box of initial mesh.\n// Note: the write tolerance needs to be higher than this.\nmergeTolerance 1e-6;\n\n\n// ************************************************************************* //\n'

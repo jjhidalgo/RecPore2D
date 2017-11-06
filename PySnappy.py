@@ -158,7 +158,7 @@ class PySnappy(object):
 
         ngrains = igrain
 
-        for igrain in xrange(1, ngrains + 1):
+        for igrain in range(1, ngrains + 1):
             refsurf_code.append(grain_tmpl.substitute(
                 grainid=igrain,
                 cnt='level (2 2);'))
@@ -170,7 +170,8 @@ class PySnappy(object):
         import pkg_resources as pkg_r
         snappy_tmpl_file = pkg_r.resource_string('PySnappy','templates/snappy.tmpl')
   
-        snappy_tmpl = Template(snappy_tmpl_file)
+        snappy_tmpl = Template(str(snappy_tmpl_file))
+
         snappy_code = snappy_tmpl.substitute(
             grains=''.join(grains_code),
             refinementsurfaces=''.join(refsurf_code),
@@ -197,7 +198,7 @@ class PySnappy(object):
             else:
                 gr_cl_type = "empty"
             
-            blockmesh_tmpl = Template(blockmesh_tmpl_file)
+            blockmesh_tmpl = Template(str(blockmesh_tmpl_file))
             blockmesh_code = blockmesh_tmpl.substitute(
                 nx=self.nblocks[0],
                 ny=self.nblocks[1],
