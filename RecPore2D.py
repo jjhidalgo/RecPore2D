@@ -10,6 +10,7 @@ class RecPore2D(object):
     def __init__(self):
 
         self._packing = None
+        self._isPeriodic = False
         self._ngrains = None
         self._circles = None
         self._xoffset = 0.0
@@ -227,6 +228,27 @@ class RecPore2D(object):
         else:
            warnings.warn("Value must be True/False.")
            self._is3D = False
+#
+#-----------------------------------------------------------------------
+#
+    @property
+    def isPeriodic(self):
+        """Gets periodicity in Y status."""
+
+        return self._isPeriodic
+#
+#-----------------------------------------------------------------------
+#
+    @isPeriodic.setter
+    def isPeriodic(self, value):
+        """set periodicity in y."""
+
+        if type(value) == bool:
+            self._isPeriodic = value
+            self._packing_done = False
+        else:
+           warnings.warn("Value must be True/False.")
+           self._isPeriodic = False
           
 #
 #-----------------------------------------------------------------------
@@ -378,7 +400,7 @@ class RecPore2D(object):
         """ Writes the porus media for the mesh/cad program"""
         meshes = {'gmsh':self._writeGMSH, 'oscad':self._writeOPENSCAD, \
                   'snappy':self._writeSNAPPYHEXMESH, \
-                  'stl': self._writeSTL}
+                  'stl': self._writeSTL, 'img':self._writeIMG}
 
         if not self._packing_done:
             self._packing_done = self._generate_packing()
@@ -438,7 +460,8 @@ class RecPore2D(object):
             r = circ['r']
             center = (circ['x'] + self.xoffset, circ['y'], circ['z'])
             
-            if self.is3D:                    aux = trimesh.creation.icosphere(subdivisions=3, radius=r)
+            if self.is3D:
+                aux = trimesh.creation.icosphere(subdivisions=3, radius=r)
             else:
                 aux = trimesh.creation.cylinder(radius=r, height=lz, sections=64)
             aux.apply_translation(translation=center)
@@ -525,6 +548,22 @@ class RecPore2D(object):
         mesh.point_inside = [p1x, p1y, p1z]
 
         mesh.write_code(fname)
+#
+#-----------------------------------------------------------------------
+#
+    def _writeIMG(self, fname):
+        """Writes the discs packing in binaryimage format.
+           Compatible with Alexandre's code...."""
+       #1-Definir malla nx,ny,nz)
+       #2-Dar valor 0 a todo.
+       #2-para cada círculo ver en que celdas cae.
+       #3-dar valor 1 a esas celdas 
+        for circ in self._circles:
+
+            center = (circ['x'] + self.xoffset, circ['y'], circ['z'])
+            r = circ['r']
+            mesh.add_circle(center, r, size)
+
 #
 #-----------------------------------------------------------------------
 # END class RecPore2D
@@ -737,7 +776,10 @@ class RegPore2D(RecPore2D):
             ly = 2.*self._ny*self._radius
             print ("que hago aqui?")
         else:
-            ly = self._ny*(self._throat + 2.*self._radius)
+            if self.isPeriodic:
+                ly = self._ny*(self._throat + 2.*self._radius)
+            else:
+                ly = self._ny*(self._throat + 2.*self._radius) + self._throat
             
         return ly
 #
@@ -746,7 +788,10 @@ class RegPore2D(RecPore2D):
     def _compute_throat(self):
         """Computes throat from ny, ly, and radius"""
 
-        throat = (self._ly - (2.0*self._ny*self._radius))/(self._ny + 1)
+        if self.isPeriodic:
+            throat = (self._ly - (2.0*self._ny*self._radius))/self._ny
+        else:
+            throat = (self._ly - (2.0*self._ny*self._radius))/(self._ny + 1)
         return throat
 #
 #-----------------------------------------------------------------------
@@ -784,10 +829,13 @@ class RegPore2D(RecPore2D):
             for the square packing"""
 
         i = np.arange(1, self._nx + 1)
-        xi = i*self._throat + (2.0*i -1.0)*self._radius
+        xi = i*self._throat + (2.0*i - 1.0)*self._radius
 
         j = np.arange(1, self._ny + 1)
-        yj = j*self._throat + (2.0*j -1.0)*self._radius
+        if self.isPeriodic:
+            yj = (2.0*j - 1.0)*(self._radius + self._throat/2.0)
+        else:
+            yj = j*self._throat + (2.0*j - 1.0)*self._radius
 
 
         circles = np.zeros(self._ngrains, \
@@ -811,11 +859,17 @@ class RegPore2D(RecPore2D):
         i = np.arange(1, self.nx + 1)
         xi = i*self.throat + (2.0*i -1.0)*self.radius
 
-        j_odd = np.arange(1, self._ny+1)
-        yj_odd = j_odd*self.throat + (2.0*j_odd -1.0)*self.radius
-
+        j_odd = np.arange(1, self._ny + 1)
         j_even = np.arange(1, self.ny)
-        yj_even = j_even*(self.throat + 2.0*self.radius) + self.throat/2.0
+        
+        if self.isPeriodic:
+            yj_odd = (2.0*j_odd - 1.0)*(self._radius + self._throat/2.0)
+            yj_even = j_even*(self.throat + 2.0*self.radius)
+          
+        else:
+            yj_odd = j_odd*self.throat + (2.0*j_odd - 1.0)*self.radius
+            yj_even = j_even*(self.throat + 2.0*self.radius) + self.throat/2.0
+
         yj = np.hstack((yj_odd, yj_even))
 
 
@@ -900,8 +954,11 @@ class RegPore2D(RecPore2D):
             zmin = self.zeta - rmax
             zmax = self.zeta + rmax
 
-            pmin = [xmin - self.throat, ymin - self.throat, zmin]
-            pmax = [xmax + self.throat, ymax + self.throat, zmax]
+            aux = 1. + np.int(self.isPeriodic)
+    
+            pmin = [xmin - self.throat, ymin - self.throat/aux, zmin]
+            pmax = [xmax + self.throat, ymax + self.throat/aux, zmax]
+                
         else:
             pmin = None
             pmax = None
@@ -1107,7 +1164,7 @@ class RndPore2D(RecPore2D):
     def _check_ngrains_max(ngrains_max):
         """ Checks maximum number of grains.
             It must be an integer greater than zero."""
-        return isinstance(ngrains_max, int) and ngrains_max > 1
+        return isinstance(ngrains_max, int) and ngrains_max > 0
 
 #
 #-----------------------------------------------------------------------
@@ -1134,7 +1191,7 @@ class RndPore2D(RecPore2D):
         ngrains = 0
         grains = []
         rg = []
-        
+
         from PyGrain import Grain as grain
 
         while porosity > self.target_porosity and \
@@ -1162,7 +1219,7 @@ class RndPore2D(RecPore2D):
         print ("ngrains = %d (max= %d)" %(ngrains, self.ngrains_max))
         print ("porosity = %g (target = %g)" %(porosity, self.target_porosity))
         print ("ntries = %d (max= %d)" %(ntries, self.ntries_max))
-        
+
         circles = np.zeros(ngrains, \
             dtype={'names':['x', 'y', 'z', 'r'], \
             'formats':['float64', 'float64', 'float64', 'float64']})

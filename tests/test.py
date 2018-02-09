@@ -1,7 +1,8 @@
-# Test for RegPore2D.
+# Test for RecPore2D.
 
 from RecPore2D import RegPore2D as rg
 a = rg(nx=23,ny=23,radius=0.02,packing='tri')
+a.isPeriodic = True
 b = rg(nx=11,ny=11,radius=0.04,packing='tri')
 c = rg(nx=11,ny=11,radius=0.04,packing='etri')
 
