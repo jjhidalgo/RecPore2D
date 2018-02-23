@@ -856,16 +856,16 @@ class RegPore2D(RecPore2D):
             for the tri packing"""
 
         i = np.arange(1, self.nx + 1)
-        xi = i*self.throat + (2.0*i -1.0)*self.radius
-
         j_odd = np.arange(1, self._ny + 1)
         j_even = np.arange(1, self.ny)
         
         if self.isPeriodic:
+            xi = (2.0*i - 1.0)*(self.radius + self.throat/2.0)
             yj_odd = (2.0*j_odd - 1.0)*(self._radius + self._throat/2.0)
             yj_even = j_even*(self.throat + 2.0*self.radius)
           
         else:
+            xi = i*self.throat + (2.0*i -1.0)*self.radius
             yj_odd = j_odd*self.throat + (2.0*j_odd - 1.0)*self.radius
             yj_even = j_even*(self.throat + 2.0*self.radius) + self.throat/2.0
 
