@@ -162,7 +162,8 @@ class PySnappy(object):
             refsurf_code.append(grain_tmpl.substitute(
                 grainid=igrain,
                 cnt='level (2 2);'))
-
+        #refsurf_code  = '\n'.join(['"(grain[0-9*])"', '{', 'level( 2 2);', '}', ''])
+        
         # point inside a cell
         p_inside = self.point_inside
 
@@ -170,7 +171,7 @@ class PySnappy(object):
         import pkg_resources as pkg_r
         snappy_tmpl_file = pkg_r.resource_string('PySnappy','templates/snappy.tmpl')
   
-        snappy_tmpl = Template(str(snappy_tmpl_file))
+        snappy_tmpl = Template(bytes.decode(snappy_tmpl_file))
 
         snappy_code = snappy_tmpl.substitute(
             grains=''.join(grains_code),
@@ -198,7 +199,7 @@ class PySnappy(object):
             else:
                 gr_cl_type = "empty"
             
-            blockmesh_tmpl = Template(str(blockmesh_tmpl_file))
+            blockmesh_tmpl = Template(bytes.decode(blockmesh_tmpl_file))
             blockmesh_code = blockmesh_tmpl.substitute(
                 nx=self.nblocks[0],
                 ny=self.nblocks[1],
