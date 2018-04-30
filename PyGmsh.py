@@ -21,6 +21,7 @@ class PyGmsh(object):
         self._id_LineLoops = 0
         self._id_PlaneSurfaces = 0
         self._id_Physicals = 0
+        self._TransfiniteLineValue = 20
 
 
 #
@@ -201,6 +202,7 @@ class PyGmsh(object):
         for line in self.Lines:
             geo_code.append(line.code())
 
+        
         for lineloop in self.LineLoops:
             geo_code.append(lineloop.code())
 
@@ -208,6 +210,10 @@ class PyGmsh(object):
         for psurf in self.PlaneSurface:
             geo_code.append(psurf.code())
 
+        auxcode = 'Transfinite Line{5:' + str(self._id_Lines) + '} = ' + str(self._TransfiniteLineValue) + ';\n'
+
+        geo_code.append(auxcode)
+                                                                           
         auxcode = """Recombine Surface{1};
 out[] = Extrude {0,  0,  1.0} {
         Surface{1};
