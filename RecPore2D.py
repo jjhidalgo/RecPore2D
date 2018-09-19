@@ -1122,6 +1122,11 @@ class RndPore2D(RecPore2D):
     def tolerance(self, value):
         """ Sets the tolerance."""
         # TODO: Check tolerance
+
+        # If tolerance changes, packing has to be done again.
+        if np.abs(value - self._tolerance > 0.):
+            self._packing_done = False
+
         self._tolerance = value
 #
 #-----------------------------------------------------------------------
