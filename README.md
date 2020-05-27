@@ -23,3 +23,9 @@ test.py : A test for regular porous media.
 test-rnd.py: A test for random porous media.
 
 testsnappy.py: A test for SnappyHexMesh generation.
+
+Acknowledgements:
+
+Project MHetScale (FP7-IDEAS-ERC-617511) European Research Council
+
+Project Mec-MAT (CGL2016-80022-R) Spanish Ministry of Economy and Competitiveness
