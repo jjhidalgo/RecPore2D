@@ -169,7 +169,7 @@ class PySnappy(object):
 
 
         import pkg_resources as pkg_r
-        snappy_tmpl_file = pkg_r.resource_string('PySnappy','templates/snappy.tmpl')
+        snappy_tmpl_file = pkg_r.resource_string('PySnappy','Templates/snappy.tmpl')
   
         snappy_tmpl = Template(bytes.decode(snappy_tmpl_file))
 
@@ -191,7 +191,7 @@ class PySnappy(object):
         if self.__bbox_set:
 
             import pkg_resources as pkg_r
-            blockmesh_tmpl_file = pkg_r.resource_string('PySnappy','templates/blockMeshDict.tmpl')
+            blockmesh_tmpl_file = pkg_r.resource_string('PySnappy','Templates/blockMeshDict.tmpl')
 
 
             if self.is3D:
