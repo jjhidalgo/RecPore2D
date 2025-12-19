@@ -341,6 +341,6 @@ As example:
 ## 10. Visualizate the mesh in *paraView*
 
 ```
-paraFoamRun
+paraFoam
 ```
 
