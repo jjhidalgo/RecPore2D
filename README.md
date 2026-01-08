@@ -33,13 +33,7 @@ Generation of 2D porous media geometry with regular or random packing of discs. 
 
 ## 📘 Tutorial: Building a 2D mesh for OpenFOAM (snappyHexMesh) 
 
-This tutorial provides a complete workflow to generate a **2D pore‑scale mesh** using RecPore2D outputs. General steps are:  
-1. **RecPore2D** - python code for the geometry generation.  
-2. `blockMesh`  - instruction for building a regular mesh of the shape container in 3D.
-3. `snappyHexMesh`  - instruction for building pores/grains meshing in 3D.
-4. `extrudeMesh`  - instruction for transform the 3D mesh to a 2D mesh case.
-
-A complete example is included in every step.
+This tutorial provides a complete workflow to generate a **2D pore‑scale mesh** using RecPore2D outputs.
 
 ### 1. Set geometry properties in RecPore2D sources and inputs
 
@@ -249,13 +243,19 @@ linearNormalCoeffs //settings of the model
 ```
 
 ### 7. Run meshing process in openFoam
-
 ```
 blockMesh
 checkMesh
 snappyHexMesh
 extrudeMesh
 ```
+`blockMesh`  - instruction for building a regular mesh of the shape container in 3D.
+
+`checkMesh`  - instruction for summarize blockMesh process. It used to include warnings.
+
+`snappyHexMesh`  - instruction for building pores/grains meshing in 3D.
+
+`extrudeMesh`  - instruction for transform the 3D mesh to a 2D mesh case.
 
 ### 8. Set as empty the 3D to 2D walls in `polyMesh/boundary`
 
