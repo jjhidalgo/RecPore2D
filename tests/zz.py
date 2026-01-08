@@ -1,4 +1,4 @@
-# Test for RegPore2D.
+# Test for RecPore2D.
 
 from RecPore2D import RndPore2D as rndp
 a = rndp(lx=0.02, ly=0.01, rmin=0.00025, rmax=0.00055, target_porosity=0.57, packing='rnd')

@@ -1,77 +1,73 @@
-# RecPor2D  
-Generation of 2D porous media with regular or random packing of discs.  
-The resulting geometries can be exported to **Gmsh**, **OpenSCAD**, and **SnappyHexMesh** (OpenFOAM) formats.
+# RecPore2D
+Generation of 2D porous media geometry with regular or random packing of discs. The resulting geometries can be exported to [**Gmsh**](https://gmsh.info/), [**OpenSCAD**](https://openscad.org/) and [**SnappyHexMesh**](https://openfoamwiki.net/index.php/SnappyHexMesh) formats.
 
----
-
-## 🧩 Project Structure
+### 🧩 Code Structure
 
 **Source Modules**
 
-- **RecPore2D.py** – Core generator of 2D porous media using regular or random disc packings  
-- **PoreError.py** – Exception manager for RecPore2D  
-- **PyGmsh.py** – Wrapper for Gmsh geometry export  
-- **PyGrain.py** – Grain creation and configuration  
-- **PyOpenSCAD.py** – Wrapper for OpenSCAD export  
-- **PySnappy.py** – Wrapper for SnappyHexMesh dictionary generation
-- **plotGeo.py** – script for plotting a gmsh mesh file by gmsh lib (cases of meshtype='gmsh')
+- **RecPore2D.py** – Core generator of 2D porous media using regular or random disc packings.  
+- **PoreError.py** – Exception manager for RecPore2.  
+- **PyGmsh.py** – Wrapper for Gmsh geometry export.  
+- **PyGrain.py** – Grain creation and configuration.  
+- **PyOpenSCAD.py** – Wrapper for OpenSCAD export.  
+- **PySnappy.py** – Wrapper for SnappyHexMesh dictionary generation.
+- **plotGeo.py** – script for plotting a gmsh mesh file by gmsh lib (cases of meshtype='gmsh').
 
 
 **Templates**
 
-- `blockMeshDict.tmpl` – Template blockMesh configuration  
-- `snappy.tmpl` – Template SnappyHexMesh configuration  
+- `blockMeshDict.tmpl` – Template blockMesh configuration.  
+- `snappy.tmpl` – Template SnappyHexMesh configuration.  
 
 **Examples / Tests**
 
-- `test.py` – Example for regular packing  
-- `test-rnd.py` – Example for random packing  
-- `testsnappy.py` – Example SnappyHexMesh generation  
+- `test.py` – Example for regular packing.  
+- `test-rnd.py` – Example for random packing.  
+- `testsnappy.py` – Example SnappyHexMesh generation. 
+- `zz.py` – Extra example SnappyHexMesh generation included in this tutorial. 
 
----
-
-## 🔬 Acknowledgements
+### 🔬 Acknowledgements
 
 - **Project MHetScale (FP7‑IDEAS‑ERC‑617511)** – European Research Council  
 - **Project Mec‑MAT (CGL2016‑80022‑R)** – Spanish Ministry of Economy and Competitiveness  
 
----
+## 📘 Tutorial: Building a 2D mesh for OpenFOAM (snappyHexMesh) 
 
-# 📘 Tutorial: Building a 2D SnappyHexMesh in OpenFOAM Using RecPor2D
-
-This tutorial provides a complete workflow to generate a **2D pore‑scale mesh** using:
-
-1. RecPore2D (geometry generation)  
-2. blockMesh  
-3. SnappyHexMesh  
-4. extrudeMesh  
+This tutorial provides a complete workflow to generate a **2D pore‑scale mesh** using RecPore2D outputs. General steps are:  
+1. **RecPore2D** - python code for the geometry generation.  
+2. `blockMesh`  - instruction for building a regular mesh of the shape container in 3D.
+3. `snappyHexMesh`  - instruction for building pores/grains meshing in 3D.
+4. `extrudeMesh`  - instruction for transform the 3D mesh to a 2D mesh case.
 
 A complete example is included in every step.
 
----
+### 1. Set geometry properties in RecPore2D sources and inputs
 
-## 1. Generate the geometry
-
-Configure the following in the sources and input files:
-
-- `ngrains_max` and other global parameters in **RecPore2D.py**. 
-- domain size and random/regular packing settings in **tests/zz.py**.
+- Specify `ngrains_max` among others parameters in **RecPore2D.py**.
+- Edit domain size and random/regular packing settings in **tests/zz.py**.
 
 
-## 2. Run the program in the working folder **RecPore2D** to build **blockMeshDict** & **snappyHexMeshDict**
+### 2. Run RecPore2D program
+
+Type the following at the RecPore2D folder (program working folder) to generate requested output files: **blockMeshDict** & **snappyHexMeshDict** in this case:
 
 ```
 python -m tests.zz
 ```
 In case of writing the stl files, that files can be open in paraview.
 
-## 3. Setup the openFoam working case directory
+### 3. Prepare the openFoam working case directory
 
-Copy & Paste the generated files **blockMeshDict** & **snappyHexMeshDict**, into the `system` folder from your openFoam case. **ExtrudeMeshDict** and **meshQualityDict** can be obtained from the openFoam sources at `openfoam13\etc\caseDicts\mesh\generation`.
+Copy & Paste the following generated files into the `system` folder from your openFoam case:
+```
+blockMeshDict
+snappyHexMeshDict
+```
+ **ExtrudeMeshDict** and **meshQualityDict** can be obtained from the openFoam sources at `openfoam13\etc\caseDicts\mesh\generation`.
 
-## 4. Edit `blockMeshDict` file
+### 4. Edit `blockMeshDict` file
 
-### 4.1. Change from patches to boundary (in order to update the sentences to newer versions of openFoam). As example:
+#### 4.1. Change from patches to boundary (in order to update the sentences to newer versions of openFoam). As example:
 ```	
 	//From
 	patches
@@ -161,7 +157,7 @@ Copy & Paste the generated files **blockMeshDict** & **snappyHexMeshDict**, into
 		
 	);
 ```
-## 4.2. Adapt the required nb of elements in every direction. AS example:
+#### 4.2. Adapt the required nb of elements in every direction. AS example:
 ```
 	//From
 	blocks
@@ -176,9 +172,9 @@ Copy & Paste the generated files **blockMeshDict** & **snappyHexMeshDict**, into
 	);
 ```
 	
-## 5. Edit `snappyHexMeshDict` file
+### 5. Edit `snappyHexMeshDict` file
 
-### 5.1. Check the z direction coordenates of **EVERY** cylinder exported from RedPore2D and add a patchInfo.name to group, and facilitate later use at the initial setup of the case (boundary conditions, etc). As example:
+#### 5.1. Check the z direction coordenates of **EVERY** cylinder exported from RedPore2D and add a patchInfo.name to group, and facilitate later use at the initial setup of the case (boundary conditions, etc). The last is optional, only in case of huge number of grains. As example:
 
 ```
 	//From
@@ -209,7 +205,7 @@ Copy & Paste the generated files **blockMeshDict** & **snappyHexMeshDict**, into
 		}
 	}
 ```
-### 5.2. Check the z coordenate of locationInMesh. It should be into the domain. AS example:
+#### 5.2. Check the z coordenate of locationInMesh. It should be into the domain. As example:
 ```
 	//From
 	// Mesh selection
@@ -231,10 +227,11 @@ Copy & Paste the generated files **blockMeshDict** & **snappyHexMeshDict**, into
     // section reachable from the locationInMesh is kept.
     // NOTE: This point should never be on a face, always inside a cell, even
     // after refinement.
-    locationInMesh (0.31998706673528254 0.03728451441883222 0.15);
+    locationInMesh (0.31998706673528254 0.03728451441883222 0.15); //minZ
 ```
 
-## 6. Edit `extrudeMeshDict` file to specify desired settings of the extrusion process
+### 6. Edit `extrudeMeshDict` file
+The file include specifications of the extrusion process settings:
 
 ```
 sourcePatches    (ground); //minZ
@@ -251,7 +248,7 @@ linearNormalCoeffs //settings of the model
 }
 ```
 
-## 7. Run meshing process in openFoam
+### 7. Run meshing process in openFoam
 
 ```
 blockMesh
@@ -260,7 +257,7 @@ snappyHexMesh
 extrudeMesh
 ```
 
-## 8. Set as empty the 3D to 2D walls in `polyMesh/boundary`
+### 8. Set as empty the 3D to 2D walls in `polyMesh/boundary`
 
 As example:
 
@@ -297,11 +294,20 @@ As example:
     }
 ```
 
-## 9. set in 0/p 0/U empty and set grains (walls) as no condition
-
-As example:
+### 9. Check/Include in state fields files `0/p` & `0/U`
+Set ground and ceiling walls as empty (2D walls) and set grains walls conditions as zeroGradient for p and noSlip for U. As example:
 
 ```
+    ground
+    {
+        type            empty;
+    }
+	
+	ceiling
+    {
+        type             empty;
+    }
+
 	//In p:
 	grain1
 	{
@@ -338,7 +344,7 @@ As example:
 	}
 ```
 
-## 10. Visualizate the mesh in *paraView*
+### 10. Visualizate the mesh in *paraView*
 
 ```
 paraFoam
